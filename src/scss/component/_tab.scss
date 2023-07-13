@@ -1,0 +1,186 @@
+.#{$namespace}tab {
+  max-width: 1120px;
+  overflow: hidden;
+  position: relative;
+
+  &__arrows {
+    position: absolute;
+    height: 100%;
+    min-width: 40px;
+    width: 60px;
+    top: 0;
+    z-index: 5;
+    display: none;
+    align-items: center;
+    padding: 0;
+    pointer-events: none;
+    font-size: 20px;
+    color: $gray-500;
+
+    @include breakpoint(lg) {
+      width: 8%;
+      font-size: $font-size-base;
+    }
+
+    &.active {
+      display: flex;
+    }
+
+    i {
+      width: 100%;
+      display: flex;
+      cursor: pointer;
+      padding: $gap-base-unit * 4 $gap-base-unit * 3;
+      pointer-events: auto;
+
+      @include breakpoint(lg) {
+        padding: $gap-base-unit * 2.5 $gap-base-unit * 2;
+      }
+    }
+
+    &--next {
+      right: 0;
+      background: linear-gradient(to left, $gray-100 40%, transparent);
+      justify-content: flex-end;
+
+      i {
+        justify-content: flex-end;
+      }
+    }
+
+    &--prev {
+      background: linear-gradient(to right, $gray-100 40%, transparent);
+
+      i {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &__bar {
+    border-bottom: 2px solid $red-500;
+    display: flex;
+    padding-bottom: 2px;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    user-select: none;
+    @include breakpoint(lg) {
+      border-bottom: 2px solid $gray-300;
+    }
+
+    &.dragging {
+      scroll-behavior: unset;
+      cursor: grab;
+
+      .tab__item & {
+        pointer-events: none;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &--w50 {
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
+    // 多個
+    user-select: none;
+    color: $gray-600;
+    background-color: $white;
+    text-align: center;
+    font-size: 18px;
+    padding: $gap-base-unit * 4 $gap-base-unit * 26;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: -2px;
+    border-radius: $radius-lg $radius-lg 0 0;
+    margin-right: 4px;
+
+    @include breakpoint(lg) {
+      font-size: 16px;
+      padding: $gap-base-unit * 2 $gap-base-unit * 4;
+      border-radius: 0;
+      background-color: transparent;
+      flex-shrink: 1;
+      flex-basis: 33.33333%;
+      max-width: 33.33333%;
+    }
+
+    @media (max-width: 360px) {
+      font-size: 14px;
+      flex-shrink: 0;
+      flex-basis: auto;
+      max-width: 100%;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      right: 100%;
+      bottom: 0;
+      background: $red-500;
+      height: 2px;
+      transition-property: right;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-out;
+    }
+
+    &:hover {
+      color: $red-500;
+      // @include breakpoint(lg) {
+      //   color: $red-500;
+      // }
+    }
+
+    &.tab__item--active {
+      background-color: $red-500;
+      color: $white;
+
+      @include breakpoint(lg) {
+        background-color: transparent;
+        color: $red-500;
+        &:before {
+          right: 0;
+        }
+      }
+    }
+
+    .dragging & {
+      user-select: none;
+      pointer-events: none;
+    }
+
+    // 2個
+    .#{$namespace}tab__bar--w50 & {
+      padding: $gap-base-unit * 4 0;
+      max-width: 275px;
+      flex: 1;
+
+      @include breakpoint(lg) {
+        font-size: $font-size-base;
+        padding: $gap-base-unit * 2 0;
+      }
+    }
+  }
+
+  // 頁籤內容
+  &__content {
+    display: none;
+
+    &--active {
+      display: block;
+      animation: fadeIn 550ms $cubic;
+    }
+  }
+}

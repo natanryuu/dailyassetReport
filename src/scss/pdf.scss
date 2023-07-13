@@ -1,0 +1,120 @@
+html,
+body {
+    font-size: 12px;
+}
+
+body {
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+}
+
+@page {
+    size: A4;
+    margin-top: 20mm;
+    margin-bottom: 20mm;
+    margin-left: 20mm;
+    margin-right: 20mm;
+}
+
+@page {
+    padding-top: 2rem;
+
+    @top-center {
+        content: element(title);
+    }
+
+    @top-right {
+        color: 707070;
+        content: "第 " counter(page) " 之 " counter(pages) " 頁";
+    }
+
+    @bottom-left {
+        content: element(footer);
+    }
+}
+
+@page:first-child {
+    padding-top: 0;
+
+    @top-center {
+        content: "";
+    }
+
+    @top-right {
+        content: "";
+    }
+
+    @bottom-left {
+        content: "";
+    }
+}
+
+.pagedjs_page:not([data-page-number="1"]) .pagedjs_margin-top-left-corner-holder,
+.pagedjs_page:not([data-page-number="1"]) .pagedjs_margin-top,
+.pagedjs_page:not([data-page-number="1"]) .pagedjs_margin-top-right-corner-holder {
+    background: #658db4;
+    outline: 2px #658db4;
+}
+
+.cover {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    position: running(title);
+    color: white;
+    font-size: 1.25rem;
+}
+
+.footer {
+    position: running(footer);
+    font-size: 1rem;
+    color: #999;
+    border-top: 2px solid #ccc;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.col {
+    margin-left: 2rem;
+}
+
+.avoid-break {
+    page-break-inside: avoid;
+}
+
+.force-break {
+    page-break-before: always;
+}
+
+.section+.section {
+    margin-top: 4rem;
+}
+
+table {
+    text-align: center;
+    border-collapse: collapse;
+    margin-top: 2.5rem;
+    width: 100%;
+    font-size: 1.1em;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ccc;
+}
+
+td,
+th {
+    padding: 1em;
+}

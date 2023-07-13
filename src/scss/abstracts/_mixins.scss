@@ -1,0 +1,318 @@
+@mixin breakpoint($breakpoints) {
+  @if type_of($breakpoints) ==number {
+    @media (max-width: $breakpoint + px) {
+      @content;
+    }
+  } @else {
+    $breakpoint: map-get($grid-breakpoints, $breakpoints);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      @content;
+    }
+  }
+}
+
+// @mixin bp($device: "pc") {
+//   @if ($device == "pc") {
+//     @media (max-width: ($pcrwd-breakpoint) * 1px) {
+//       @content;
+//     }
+//   } @else if ($device == "mb") {
+//     @media (max-width: ($mblrwd-breakpoint) * 1px) {
+//       @content;
+//     }
+//   }
+// }
+
+@mixin ie-only {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+@mixin edge-only {
+  @supports (-ms-ime-align: auto) {
+    @content;
+  }
+}
+
+@mixin size($w: null, $h: $w) {
+  width: $w;
+  height: $h;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-separate {
+  display: flex;
+  justify-content: space-between;
+}
+
+// 各 media 樣式       !參數: 橫線數量 1 or 2 (預設1)
+// --------------------------------------------------------------
+// 用法1          @include media-all { .. }
+// 用法2          @include media-all(2) { .. }
+@mixin media-all($dash: 1) {
+  @content;
+
+  @each $breakpoint in map-keys(mapReverse($grid-breakpoints)) {
+    @include breakpoint($breakpoint) {
+      @if ($dash==1) {
+        &-#{$breakpoint} {
+          @content;
+        }
+      } @else if ($dash==2) {
+        &-#{breakpoint} {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+@mixin posXY($x: 0, $y: 0) {
+  left: calc(50% + #{($x - ($w / 2)) * 1px});
+  top: xy($y, $h);
+}
+
+@mixin shadow {
+  box-shadow: $shadow;
+}
+
+@mixin box-shadow($paddingSize: $wrap-gap-lg) {
+  @if $paddingSize == "lg" {
+    $paddingSize: $gap * 3;
+  }
+
+  padding: $paddingSize;
+  box-shadow: $shadow;
+  border-radius: $radius-lg;
+}
+
+// 按鈕disabled樣式(含hover)
+// ----------------------------------------------
+// 用法1          @include btn-disabled;
+
+@mixin btn-disabled {
+  &[disabled],
+  &--disabled,
+  &.disabled:hover,
+  &--disabled:focus,
+  &[disabled]:hover,
+  &.disabled:focus,
+  &--disabled:focus,
+  &[disabled]:focus {
+    cursor: not-allowed;
+
+    @content;
+  }
+}
+
+// active + hover 統一樣式
+// ----------------------------------------------
+// 用法1          @include active-hover { ... }
+
+@mixin active-hover {
+  &:focus,
+  &:hover,
+  &:active {
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+      @content;
+    }
+  }
+}
+
+// Heading
+
+@mixin heading1 {
+  font-size: 60px;
+  line-height: (64/60);
+  font-weight: $bold;
+
+  @include breakpoint(lg) {
+    font-size: 36px;
+    line-height: (44/36);
+  }
+}
+
+//H2 24
+@mixin heading2 {
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: $bold;
+  color: $gray-900;
+
+  @include breakpoint(lg) {
+    font-size: 20px;
+  }
+}
+
+@mixin heading3 {
+  // font-size: 22px;
+  // line-height: (26/22);
+  font-size: 20px;
+  line-height: (24/20);
+  font-weight: $bold;
+}
+
+// 紅色矩形 18 h4
+@mixin heading4 {
+  font-size: 18px;
+  font-weight: $bold;
+  color: $gray-900;
+  line-height: px-em(32);
+  display: flex;
+  align-items: center;
+
+  // margin-bottom: $gap-base-unit * 6;
+  @include breakpoint(lg) {
+    font-size: 16px;
+    line-height: (24/16);
+    // margin-bottom: $gap-base-unit * 2;
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 1.8em;
+    background-color: $red-500;
+    margin-right: $gap-base-unit * 2;
+    vertical-align: middle;
+
+    @include breakpoint(lg) {
+      height: px-em(24);
+    }
+  }
+}
+
+// 紅色矩形 16 h4
+@mixin heading4s {
+  font-weight: $bold;
+  color: $gray-900;
+  display: flex;
+  align-items: center;
+  margin-bottom: $gap-base-unit * 4;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 1.5em;
+    background-color: $red-500;
+    margin-right: $gap-base-unit * 2;
+    vertical-align: middle;
+  }
+}
+
+// 16 h4 without design
+@mixin heading4n {
+  font-weight: $bold;
+  color: $gray-700;
+  margin-bottom: $gap-base-unit * 4;
+}
+
+@mixin heading5 {
+  font-size: 16px;
+  line-height: 24px;
+  color: $gray-600;
+
+  > span {
+    font-size: 24px;
+    color: $red-500;
+    display: inline-block;
+    margin: 0 $gap-base-unit * 3;
+  }
+  @include breakpoint(lg) {
+    color: $gray-900;
+  }
+}
+
+@mixin text-sm {
+  font-size: $font-size-sm;
+  line-height: (18/14);
+}
+
+@mixin text-xs {
+  font-size: $font-size-xs;
+  line-height: (16/12);
+}
+
+// icon
+@mixin pseudo {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  @include size(24px);
+}
+
+@mixin material-icon {
+  font-family: "icomoon";
+  display: inline-block;
+  font-feature-settings: "liga"; // Support for IE.
+  overflow: hidden;
+  line-height: 1;
+  // max-width: 1em;
+}
+
+// 行數限制       !參數: 幾行(預設2), 行高(預設 == $line-height-base)
+// --------------------------------------------------------------
+// 用法1          @include line-clamp;
+// 用法2          @include line-clamp(3, 1.7);
+
+@mixin line-clamp($line: 2, $lh: $line-height-base) {
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: $lh * $line * 1em;
+  line-height: $lh;
+}
+
+// Custom Scroll Bar !參數: 寬度(預設 $gap-base-unit * 2 = 8px) // 寬度 webkit only
+// --------------------------------------------------------------
+// 用法1          @include scroll-bar;
+// 用法2          @include scroll-bar(1);  >>  寬度4px
+
+@mixin scroll-bar($size: 2) {
+  // Scrollbar IE
+  scrollbar-face-color: $gray-400;
+  scrollbar-3dlight-color: $gray-200;
+  scrollbar-highlight-color: $gray-200;
+  scrollbar-track-color: $gray-200;
+  scrollbar-arrow-color: $gray-400;
+  scrollbar-dark-shadow-color: $gray-200;
+  scrollbar-width: thin;
+
+  // Scrollbar Chrome
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    appearance: none;
+    width: $gap-base-unit * $size;
+    height: $gap-base-unit * $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $gray-400;
+    border-radius: $gap-base-unit * $size;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $gray-200;
+  }
+}

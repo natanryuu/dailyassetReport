@@ -1,0 +1,61 @@
+.#{$namespace}footer {
+  text-align: left;
+
+  &__top {
+    display: block;
+    @include size(40px);
+    padding: $gap-base-unit * 2;
+    background-color: rgba(22, 22, 22, 0.3);
+    margin-left: auto;
+  }
+
+  &__service {
+    >span {
+      &:after {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 14px;
+        background-color: $gray-100;
+        margin: 0 1.5em;
+      }
+
+      &:last-child {
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+
+  &__links {
+    >a {
+      margin: 0 $gap-base-unit * 2;
+    }
+  }
+
+  &__caption {
+    font-size: 14px;
+
+    >a {
+      &:after {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 12px;
+        background-color: $gray-400;
+        margin: 0 0.5em;
+      }
+
+      &:last-child {
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+
+  &__copyright {
+    font-size: 14px;
+  }
+}

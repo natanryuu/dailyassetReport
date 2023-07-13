@@ -1,0 +1,35 @@
+#showMore.desktop-drawer
+  .desktop-drawer__content
+    .desktop-drawer__box
+      a.desktop-drawer__btn-close(href='javascript:;' title='取消')
+      h3.desktop-drawer__head 更多功能
+      .desktop-drawer__body
+        .desktop-drawer__inner
+          .listView
+            .listView__content.allWhite
+              a(href='#exportDetails' title='匯出明細').desktop-drawer-trigger.listView__item
+                .listView__title 匯出明細
+              a(href='#applyCancel' title='取消本服務').l-open.listView__item
+                .listView__title 取消本服務
+                
+#exportDetails.desktop-drawer
+  .desktop-drawer__content
+    .desktop-drawer__box
+      a.desktop-drawer__btn-close(href='javascript:;' title='取消')
+      h3.desktop-drawer__head 匯出明細
+      .desktop-drawer__body
+        .desktop-drawer__inner
+          .listView
+            .listView__content
+              .listView__item
+                .listView__title 匯出資料
+                .listView__value 銀證整合資產日報告
+              .listView__item
+                .listView__title 資料日期
+                .listView__value 2022/02/21
+              .listView__item
+                .listView__title 檔案格式
+                .listView__value PDF
+          .desktop-drawer__footer
+            .desktop-drawer__btnbox.btnbox
+              a.btn.btn--primary.btn--lg(type='button' value='下載') 下載

@@ -1,0 +1,42 @@
+extends _layout.pug
+
+append vars
+  - var pageName = ''
+
+
+block content
+  // * 背景 className => bg-pink *
+  main
+    .wrap__inner
+      section.section
+      h1.mt-4.mb-4 訊息頁面
+      a.btn.btn--secondary(href="./login_page-apply.html" target="_blank") 登入前/登入後
+      a.btn.btn--secondary(href="./login_page-apply.html" target="_blank") 申請1
+      a.btn.btn--secondary(href="./login_page-dawhotou.html" target="_blank") 申請2
+      a.btn.btn--secondary(href="./login_page-1.html" target="_blank") 公司戶無法使用銀證
+      a.btn.btn--secondary(href="./login_page-2.html" target="_blank") 會員8錯誤訊息
+      a.btn.btn--secondary(href="./login_page-3.html" target="_blank") 未同意共享條款
+      hr
+      h1.mt-4.mb-4 總資產頁面
+      a.btn.btn--secondary(href="./output_details.html" target="_blank") 總資產
+      a.btn.btn--secondary(href="./output_details_fullPage-error.html" target="_blank") 總資產__整頁異常
+      a.btn.btn--secondary(href="./output_details_error.html" target="_blank") 總資產__區塊異常
+      a.btn.btn--secondary(href="./output_details_closed.html" target="_blank") 總資產__休市
+      hr
+      h1.mt-4.mb-4 銀行資產頁面
+      a.btn.btn--secondary(href="./bank_assets.html" target="_blank") 銀行資產
+      a.btn.btn--secondary(href="./bank_assets_fullPage-error.html" target="_blank") 銀行資產__整頁異常
+      a.btn.btn--secondary(href="./bank_assets_error.html" target="_blank") 銀行資產__區塊異常
+      hr
+      h1.mt-4.mb-4 證券資產頁面
+      a.btn.btn--secondary(href="./securities_assets.html" target="_blank") 證券資產
+      a.btn.btn--secondary(href="./securities_assets_error.html" target="_blank") 證券資產__區塊異常
+      a.btn.btn--secondary(href="./securities_assets_closed.html" target="_blank") 證券資產__休市
+      hr
+      h1.mt-4.mb-4 燈箱
+      a.btn.btn--secondary(href="./lightboxs_mma.html" target="_blank") 全站燈箱
+      a.btn.btn--secondary(href="./lightboxs.html" target="_blank") 銀證燈箱
+      hr
+      h1.mt-4.mb-4 其他
+      a.btn.btn--secondary(href="./terms.html" target="_blank") 條款
+      a.btn.btn--secondary(href="./pdf.html" target="_blank") pdf輸出

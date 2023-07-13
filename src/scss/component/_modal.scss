@@ -1,0 +1,312 @@
+// BrowserModalDialog 複寫 IT 燈箱
+
+.ModalPopUpBackground_Color {
+  background-color: $bg-popup !important;
+  opacity: 1 !important;
+
+  + div {
+    background: $gray-100;
+    padding: px-em(40, 34) !important;
+    border-radius: $radius-lg;
+    max-width: $lightbox-size-sm;
+    height: auto !important;
+    width: calc(100% - #{$wrap-gap-lg * 2}) !important;
+    left: 50% !important;
+    top: 15vh !important;
+    transform: translateX(-50%);
+
+    @include breakpoint(lg) {
+      width: calc(100% - #{$wrap-gap-sm * 2}) !important;
+    }
+
+    > *[style="visibility: hidden;"] {
+      display: none;
+    }
+
+    .ModalPopUpBody {
+      border: none !important;
+      max-width: 100%;
+      height: auto !important;
+      position: static !important;
+      padding: $gap-base-unit * 5 0 0 !important;
+    }
+
+    // BUTTONS
+    input[type="button"] {
+      color: lighten($red-500, 5%);
+      background-color: $gray-100;
+      border: 1px solid $red-500;
+      display: inline-block;
+      padding: px-em(15, 16) 2em;
+      font-size: $font-size-base;
+      line-height: 1;
+      text-decoration: none;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      touch-action: manipulation;
+      cursor: pointer;
+      user-select: none;
+      border-radius: $radius;
+      transition: background-color 0.175s, color 0.175s, border-color 0.175s;
+      width: 160px !important;
+      margin: $wrap-gap-lg 8px 0;
+
+      @include active-hover {
+        border-color: $red-700;
+        color: $red-700;
+      }
+
+      @include btn-disabled {
+        background-color: $gray-400;
+        border-color: $gray-400;
+        color: $gray-100;
+      }
+
+      @include breakpoint(md) {
+        width: calc(50% - 20px) !important;
+      }
+
+      &:only-child,
+      &:nth-child(2) {
+        background-color: $red-500;
+        color: $gray-100;
+        border-color: transparent;
+
+        @include active-hover {
+          background-color: lighten($red-700, 5%);
+        }
+      }
+
+      &:focus,
+      &:active {
+        outline-offset: -2px;
+        text-decoration: none;
+      }
+
+      &:active {
+        background-image: none;
+        outline: 0;
+      }
+    }
+  }
+}
+
+#modalMessage2 {
+  padding: 0 !important;
+}
+
+// POPUPBOX
+#overlay {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: $bg-popup;
+  z-index: ($z-lightbox - 1);
+}
+
+.popupbox,
+.popup {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  width: 100%;
+  max-width: $lightbox-size-sm;
+  margin: 15vh auto 10px;
+  background: $gray-100;
+  padding: px-em(40, 34);
+  border-radius: $radius-lg;
+  max-height: 80vh;
+  z-index: $z-lightbox;
+  transform: translateX(-50%);
+
+  .icon-close_x {
+    display: block;
+    position: absolute;
+    top: $gap-base-unit * 2;
+    right: $gap-base-unit * 2;
+    @include size(36px);
+    padding: 6px;
+    line-height: 1;
+    z-index: 1;
+
+    &:before {
+      @include material-icon;
+      display: inline-block;
+      content: "\e90f";
+      max-width: 100%;
+      color: $gray-500;
+      font-size: 24px;
+    }
+  }
+
+  .content {
+    padding-top: 0 !important;
+
+    &:before {
+      content: none !important;
+    }
+
+    > *:first-child {
+      padding-top: 0 !important;
+    }
+
+    a {
+      img {
+        display: none; // 隱藏 x 圖片
+      }
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-size: px-em(18);
+    line-height: (25/20);
+    font-weight: $bold;
+    text-align: center;
+    padding-bottom: $gap-base-unit * 5;
+  }
+
+  .btn-zone,
+  .btnSet {
+    text-align: center;
+    margin: $wrap-gap-lg $gap-base-unit * -2 0;
+
+    @include breakpoint(md) {
+      display: flex;
+      justify-content: center;
+    }
+
+    a {
+      color: lighten($red-500, 5%);
+      background-color: $gray-100;
+      border: 1px solid $red-500;
+      display: inline-block;
+      padding: px-em(15, 16) 0.75em;
+      font-size: $font-size-base;
+      line-height: 1;
+      text-decoration: none;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      touch-action: manipulation;
+      cursor: pointer;
+      user-select: none;
+      border-radius: $radius;
+      transition: background-color 0.175s, color 0.175s, border-color 0.175s;
+      width: 160px;
+      margin: $wrap-gap-lg 8px 0;
+
+      @include active-hover {
+        border-color: $red-700;
+        color: $red-700;
+      }
+
+      @include btn-disabled {
+        background-color: $gray-400;
+        border-color: $gray-400;
+        color: $gray-100;
+      }
+
+      @include breakpoint(md) {
+        width: calc(50% - 20px);
+      }
+
+      &:only-child,
+      &:nth-child(2) {
+        background-color: $red-500;
+        color: $gray-100;
+        border-color: transparent;
+
+        @include active-hover {
+          background-color: lighten($red-700, 5%);
+        }
+      }
+    }
+  }
+}
+
+// 密碼逾期通知
+#msgResetPW {
+  h2 + a {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include size(24px);
+    line-height: 1;
+    z-index: 1;
+
+    &:before {
+      @include material-icon;
+      content: "\e90f";
+      color: $gray-500;
+      font-size: 24px;
+    }
+  }
+}
+
+// msgKeepPW
+#msgKeepPW {
+  .content {
+    padding-top: 34px !important;
+
+    > a:first-child {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include size(24px);
+      line-height: 1;
+      z-index: 1;
+
+      &:before {
+        @include material-icon;
+        content: "\e90f";
+        color: $gray-500;
+        font-size: 24px;
+      }
+    }
+
+    > a:last-child {
+      background-color: $red-500 !important;
+      color: $gray-100;
+      display: block;
+      padding: px-em(15, 16) 0.75em;
+      font-size: $font-size-base;
+      line-height: 1;
+      text-decoration: none;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      touch-action: manipulation;
+      cursor: pointer;
+      user-select: none;
+      background: none;
+      border-radius: $radius;
+      transition: background-color 0.175s, color 0.175s, border-color 0.175s;
+      width: 160px;
+      margin: $wrap-gap-lg 8px 0;
+
+      @include active-hover {
+        background-color: lighten($red-700, 5%);
+      }
+
+      @include btn-disabled {
+        background-color: $gray-400;
+        border-color: $gray-400;
+        color: $gray-100;
+      }
+
+      @include breakpoint(md) {
+        width: calc(50% - 20px);
+      }
+    }
+  }
+}

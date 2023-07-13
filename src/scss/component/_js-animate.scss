@@ -1,0 +1,234 @@
+$f-offset: 50px;
+$f-time: 1000ms;
+.js-animate {
+  animation-duration: $f-time;
+  animation-fill-mode: forwards;
+  &--fadein {
+    opacity: 0;
+  }
+  &--fadein-up {
+    opacity: 0;
+    transform: translate(0, ( $f-offset * -1));
+  }
+  &--fadein-down {
+    opacity: 0;
+    transform: translate(0, $f-offset);
+  }
+  &--fadein-left {
+    opacity: 0;
+    transform: translate(($f-offset * -1), 0);
+  }
+  &--fadein-right {
+    opacity: 0;
+    transform: translate($f-offset, 0);
+  }
+  &--maskin-left {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+  &--maskin-right {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+  &--maskin-up {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  &--maskin-down {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  }
+  &--darkin {
+    filter: brightness(65%);
+  }
+  &--smallin {
+    transform: scale(0.9);
+  }
+  
+  &--solidin-up,
+  &--solidin-down,
+  &--solidin-left,
+  &--solidin-right {
+    position: relative;
+    transition: $f-time cubic-bezier(0.165, 0.84, 0.44, 1) 0ms;
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: currentColor;
+      z-index: 2;
+      transition: ($f-time*0.425) cubic-bezier(0.77, 0, 0.175, 1);
+    }
+  }
+
+  &--solidin-up {
+    transform: translateY($f-offset);
+    &:after {
+      transform-origin: center top;
+    }
+  }
+  &--solidin-down {
+    transform: translateY(-$f-offset);
+    &:after {
+      transform-origin: center bottom;
+    }
+  }
+  &--solidin-left {
+    &:after {
+      transform-origin: right top;
+    }
+  } 
+  &--solidin-right {
+    &:after {
+      transform-origin: left top;
+    }
+  }
+  
+  
+  &--none {
+    opacity: 1;
+    transform: none;
+
+    &:after {
+      content: none !important;
+    }
+  }
+
+  @each $breakpoint in map-keys(mapReverse($grid-breakpoints)) {
+    @include breakpoint($breakpoint) {
+      &--fadein-#{$breakpoint} {
+        opacity: 0;
+      }
+      &--fadein-up-#{$breakpoint} {
+        opacity: 0;
+        transform: translate(0, ( $f-offset * -1));
+      }
+      &--fadein-down-#{$breakpoint} {
+        opacity: 0;
+        transform: translate(0, $f-offset);
+      }
+      &--fadein-left-#{$breakpoint} {
+        opacity: 0;
+        transform: translate(($f-offset * -1), 0);
+      }
+      &--fadein-right-#{$breakpoint} {
+        opacity: 0;
+        transform: translate($f-offset, 0);
+      }
+      
+      &--solidin-up-#{$breakpoint},
+      &--solidin-down-#{$breakpoint},
+      &--solidin-left-#{$breakpoint},
+      &--solidin-right-#{$breakpoint} {
+        position: relative;
+        transition: $f-time cubic-bezier(0.165, 0.84, 0.44, 1) 0ms;
+        &:after {
+          content: '';
+          position: absolute;
+          display: block;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: currentColor;
+          z-index: 2;
+          transition: ($f-time*0.425) cubic-bezier(0.77, 0, 0.175, 1);
+        }
+      }
+      &--solidin-up-#{$breakpoint} {
+        transform: translateY($f-offset);
+        &:after {
+          transform-origin: center top;
+        }
+      }
+      &--solidin-down-#{$breakpoint} {
+        transform: translateY(-$f-offset);
+        &:after {
+          transform-origin: center bottom;
+        }
+      }
+      &--solidin-left-#{$breakpoint} {
+        &:after {
+          transform-origin: right top;
+        }
+      } 
+      &--solidin-right-#{$breakpoint} {
+        &:after {
+          transform-origin: left top;
+        }
+      }
+      
+      
+      &--none {
+        opacity: 1;
+        transform: none;
+    
+        &:after {
+          content: none !important;
+        }
+      }
+    
+
+      &--none-#{$breakpoint} {
+        opacity: 1;
+        transform: none;
+
+        &:after {
+          content: none !important;
+        }
+      }
+    }
+  }
+  &--active {
+    opacity: 1;
+    transform: none;
+    transition: opacity $f-time, transform $f-time, clip-path $f-time;
+
+    &[class*="--maskin"] {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    &[class*="--darkin"] {
+      filter: brightness(1);
+    }
+    &[class*="--solidin-up"],
+    &[class*="--solidin--down"] {
+      &:after {
+        transform: scaleY(0);
+      }
+    }
+    &[class*="--solidin-left"],
+    &[class*="--solidin--right"] {
+      &:after {
+        transform: scaleX(0);
+      }
+    }
+
+    &.js-animate--path {
+      stroke-dashoffset: 0px!important;
+    }
+  }
+
+  @for $i from 0 through 10 {
+    $j: $i *100;
+    &--delay#{$j} {
+      transition-delay: #{$j}ms;
+      &:after {
+        transition-delay: #{$j}ms;
+      }
+    }
+  }
+
+  @each $breakpoint in map-keys(mapReverse($grid-breakpoints)) {
+    @include breakpoint($breakpoint) {
+      @for $i from 0 through 10 {
+        $j: $i *100;
+        &--delay#{$j}-#{$breakpoint} {
+          transition-delay: #{$j}ms;
+          &:after {
+            transition-delay: #{$j}ms;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,230 @@
+.#{$namespace}navbar {
+  $delay: 200ms;
+
+  &__wrap {
+    max-width: 1120px;
+    margin-top: $gap-base-unit * 6;
+    background-color: $red-500;
+    border-radius: $radius;
+
+    @include breakpoint(lg) {
+      margin-top: $gap-base-unit * 4;
+      background-color: $gray-100;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--links {
+      flex-grow: 1;
+    }
+
+    @include breakpoint(lg) {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    padding: px-em(6, 16) 0;
+    position: relative;
+    flex-shrink: 1;
+    transition: all 0.35s $cubic;
+
+    @include active-hover {
+      .navbar__link {
+        background-color: $red-300;
+      }
+
+      .navbar__drop {
+        &::after {
+          transform: rotateX(180deg);
+        }
+      }
+
+      .navbar__menu-lv2 {
+        transition: all 0.45s $cubic;
+        opacity: 1;
+        z-index: 8;
+        display: block;
+      }
+    }
+
+    &--active {
+      .navbar__link {
+        background-color: $gray-100;
+        color: $red-500;
+      }
+
+      @include active-hover {
+        .navbar__link {
+          background-color: $gray-100;
+          color: $red-500;
+        }
+      }
+    }
+
+    @include breakpoint(lg) {
+      width: 100%;
+      padding: 0;
+      border-bottom: 1px solid $gray-300;
+    }
+  }
+
+  &__link {
+    white-space: nowrap;
+    padding: 0 px-em(16);
+    line-height: px-em(36, 16);
+    color: $gray-100;
+    font-weight: $bold;
+    display: inline-block;
+    border-radius: $radius;
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.77, 0.2, 0.05, 1);
+
+    @include breakpoint(lg) {
+      color: $gray-700;
+      width: 100%;
+      font-weight: normal;
+      padding: $gap-base-unit * 3 $gap-base-unit * 2;
+      line-height: px-em(27, 18);
+      font-size: 18px;
+    }
+  }
+
+  &__drop {
+    display: flex;
+    align-items: center;
+
+    &::after {
+      @include material-icon;
+      content: "\e900";
+      margin-left: 6px;
+      color: $gray-100;
+      transition: all 0.2s $cubic;
+    }
+
+    .navbar__item--active & {
+      &::after {
+        color: $red-500;
+      }
+    }
+
+    @include breakpoint(lg) {
+      justify-content: space-between;
+
+      &::after {
+        font-size: 20px;
+        color: $gray-500;
+      }
+
+      .navbar__item--active & {
+        background-color: $red-100;
+        transition: all 0.2s $cubic;
+
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__menu-lv2 {
+    position: absolute;
+    top: 100%;
+    padding: $gap-base-unit * 3;
+    background-color: $gray-100;
+    border-radius: $radius;
+    box-shadow: 0px 8px 40px 8px rgba(0, 0, 0, 0.08), 0px 2px 8px rgba(0, 0, 0, 0.05);
+    min-width: 264px;
+    white-space: nowrap;
+    transition: opacity 0.25s $cubic;
+    overflow: hidden;
+    opacity: 0;
+    display: none;
+
+    @include breakpoint(lg) {
+      background-color: #f8f8f8;
+      position: static;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 0;
+
+      .navbar__item--active & {
+        display: block;
+        opacity: 1;
+        transition: opacity 0.45s $cubic;
+      }
+    }
+  }
+
+  &__item-lv2 {
+    @include active-hover {
+      .navbar__link-lv2 {
+        background-color: $red-100;
+        color: $red-500;
+      }
+    }
+
+    @include breakpoint(lg) {
+      position: relative;
+
+      &--active {
+        &::after {
+          @include material-icon;
+          content: "\e91c";
+          font-size: 16px;
+          color: $red-500;
+          margin: 0 $gap-base-unit * 2;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+
+  &__link-lv2 {
+    width: 100%;
+    display: inline-block;
+    padding: $gap-base-unit * 2;
+    color: $gray-700;
+    border-radius: $radius;
+    margin-bottom: $gap-base-unit;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include breakpoint(lg) {
+      padding: $gap-base-unit * 2.5 $gap-base-unit * 2;
+    }
+  }
+
+  &__head {
+    @include breakpoint(lg) {
+      background-color: $red-300;
+      padding: $gap-base-unit * 2 $gap-base-unit * 4;
+      color: $gray-100;
+      font-weight: $bold;
+      text-align: center;
+      letter-spacing: 2px;
+      position: relative;
+
+      >span {
+        &::after {
+          @include material-icon;
+          content: "\e900";
+          @include size(20px);
+          font-size: 20px;
+          position: absolute;
+          right: $gap-base-unit * 4;
+          top: $gap-base-unit * 2;
+        }
+      }
+    }
+  }
+}

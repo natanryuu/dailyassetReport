@@ -1,0 +1,228 @@
+//- 綜合對帳單查詢-總資產-存款-異常
+//- 綜合對帳單查詢-總資產-比例圖-異常
+
+extends _layout.pug
+
+append vars
+  - var noticeType = 'notice'
+  - var noticeName = 'fund'
+  - var hasChart = true
+
+append script
+  script(src=root+"js/charts/charts_main.securejs")
+
+block content
+  main.bg-pink.content
+    // * 嘉實開發 Start *
+    .wrap__inner
+      .flex-between.mt-12.mb-8.mt-4-lg.mb-6-lg
+        h2.heading2 銀證整合資產日報告
+        .flex-between.sub__tool-mobile
+          a.sub__tool-btn.o-link.o-link--md.o-link--gray.desktop-drawer-trigger(href='#showMore' title='更多功能')
+            i.o-link__icon.icon-Basic_nav-more
+        .flex-between.sub__tool
+          a.sub__tool-btn.o-link.o-link--gray.desktop-drawer-trigger(href='#exportDetails' title='匯出明細')
+            i.o-link__icon.icon-Basic_export-details.icon__tl
+            span 匯出明細
+          a.sub__tool-btn.o-link.o-link--gray.l-open(href='#applyCancel' title='取消申請')
+            i.o-link__icon.icon-Basic_cancel-apply.icon__tl
+            span 取消本服務
+      .tab.scrollable-tabs-container.mb-8.mb-6-lg
+        button.tab__arrows.tab__arrows--prev
+          i.icon-Basic_angle-left
+        .tab__bar.scrollable-box
+          a.tab__item.tab__item--active(href='#tab0') 總資產
+          a.tab__item(href='#tab1') 銀行資產
+          a.tab__item(href='#tab2') 證券資產
+        button.tab__arrows.tab__arrows--next
+          i.icon-Basic_angle-right
+      .flex-between.mb-4
+        h4.heading4 基準日：
+          span 2023 年 02 月 23 日
+      section.section
+        .l-container.l-container__redLine
+          .l-container__head.l-container__head-line
+            .l-container__head-text.mb-4.mb-1-lg
+              .flex-center 
+                h3.heading3.d-inline-block 總資產分析
+                a.o-link.o-link--gray.hideInfo-trigger
+                  i.o-link__icon.icon-Basic_eye-open.icon__tr
+          .l-container__body
+            .subtitle__header
+              .flex-center 
+                h5.heading5 參考資產淨值
+                a.o-link.o-link--gray.hideInfo-trigger
+                  i.o-link__icon.icon-Basic_eye-open.icon__tr
+            .subtitle__content.amount__wrap.mb-6 
+              .amount__price
+                h3.subtitle__curr TWD
+                h3.subtitle__value.ml-1 1,000,000
+              .amount__hide-info
+                i.o-link__money.o-link--red.icon-Basic_money-hide.icon__tl
+                i.o-link__money.o-link--red.icon-Basic_money-hide.icon__tl
+                i.o-link__money.o-link--red.icon-Basic_money-hide.icon__tl
+            .row
+              .col-12.col-lg-6
+                .flex-between
+                  h5.heading5 資產佔比
+                  .amount__price.amount__price-sm
+                    h5 TWD 2,000,000
+                  .amount__hide-info
+                    p *****
+                .chart__wrap
+                  //- #assetsPerc
+                  //- 放置資產佔比異常長條圖
+              .col-12.col-lg-6
+                .flex-between
+                  h5.heading5 負債佔比
+                  .amount__price.amount__price-sm
+                    h5 TWD 0
+                  .amount__hide-info
+                    p *****
+                .chart__wrap
+                  //- #loanPerc
+                  //- 放置負債佔比異常長條圖
+      .flex-between.mb-5.mb-2-lg
+        .flex-center
+          h5.heading5 總資產報告
+          a.o-link.o-link--sm.tooltip-trigger
+            i.o-link__icon.icon-Basic_info.icon__tr
+          .tooltip__wrap
+            .tooltip__content
+              p 各產品更新時間如下
+              p 
+                span.mr-1 銀行：
+                span.mr-1 2023/03/15
+                span 15:30:30
+              p 
+                span.mr-1 黃金存摺：
+                span.mr-1 2023/03/15
+                span 15:30:30
+              p 
+                span.mr-1 基金：
+                span.mr-1 2023/03/15
+                span 15:30:30
+              p 
+                span.mr-1 信用卡：
+                span.mr-1 2023/03/15
+                span 15:30:30
+      section
+        .row.report__container
+          .col-lg-4.col-12.report__block
+            //- 存款
+            a(href="#repo0").report__item
+              .report__iconWrap
+                .report__icon.report--saving
+              .report__field
+                h5.report__head 存款
+                .report__text 較前日增加
+                h5.report__nav.report__nav-increase +TWD
+                  span.report__num 100,000,000
+                  br
+                  span.report__per (+10.15%)
+          .col-lg-12.col-12.report__block
+            .l-container.mt-8.mt-3-lg.mb-3-lg#repo0.report__content
+              .l-container__body
+                .resultMessage
+                  .imgMessage__imgwrap
+                    img.imgMessage__img(src=root+'images/global/img-404.png' alt='')
+                  .resultMessage__content
+                    .resultMessage__title Oops…工程師努力搶修中
+                    .resultMessage__desc 請稍後再試
+                    .resultMessage__link 
+                      a(href="") 重新整理
+          .col-lg-4.col-12.report__block
+            //- 投資
+            a(href="#repo1").report__item
+              .report__iconWrap
+                .report__icon.report--invest
+              .report__field
+                h5.report__head 投資
+                .report__text 較前日增加
+                h5.report__nav.report__nav-increase +TWD
+                  span.report__num 100,000,000
+                  br
+                  span.report__per (+10.15%) 
+          .col-lg-12.col-12.report__block
+            .l-container.mt-8.mt-3-lg.mb-3-lg#repo1.report__content
+              .l-container__body
+                .resultMessage
+                  .imgMessage__imgwrap
+                    img.imgMessage__img(src=root+'images/global/img-404.png' alt='')
+                  .resultMessage__content
+                    .resultMessage__title Oops…工程師努力搶修中
+                    .resultMessage__desc 請稍後再試
+                    .resultMessage__link 
+                      a(href="") 重新整理          
+          .col-lg-4.col-12.report__block
+            //- 負債 
+            a(href="#repo2").report__item 
+              .report__iconWrap
+                .report__icon.report--loan
+              .report__field
+                h5.report__head 負債
+                .report__text 較前日減少
+                h5.report__nav.report__nav-decrease -TWD
+                  span.report__num  100,000,000
+                  br
+                  span.report__per (-10.15%)
+          .col-lg-12.col-12.report__block
+            .l-container.mt-8.mt-3-lg.mb-3-lg#repo2.report__content
+              .l-container__body
+                .resultMessage
+                  .imgMessage__imgwrap
+                    img.imgMessage__img(src=root+'images/global/img-404.png' alt='')
+                  .resultMessage__content
+                    .resultMessage__title Oops…工程師努力搶修中
+                    .resultMessage__desc 請稍後再試
+                    .resultMessage__link 
+                      a(href="") 重新整理 
+      section.section
+        .l-container.mt-8.mt-3-lg
+          .l-container__head
+            .flex-between.mb-8.mb-1-lg
+              h4.heading4 總資產比例圖
+          .l-container__body
+            .resultMessage
+              .resultMessage__content
+                .imgMessage__imgwrap
+                  img.imgMessage__img(src=root+'images/global/img-404.png' alt='')
+                .resultMessage__title Oops…工程師努力搶修中
+                .resultMessage__desc 請稍後再試
+                .resultMessage__link 
+                  a(href="") 重新整理
+      include _notice.pug
+    // * 嘉實開發 End *
+
+  // * drawer Start *
+  include _drawer.pug
+  // * drawer End *
+  
+  // * lightbox Start *
+  append lightbox
+    //- 雙按鈕 綜合對帳單查詢-取消申請2
+    #applyCancel.lightbox
+        .wrap__inner
+          .lightbox__content
+            .lightbox__box
+              .lightbox__body.center
+                .lightbox__icon.icon-Basic_notice.text-red-500
+                h4.lightbox__title 確定取消銀證整合資產日報告？
+                p.info 您確定要取消銀證整合資產日報告？提醒您，取消後將無法查看。
+              .lightbox__footer
+                .lightbox__btnbox
+                  a.lightbox__btn.btn.btn--secondary.l-open(target='#cancelSuccess' title='我要取消') 我要取消
+                  a.lightbox__btn.btn.btn--primary.lightbox__close(href='#' title='先不要') 先不要
+    //- 單按鈕 設定/綜合對帳單/申請/銀行對帳單
+    #cancelSuccess.lightbox
+      .wrap__inner
+        .lightbox__content
+          .lightbox__box
+            .lightbox__body.center
+              .lightbox__icon.icon-Basic_check-circle.negative
+              h4.lightbox__title 取消成功 !
+            .lightbox__footer
+              .lightbox__btnbox
+                a.lightbox__btn.btn.btn--primary.lightbox__close(href='#' title='我知道了') 我知道了
+
+  // *  lightbox End 

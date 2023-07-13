@@ -1,0 +1,82 @@
+extends _layout.pug
+
+append vars
+  - var pageName = ''
+
+block content
+  main
+    .wrap__inner
+      section.section
+        //- IT燈箱
+        h1.mt-4.mb-4 MMA燈箱預覽
+        a#btnTimeout.btn.btn--secondary 閒置提醒 timeoutCountdownDialog_popup
+        a#btnChangeRemiderPop.btn.btn--secondary 網路密碼逾期通知 changeRemiderPop
+        a#btnMsgResetPW.btn.btn--secondary 密碼逾期通知 msgResetPW
+        a#btnMsgKeepPW.btn.btn--secondary 延用舊密碼 msgKeepPW
+
+append lightbox
+  #timeoutCountdownDialog_background.ModalPopUpBackground_Color(style='display: inline; position: absolute; z-index: 10003; left: 0px; top: 0px; width: 100%; height: 937px; opacity: 0.7;')
+  #timeoutCountdownDialog_popup(style='display: inline; position: absolute; z-index: 10005; padding: 1px; width: 500px; height: 199px; left: 463px; top: 369px;')
+    #timeoutCountdownDialog_popupTitle(style='visibility: hidden;')
+    #timeoutCountdownDialog_popupBody.ModalPopUpBody(style='position: absolute; padding: 1px; text-align: left; border: 1px solid rgb(153, 153, 153); height: 200px; top: 1px; width: 498px; left: 1px;')
+      #modalMessage2(style='padding:25px;') 親愛的客戶您好：您登入網站未執行任何瀏覽動作已超過系統時限，為保障您的網站使用安全，本系統將於 20 秒後為您登出網站，若您欲繼續使用，請點選「繼續瀏覽」按鈕，或直接點選「登出網站」按鈕，登出本系統。
+      div(align='center' valign='bottom')
+        input#timeoutCountdownDialog_okButton(name='timeoutCountdownDialog_okButton' type='button' value='繼續瀏覽' style='width:100px' onclick='ok2()')
+        input#timeoutCountdownDialog_cancelButton(name='timeoutCountdownDialog_cancelButton' type='button' value='登出網站' style='width:100px' onclick='cancel2()')
+    #timeoutCountdownDialog_popupFooter(style='visibility: hidden;')
+      div(align='center' valign='bottom')
+        input#timeoutCountdownDialog_okButton(name='timeoutCountdownDialog_okButton' type='button' value='繼續瀏覽' style='width:100px' onclick='ok2()')
+        input#timeoutCountdownDialog_cancelButton(name='timeoutCountdownDialog_cancelButton' type='button' value='登出網站' style='width:100px' onclick='cancel2()')
+  #timeoutCountdownDialog_shadow(style='visibility: hidden;')
+
+  #overlay(style='display: none;')
+  #changeRemiderPop.popupbox.error(style='display: none;')
+    a.close_x.close.icon.icon-close_x(href='javascript:;')
+    .con.center
+      h4.text-red-500 網路密碼逾期通知
+      p#remidertxt 您的「網路密碼」已逾六個月未變更，為確保您的交易安全，建議您立即變更「網路密碼」，謝謝！
+    .btn-zone
+      a#useOld.nbtn.lbox-btn(onclick='useOldPWD();') 延用舊密碼
+      a#chageNew.nbtn.lbox-btn(href='/MyMMA/Mypasswd/Default.aspx') 立即變更
+      a#confirmBtn.close.nbtn.focus(style='display:none') 確定
+  #msgResetPW.popup(style='display: none;')
+    .content(style='padding-top:20px;')
+      h2 密碼逾期通知
+      | 您的「網路密碼」已逾六個月未變更，為確保您的交易安全，建議您立即變更「網路密碼」，謝謝！
+      a(href='javascript:;')
+        img(src='/mma8/mobile/images/btn_close.png' style='float:right;' onclick='hideWarningExpiry();')
+      .btnSet(style='margin-top:20px;')
+        a.popup_toggle(href='javascript:;' onclick='expiryUpdate();') 延用舊密碼
+        a(href='javascript:;' onclick='showChange();') 立即變更
+  #msgKeepPW.popup(style='display: none;')
+    .content(style='margin:0px auto 0 auto;')
+      | 您於2021/04/09選擇延用舊密碼，如您持續未變更網路密碼，系統將於半年後再次提醒您變更網路密碼，謝謝！
+      a(href='javascript:;')
+        img(src='/mma8/mobile/images/btn_close.png' style='float:right;' onclick='hideWarningExpiry();')
+      a.button(style='margin:20px auto 0 auto;' href='javascript: void(0)' onclick='hideWarningExpiry();') 確定
+
+append script
+  script.
+    //- for 燈箱預覽
+    document.getElementById('timeoutCountdownDialog_background').style.display = 'none';
+    document.getElementById('timeoutCountdownDialog_popup').style.display = 'none';
+
+    document.getElementById('btnTimeout').onclick = function() {
+      document.getElementById('timeoutCountdownDialog_background').style.display = 'inline';
+      document.getElementById('timeoutCountdownDialog_popup').style.display = 'inline';
+    }
+
+    document.getElementById('btnChangeRemiderPop').onclick = function() {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('changeRemiderPop').style.display = 'block';
+    }
+
+    document.getElementById('btnMsgResetPW').onclick = function() {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('msgResetPW').style.display = 'block';
+    }
+
+    document.getElementById('btnMsgKeepPW').onclick = function() {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('msgKeepPW').style.display = 'block';
+    }

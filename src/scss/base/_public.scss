@@ -1,0 +1,466 @@
+/* visible, hidden rwd */
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.invisible {
+  visibility: hidden;
+}
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.hidden {
+  display: none !important;
+}
+.affix {
+  position: fixed;
+}
+@-ms-viewport {
+  width: device-width;
+}
+@media (max-width: #{$pcrwd-breakpoint + 'px'}) {
+  .hidden-middle {
+    display: none !important;
+  }
+}
+@media (max-width: #{$mblrwd-breakpoint + 'px'}) {
+  .hidden-min {
+    display: none !important;
+  }
+}
+@media (min-width: #{($mblrwd-breakpoint + 1) +'px'}) {
+  .hidden-max {
+    display: none !important;
+  }
+}
+.visible-print {
+  display: none !important;
+}
+@media print {
+  .visible-print {
+    display: block !important;
+  }
+  table.visible-print {
+    display: table;
+  }
+  tr.visible-print {
+    display: table-row !important;
+  }
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+}
+.visible-print-block {
+  display: none !important;
+}
+@media print {
+  .visible-print-block {
+    display: block !important;
+  }
+}
+.visible-print-inline {
+  display: none !important;
+}
+@media print {
+  .visible-print-inline {
+    display: inline !important;
+  }
+}
+.visible-print-inline-block {
+  display: none !important;
+}
+@media print {
+  .visible-print-inline-block {
+    display: inline-block !important;
+  }
+}
+@media print {
+  .hidden-print {
+    display: none !important;
+  }
+}
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid $border-gray;
+  border-bottom: none;
+  margin: $wrap-gap-lg 0;
+}
+svg {
+  display: block;
+  width: 100%;
+}
+a {
+  // color: $primary;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: none;
+  }
+}
+summary {
+  cursor: pointer;
+}
+.text-red-500 {
+  color: $red-500;
+}
+.text-white {
+  color: $gray-100;
+}
+.text-gray-400 {
+  color: $gray-400;
+}
+.text-gray-500 {
+  color: $gray-500;
+}
+.text-gray-600 {
+  color: $gray-600;
+}
+.text-gray-700 {
+  color: $gray-700;
+}
+.text-gray-900 {
+  color: $gray-900;
+}
+.text-blue-700 {
+  color: $blue-700;
+}
+.positive {
+  color: $positive;
+}
+// $negative: $green-700 !default;
+.negative {
+  color: $negative;
+}
+.danger {
+  color: $danger;
+}
+.info {
+  color: $info;
+}
+.text-info {
+  margin: $gap-base-unit * 2 auto;
+  color: $info;
+  font-size: $font-size-base;
+  @include breakpoint(lg) {
+    font-size: $font-size-sm;
+  }
+  .mb-0 {
+    margin-bottom: 0;
+  }
+}
+.normal {
+  font-weight: normal;
+}
+.bold {
+  font-weight: 700;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.justify {
+  text-align: justify;
+}
+.underline {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
+  // border-bottom: 1px solid currentColor;
+}
+.nowrap {
+  white-space: nowrap;
+}
+
+.svgbox {
+  position: relative;
+  pointer-events: none;
+  img[src$=".svg"],
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.hide {
+  display: none !important;
+}
+.block {
+  display: block !important;
+}
+@each $breakpoint in map-keys(mapReverse($grid-breakpoints)) {
+  @include breakpoint($breakpoint) {
+    .hide-#{$breakpoint} {
+      display: none !important;
+    }
+    .block-#{$breakpoint} {
+      display: block !important;
+    }
+  }
+}
+
+.bg-gray-100 {
+  background-color: $gray-100;
+}
+.bg-gray-200 {
+  background-color: $gray-200;
+}
+.bg-gray-700 {
+  background: $gray-700;
+}
+.bg-gray-900 {
+  background: $gray-900;
+}
+.bg-red-400 {
+  background-color: $red-400;
+}
+.bg-pink {
+  background: top center / 100% auto no-repeat
+    url(#{$image-path}background/Desktop-pink.png);
+}
+
+.pb {
+  @for $i from 0 through 12 {
+    &-#{$i} {
+      padding-bottom: $gap-base-unit * $i;
+    }
+  }
+}
+.pt {
+  @for $i from 0 through 12 {
+    &-#{$i} {
+      padding-top: $gap-base-unit * $i;
+    }
+  }
+}
+.pl {
+  @for $i from 0 through 12 {
+    &-#{$i} {
+      padding-left: $gap-base-unit * $i;
+    }
+  }
+}
+.pr {
+  @for $i from 0 through 12 {
+    &-#{$i} {
+      padding-right: $gap-base-unit * $i;
+    }
+  }
+}
+
+.mb {
+  @for $i from 0 through 12 {
+    &-#{$i} {
+      margin-bottom: $gap-base-unit * $i;
+    }
+  }
+}
+.mt {
+  @for $i from 0 through 12 {
+    &-#{$i} {
+      margin-top: $gap-base-unit * $i;
+    }
+  }
+}
+.ml {
+  @for $i from 0 through 12 {
+    &-#{$i} {
+      margin-left: $gap-base-unit * $i;
+    }
+  }
+}
+.mr {
+  @for $i from 0 through 12 {
+    &-#{$i} {
+      margin-right: $gap-base-unit * $i;
+    }
+  }
+}
+@each $breakpoint in map-keys(mapReverse($grid-breakpoints)) {
+  @include breakpoint($breakpoint) {
+    .mb {
+      @for $i from 0 through 12 {
+        &-#{$i}-#{$breakpoint} {
+          margin-bottom: $gap-base-unit * $i;
+        }
+      }
+    }
+    .mt {
+      @for $i from 0 through 12 {
+        &-#{$i}-#{$breakpoint} {
+          margin-top: $gap-base-unit * $i;
+        }
+      }
+    }
+    .ml {
+      @for $i from 0 through 12 {
+        &-#{$i}-#{$breakpoint} {
+          margin-left: $gap-base-unit * $i;
+        }
+      }
+    }
+    .mr {
+      @for $i from 0 through 12 {
+        &-#{$i}-#{$breakpoint} {
+          margin-right: $gap-base-unit * $i;
+        }
+      }
+    }
+  }
+}
+
+.gutters {
+  // 1 = 4px
+  // 6 = 24px
+  @for $i from 1 through 6 {
+    &-#{$i} {
+      margin-right: $gap-base-unit / 2 * -$i;
+      margin-left: $gap-base-unit / 2 * -$i;
+
+      > .col,
+      > [class*="col-"] {
+        padding-right: $gap-base-unit / 2 * $i;
+        padding-left: $gap-base-unit / 2 * $i;
+      }
+    }
+  }
+
+  // 垂直
+  &-v {
+    margin-top: $gap-base-unit / 2 * -6;
+    margin-bottom: $gap-base-unit / 2 * -6;
+
+    > .col,
+    > [class*="col-"] {
+      padding-top: $gap-base-unit / 2 * 6;
+      padding-bottom: $gap-base-unit / 2 * 6;
+    }
+    @for $i from 1 through 6 {
+      &-#{$i} {
+        margin-top: $gap-base-unit / 2 * -$i;
+        margin-bottom: $gap-base-unit / 2 * -$i;
+
+        > .col,
+        > [class*="col-"] {
+          padding-top: $gap-base-unit / 2 * $i;
+          padding-bottom: $gap-base-unit / 2 * $i;
+        }
+      }
+    }
+  }
+}
+
+@each $breakpoint in map-keys(mapReverse($grid-breakpoints)) {
+  @include breakpoint($breakpoint) {
+    .gutters {
+      // 1 = 4px
+      // 6 = 24px
+      @for $i from 1 through 6 {
+        &-#{$i}-#{$breakpoint} {
+          margin-right: $gap-base-unit / 2 * -$i;
+          margin-left: $gap-base-unit / 2 * -$i;
+
+          > .col,
+          > [class*="col-"] {
+            padding-right: $gap-base-unit / 2 * $i;
+            padding-left: $gap-base-unit / 2 * $i;
+          }
+        }
+      }
+
+      // 垂直
+      &-v-#{$breakpoint} {
+        margin-top: $gap-base-unit / 2 * -6;
+        margin-bottom: $gap-base-unit / 2 * -6;
+
+        > .col,
+        > [class*="col-"] {
+          padding-top: $gap-base-unit / 2 * 6;
+          padding-bottom: $gap-base-unit / 2 * 6;
+        }
+      }
+      &-v {
+        @for $i from 1 through 6 {
+          &-#{$i}-#{$breakpoint} {
+            margin-top: $gap-base-unit / 2 * -$i;
+            margin-bottom: $gap-base-unit / 2 * -$i;
+
+            > .col,
+            > [class*="col-"] {
+              padding-top: $gap-base-unit / 2 * $i;
+              padding-bottom: $gap-base-unit / 2 * $i;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.flex-between {
+  @include flex-between;
+}
+.flex-center {
+  @include flex-center;
+}
+.flex-grow-1 {
+  flex-grow: 1;
+}
+.flex-grow-0 {
+  flex-grow: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  border: 0;
+}
+
+@each $breakpoint in map-keys(mapReverse($grid-breakpoints)) {
+  @include breakpoint($breakpoint) {
+    .flex-grow-1-#{$breakpoint} {
+      flex-grow: 1;
+    }
+    .flex-grow-0-#{$breakpoint} {
+      flex-grow: 0;
+    }
+  }
+}
+.icon-lg {
+  font-size: $icon-size-lg;
+}
+.icon-md {
+  font-size: $icon-size-md;
+}
+.icon-base {
+  font-size: $icon-size-base;
+}
+
+.fs-sm{
+  font-size: 14px
+}

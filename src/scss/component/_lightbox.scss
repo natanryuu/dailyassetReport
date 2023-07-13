@@ -1,0 +1,198 @@
+.lightbox {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: $bg-popup;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s $cubic;
+  z-index: $z-lightbox;
+  visibility: hidden;
+
+  &__notice-banner {
+    background-color: transparent;
+  }
+
+  &--active {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  &__content {
+    margin-top: 15vh;
+  }
+
+  &__box {
+    position: relative;
+    max-width: 548px;
+    padding: $gap-base-unit * 6 $gap-base-unit * 10 $gap-base-unit * 8;
+    transition: transform 0.2s ease-out;
+    margin: 10px auto;
+    background: $white;
+    border-radius: $radius-lg;
+    max-height: 80vh;
+
+    @include breakpoint(lg) {
+      padding: $gap-base-unit * 6 $gap-base-unit * 4;
+    }
+
+    // 迷你尺寸
+    .lightbox--sm & {
+      max-width: $lightbox-size-sm;
+    }
+
+    .lightbox--m & {
+      max-width: $lightbox-size-m;
+    }
+
+    .lightbox--active & {
+      animation: fadeInDown 0.35s;
+    }
+  }
+
+  &__btn-close {
+    display: block;
+    position: absolute;
+    top: $gap-base-unit * 2;
+    right: $gap-base-unit * 2;
+    @include size(36px);
+    padding: 6px;
+    line-height: 1;
+    z-index: 1;
+
+    &:before {
+      @include material-icon;
+      content: "\e90f";
+      font-size: 24px;
+      color: $gray-500;
+    }
+  }
+
+  &__head {
+    font-size: px-em(18);
+    line-height: (25/20);
+    font-weight: $bold;
+    text-align: center;
+    padding-bottom: $gap-base-unit * 5;
+
+    &--red {
+      font-weight: $bold;
+      text-align: left;
+      padding-bottom: $gap-base-unit * 5;
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-left: -22px;
+      @include breakpoint(lg) {
+        margin-left: 0;
+      }
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: px-em(32, 18);
+        background-color: $red-500;
+        margin-right: $gap-base-unit * 2;
+        vertical-align: middle;
+        position: absolute;
+        margin-left: -18px;
+
+        @include breakpoint(lg) {
+          height: px-em(24);
+          margin-left: -16px;
+        }
+      }
+    }
+  }
+
+  &__image {
+    width: 160px;
+  }
+
+  &__icon {
+    margin-bottom: $gap-base-unit * 4;
+
+    &::before {
+      @include material-icon;
+      font-size: 48px;
+    }
+  }
+
+  &__title {
+    font-size: px-em(20);
+    line-height: (25/20);
+    // padding-bottom: $gap-base-unit * 4;
+    color: $gray-900;
+    font-weight: $bold;
+
+    @include breakpoint(lg) {
+      font-size: px-em(18);
+      line-height: (27 /18);
+    }
+
+    + .info {
+      padding-top: $gap-base-unit * 4;
+    }
+  }
+
+  &__body {
+  }
+
+  &__btnbox {
+    text-align: center;
+    margin: $gap-base-unit * 6 $gap-base-unit * -2 0;
+
+    @include breakpoint(md) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__btn {
+    width: 168px;
+    margin: 0 $gap-base-unit * 2;
+
+    @include breakpoint(md) {
+      // width: 50%;
+    }
+  }
+}
+
+.notice-banner {
+  &__content {
+    margin-top: 15vh;
+  }
+
+  &__box {
+    position: relative;
+    //
+    max-height: 120px;
+    max-width: 166px;
+    padding: $gap-base-unit * 6;
+    //
+    transition: transform 0.2s ease-out;
+    margin: 10px auto;
+    background: rgba(22, 22, 22, 0.6);
+    border-radius: $radius-lg;
+  }
+  &__icon {
+    margin-bottom: $gap-base-unit * 2;
+
+    &::before {
+      @include material-icon;
+      font-size: 40px;
+    }
+  }
+  &__title {
+    font-size: px-em(16);
+    line-height: (24/16);
+    color: $gray-100;
+    font-weight: $bold;
+  }
+}

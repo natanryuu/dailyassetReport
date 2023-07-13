@@ -1,0 +1,76 @@
+.#{$namespace}header {
+  z-index: $z-header;
+  width: 100%;
+  border-bottom: 2px solid #cf0209;
+  color: $gray-900;
+
+  &__inner {
+    position: relative;
+    @include flex-separate;
+    align-items: center;
+    height: $header-height-lg;
+    padding: $gap-base-unit * 4 0 $gap-base-unit * 4;
+    @include breakpoint(lg) {
+      height: $header-height-sm;
+      padding: $gap-base-unit * 3 0 $gap-base-unit * 3;
+    }
+  }
+  &__hamburger {
+    display: inline-block;
+    text-align: center;
+    @include size(24px);
+    color: $red-500;
+    line-height: 1;
+
+    &.open {
+      .icon {
+        &::before {
+          content: "\e90f";
+        }
+      }
+    }
+  }
+  
+  &__logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 9;
+    &-img {
+      display: block;
+    }
+  }
+  &__title {
+    color: $red-500;
+    white-space: nowrap;
+    margin-left: $gap-base-unit * 4;
+    @include breakpoint(md) {
+      letter-spacing: initial;
+      margin-left: $gap-base-unit * 2;
+    }
+  }
+  &__tool {
+    display: flex;
+    align-items: center;
+    color: $gray-600;
+    font-size: $font-size-base;
+    &-btn {
+      display: flex;
+      align-items: center;
+      margin-right: $gap-base-unit * 6;
+      &:last-child {
+        margin-right: 0;
+      }
+      @include breakpoint(lg) {
+        margin-right: 0;
+      }
+    }
+    &-select {
+      color: $gray-600;
+    }
+  }
+  &__nav {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,809 @@
+// 表單
+
+// readonly -無法用巢狀結構寫
+input:read-only.form__control {
+border-color: $gray-400;
+background-color: #ebeaea;
+box-shadow: none;
+
+&::selection {
+color: #fff;
+background-color: $gray-500;
+}
+}
+
+select.form__control.readonly {
+border-color: $gray-400;
+background-color: #ebeaea;
+box-shadow: none;
+pointer-events: none;
+&::selection {
+color: #fff;
+background-color: $gray-500;
+}
+}
+
+.form {
+width: 100%;
+position: relative;
+
+$control-padding: $gap-base-unit * 2 $gap-base-unit * 3;
+$select-padding: $gap-base-unit * 2 $gap-base-unit * 10 $gap-base-unit * 2
+$gap-base-unit * 3;
+$control-padding-sm: $gap-base-unit * 2 $gap-base-unit * 7 $gap-base-unit * 2
+$gap-base-unit * 3;
+
+&__control {
+color: $gray-900;
+font-size: $font-size-base;
+border-radius: $radius;
+max-width: 548px;
+width: 100%;
+height: $input-height;
+padding: $control-padding;
+border: 1px solid $gray-300;
+background-color: $gray-100;
+letter-spacing: 0.01em;
+transition: box-shadow 0.15s $cubic;
+
+&.w60 {
+width: 60px;
+}
+
+&.w100 {
+width: 100px;
+}
+
+@include breakpoint(md) {
+max-width: initial;
+}
+
+&:hover {
+border-color: $gray-500;
+}
+
+&:focus {
+border-color: $gray-500;
+box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.04);
+}
+
+&[disabled] {
+cursor: not-allowed;
+border-color: $gray-400;
+background-color: #ebeaea;
+}
+
+.form__field--error & {
+border-color: $red-300;
+background-color: $red-50;
+}
+
+//INPUT置右 加的字
+&--after {
+// position: absolute;
+top: 0;
+bottom: 0;
+right: 0;
+// margin: auto;
+display: flex;
+align-items: center;
+padding-right: $gap-base-unit * 3;
+color: $gray-600;
+}
+
+//INPUT 中間 取消style
+&--center {
+display: flex;
+flex-grow: 1;
+border: 0 solid transparent;
+padding: $gap-base-unit * 2 $gap-base-unit * 3;
+background: transparent;
+}
+
+//INPUT置右 加的字
+&--before {
+// position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+// margin: auto;
+display: flex;
+align-items: center;
+color: $gray-600;
+padding-left: $gap-base-unit * 3;
+}
+}
+
+&__select {
+cursor: pointer;
+background: $gray-100
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='=24' viewBox='0 0 24 24'%3E%3Cpath
+fill='%23" + str-replace(
+#{$gray-500},
+"#",
+""
+) + "' d='M19 8.94002L12.6761 15.2754L12.6097 15.338L12.4926 15.4328C11.8496 15.905 10.919 15.8474 10.3479 15.2773L4
+8.94067L4.77539 8.25L11.1233 14.5866L11.1954 14.6468C11.399 14.7881 11.6869 14.7764 11.8772 14.6069L18.2233 8.25065L19
+8.94002Z'/%3E%3C/svg%3E")
+right 12px center no-repeat;
+background-size: 20px;
+padding-right: $gap-base-unit * 10;
+text-overflow: ellipsis;
+
+@include breakpoint(md) {
+background-size: 16px;
+padding-right: $gap-base-unit * 8;
+}
+
+color: $placeholder;
+option {
+color: $gray-900;
+}
+}
+
+&__group {
+position: relative;
+}
+
+// 橫列
+&__field {
+position: relative;
+}
+
+&__choose {
+display: flex;
+flex-wrap: wrap;
+
+.#{$namespace}accordion--active & {
+.form__cell {
+&-line {
+&::after {
+background-color: transparent;
+}
+}
+
+&-mix {
+flex-basis: 100%;
+}
+
+// &:not(:nth-child(1)) {
+// flex-basis: 168px;
+
+// @include breakpoint(md) {
+// flex-basis: auto;
+// }
+// }
+
+// &-head {
+// flex-basis: 100%;
+// }
+}
+}
+}
+
+&__cell {
+padding: $gap-base-unit * 2 $gap-base-unit * 3 $gap-base-unit * 2
+$gap-base-unit * 2;
+
+@include breakpoint(md) {
+padding: $gap-base-unit * 2;
+}
+
+&-line {
+position: relative;
+margin-right: $gap-base-unit * 3;
+
+&::after {
+content: "";
+width: 1px;
+height: 1.5em;
+background-color: $gray-300;
+display: inline-block;
+position: absolute;
+right: 0;
+top: 50%;
+transform: translateY(-50%);
+}
+
+@include breakpoint(md) {
+margin-right: 0;
+
+&::after {
+content: none;
+}
+}
+}
+
+&-title {
+padding-left: 0;
+
+@include breakpoint(md) {
+width: 100%;
+}
+}
+
+&-head {
+flex-basis: 100%;
+}
+
+&--hide {
+display: none;
+
+.accordion--active & {
+display: block;
+}
+}
+}
+
+&__title {
+padding: $gap-base-unit * 2.5;
+text-align: right;
+color: $gray-600;
+font-weight: $bold;
+
+@include breakpoint(md) {
+padding: 0;
+}
+
+&--grid {
+padding-right: 0;
+}
+
+&--top {
+padding: 0;
+}
+}
+
+// 欄位名
+&__label {
+width: 100%;
+
+@include breakpoint(md) {
+margin-bottom: $gap-base-unit * 2;
+text-align: left;
+}
+}
+
+// intput下方文字
+&__msg {
+color: $gray-600;
+font-size: $font-size-sm;
+margin: $gap-base-unit auto;
+}
+
+// 倒數秒數
+&__count {
+color: $red-500;
+padding: 10px 0;
+font-size: 14px;
+white-space: nowrap;
+}
+
+// 回饋訊息
+&__feedback {
+display: none;
+font-size: $font-size-sm;
+margin: $gap-base-unit auto;
+
+// 訊息-錯誤
+.form__field--error & {
+color: $danger;
+display: block;
+animation: fadeInLeft 0.2s $cubic;
+}
+}
+
+//input內有搜尋鈕
+&__search {
+font-size: 20px;
+color: $gray-500;
+
+@include breakpoint(md) {
+font-size: $font-size-base;
+}
+}
+
+// input內有取消
+&__cancel {
+font-size: $font-size-sm;
+color: $gray-500;
+padding: $gap 0 $gap $gap-base-unit * 2;
+display: flex;
+opacity: 0;
+
+&::after {
+content: "";
+display: inline-block;
+width: 1px;
+height: px-em(22);
+background-color: $gray-300;
+margin: 0 $gap-base-unit * 2;
+}
+
+&.show {
+opacity: 1;
+transition: opacity 0.4s $cubic;
+}
+}
+
+&__inputgroup {
+display: flex;
+background-color: $white;
+border-radius: $radius;
+border: 1px solid $border-gray;
+height: $input-height;
+flex-grow: 1;
+
+&:focus-within {
+border-color: $gray-500;
+box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.04);
+}
+
+&-prepend,
+&-append {
+flex-grow: 0;
+flex-shrink: 0;
+padding: $control-padding;
+display: flex;
+align-items: center;
+justify-content: center;
+color: $gray-600;
+cursor: pointer;
+}
+
+&-prepend {
+left: 0;
+padding-right: 0;
+}
+
+&-append {
+right: 0;
+padding-left: 0;
+}
+
+&-control {
+border: none;
+// background: none;
+height: initial;
+
+&:focus {
+box-shadow: none;
+}
+
+.form__field--error & {
+border: none;
+background: none;
+box-shadow: none;
+}
+}
+
+&.disabled {
+cursor: not-allowed;
+// filter: alpha(opacity=65);
+// opacity: 0.65;
+box-shadow: none;
+
+background-color: #ebeaea;
+border-color: $gray-400;
+
+.form__control {
+height: initial;
+}
+
+// .form__control[disabled] {
+// background-color: transparent;
+// }
+}
+
+.form__field--error & {
+// border-color: $danger;
+// box-shadow: 0 0 0 1px $danger inset;
+border-color: $red-300;
+background-color: $red-50;
+}
+
+&.readonly {
+box-shadow: none;
+border-color: $gray-400;
+background-color: #ebeaea;
+
+input:read-only {
+&::selection {
+color: #fff;
+background-color: $gray-500;
+}
+}
+}
+}
+
+&__btnbox {
+margin-top: $gap-base-unit * 8;
+}
+
+//上傳檔案
+
+.upload {
+display: flex;
+align-items: center;
+label {
+cursor: pointer;
+}
+
+&_id {
+height: 208px;
+border-radius: 8px;
+border: 1px solid $red-500;
+background: $red-50;
+width: 100%;
+max-width: 327px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+&_btn {
+border: 1px solid $red-500;
+border-radius: 100px;
+color: $red-500;
+
+padding: 4px 16px;
+font-weight: 500;
+font-size: 16px;
+
+height: 32px;
+min-width: 98px;
+margin-right: 12px;
+
+& + p {
+color: $gray-600;
+font-size: 14px;
+font-weight: 400;
+line-height: 150%;
+}
+}
+
+&_box {
+display: flex;
+padding: 10px 12px;
+align-items: center;
+align-self: stretch;
+border-radius: 8px;
+width: 100%;
+box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.05),
+0px 0px 12px 0px rgba(0, 0, 0, 0.04),
+0px 0px 8px 0px rgba(0, 0, 0, 0.05);
+}
+
+input {
+width: 0;
+height: 0;
+visibility: hidden;
+}
+
+.img {
+&.camera {
+width: 64px;
+height: 64px;
+padding: 10.667px 5.601px 10.533px 5.599px;
+}
+&.delete {
+width: 20px;
+height: 20px;
+}
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.file_wrap {
+flex-grow: 1;
+.file_name {
+color: $gray-900;
+
+font-size: 16px;
+
+font-weight: 400;
+line-height: 150%;
+}
+
+.file_mb {
+color: $gray-600;
+
+font-size: 14px;
+
+font-weight: 400;
+line-height: 150%;
+}
+}
+
+// {
+// content: "";
+// position: absolute;
+// top:15px;
+// right:15px;
+// border-radius: 100px;
+// background: rgba($gray-900, 0.7);
+
+// width: 24px;
+// height: 24px;
+// padding: 4px;
+
+// flex-shrink: 0;
+// }
+}
+
+}
+
+.#{$namespace}form-check {
+&__input {
+position: absolute;
+opacity: 0;
+visibility: hidden;
+
+.#{$namespace}form-chips & {
+@include breakpoint(md) {
+&:checked + .form-check__label {
+border: 1px solid $red-500;
+
+> span {
+border-color: $red-500;
+background-color: $red-500;
+}
+}
+}
+}
+}
+
+&__label {
+display: flex;
+cursor: pointer;
+color: $gray-600;
+font-size: 14px;
+font-weight: bold;
+&.fs-16 {
+font-size: 16px;
+&.gray-500{
+color: $gray-500;
+}
+&.gray-700{
+color: $gray-700;
+}
+}
+&.fw-normal {
+font-weight: normal;
+}
+>span {
+&.unagree {
+color: $gray-500;
+}
+> span {
+position: relative;
+flex-shrink: 0;
+display: inline-block;
+@include size(20px);
+font-size: $font-size-base;
+border: 1px solid $gray-300;
+border-radius: $radius;
+background: $gray-100;
+margin-right: $gap-base-unit * 2;
+margin-top: 2px;
+
+:checked + & {
+border: 1px solid $red-500;
+background-color: $red-500;
+}
+
+:disabled + & {
+border: 1px solid $gray-300;
+cursor: not-allowed;
+background-color: $gray-300;
+}
+
+&:after {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: $gray-100;
+font-size: $font-size-sm;
+
+:checked + & {
+@include material-icon;
+content: "\e91c";
+}
+}
+}
+
+.#{$namespace}form-chips & {
+@include breakpoint(md) {
+white-space: nowrap;
+justify-content: space-between;
+align-items: center;
+position: relative;
+color: $gray-900;
+border: 1px solid $gray-300;
+border-radius: $radius;
+padding: $gap-base-unit * 1.5 $gap-base-unit * 3;
+width: 100%;
+
+> span {
+margin: 0;
+border-color: transparent;
+background-color: transparent;
+position: absolute;
+@include size(10px);
+right: -1px;
+bottom: -1px;
+padding: 2px;
+border-radius: $radius 0;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6' viewBox='0 0 6
+6' fill='none'%3E%3Cpath d='M5.625 1.18538L2.03893 4.875L0.375 3.16301L0.790984 2.72764L2.03893 4.01163L5.20184
+0.75L5.625 1.18538Z' fill='%23FEF9F9'/%3E%3Cpath d='M2.03893 4.875L1.85966 5.04924L2.03893 5.23369L2.21821
+5.04924L2.03893 4.875ZM5.625 1.18538L5.80427 1.35962L5.97363 1.18538L5.80427 1.01113L5.625 1.18538ZM0.375
+3.16301L0.194244 2.99031L0.0278141 3.1645L0.195725 3.33726L0.375 3.16301ZM0.790984 2.72764L0.970258 2.5534L0.789445
+2.36736L0.610227 2.55493L0.790984 2.72764ZM2.03893 4.01163L1.85966 4.18587L2.03914 4.37053L2.21841 4.18567L2.03893
+4.01163ZM5.20184 0.75L5.38112 0.575757L5.20164 0.391096L5.02237 0.57596L5.20184 0.75ZM2.21821 5.04924L5.80427
+1.35962L5.44573 1.01113L1.85966 4.70076L2.21821 5.04924ZM0.195725 3.33726L1.85966 5.04924L2.21821 4.70076L0.554275
+2.98877L0.195725 3.33726ZM0.610227 2.55493L0.194244 2.99031L0.555756 3.33572L0.97174 2.90034L0.610227 2.55493ZM2.21821
+3.83739L0.970258 2.5534L0.611709 2.90188L1.85966 4.18587L2.21821 3.83739ZM5.02237 0.57596L1.85946 3.83759L2.21841
+4.18567L5.38132 0.92404L5.02237 0.57596ZM5.80427 1.01113L5.38112 0.575757L5.02257 0.924243L5.44573 1.35962L5.80427
+1.01113Z' fill='white'/%3E%3C/svg%3E");
+background-size: 6px;
+background-position: center;
+background-repeat: no-repeat;
+
+&::after {
+content: none;
+}
+}
+}
+}
+}
+}
+
+.#{$namespace}form-radio {
+display: flex;
+align-items: center;
+
+&__input {
+position: absolute;
+clip: rect(0, 0, 0, 0);
+pointer-events: none;
+
+.#{$namespace}form-chips & {
+@include breakpoint(md) {
+&:checked + .form-radio__label {
+border: 1px solid $red-500;
+
+&::after {
+background-color: $red-500;
+}
+}
+}
+}
+}
+
+&__label {
+display: flex;
+color: $gray-700;
+cursor: pointer;
+white-space: nowrap;
+justify-content: space-between;
+align-items: center;
+position: relative;
+
+&::before {
+content: "";
+@include size(20px);
+background: $gray-100;
+border: 1px solid $gray-300;
+border-radius: $radius;
+margin-right: $gap-base-unit * 2;
+border-radius: 100%;
+flex-shrink: 0;
+
+:checked + & {
+background-color: $red-500;
+}
+}
+
+&::after {
+content: "";
+@include size(6px);
+display: inline-block;
+border-radius: 100%;
+position: absolute;
+top: 9px;
+left: 7px;
+
+:checked + & {
+background-color: $gray-100;
+}
+}
+
+.#{$namespace}form-chips & {
+@include breakpoint(md) {
+color: $gray-900;
+background-color: transparent;
+border: 1px solid $gray-300;
+border-radius: $radius;
+padding: $gap-base-unit * 1.5 $gap-base-unit * 3;
+
+&::before {
+content: none;
+}
+
+&::after {
+content: "";
+position: absolute;
+top: auto;
+left: auto;
+right: -1px;
+bottom: -1px;
+@include size(10px);
+padding: 2px;
+border-radius: $radius 0;
+background-color: transparent;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6' viewBox='0 0 6
+6' fill='none'%3E%3Cpath d='M5.625 1.18538L2.03893 4.875L0.375 3.16301L0.790984 2.72764L2.03893 4.01163L5.20184
+0.75L5.625 1.18538Z' fill='%23FEF9F9'/%3E%3Cpath d='M2.03893 4.875L1.85966 5.04924L2.03893 5.23369L2.21821
+5.04924L2.03893 4.875ZM5.625 1.18538L5.80427 1.35962L5.97363 1.18538L5.80427 1.01113L5.625 1.18538ZM0.375
+3.16301L0.194244 2.99031L0.0278141 3.1645L0.195725 3.33726L0.375 3.16301ZM0.790984 2.72764L0.970258 2.5534L0.789445
+2.36736L0.610227 2.55493L0.790984 2.72764ZM2.03893 4.01163L1.85966 4.18587L2.03914 4.37053L2.21841 4.18567L2.03893
+4.01163ZM5.20184 0.75L5.38112 0.575757L5.20164 0.391096L5.02237 0.57596L5.20184 0.75ZM2.21821 5.04924L5.80427
+1.35962L5.44573 1.01113L1.85966 4.70076L2.21821 5.04924ZM0.195725 3.33726L1.85966 5.04924L2.21821 4.70076L0.554275
+2.98877L0.195725 3.33726ZM0.610227 2.55493L0.194244 2.99031L0.555756 3.33572L0.97174 2.90034L0.610227 2.55493ZM2.21821
+3.83739L0.970258 2.5534L0.611709 2.90188L1.85966 4.18587L2.21821 3.83739ZM5.02237 0.57596L1.85946 3.83759L2.21841
+4.18567L5.38132 0.92404L5.02237 0.57596ZM5.80427 1.01113L5.38112 0.575757L5.02257 0.924243L5.44573 1.35962L5.80427
+1.01113Z' fill='white'/%3E%3C/svg%3E");
+background-size: 6px;
+background-position: center;
+background-repeat: no-repeat;
+}
+}
+}
+}
+}
+
+.#{$namespace}form-chips {
+@include breakpoint(md) {
+padding: $gap-base-unit * 2 $gap-base-unit * 2 $gap-base-unit * 2 0;
+}
+}
+
+
+.#{$namespace}form-apply {
+&__box {
+box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.05), 0px 0px 12px 0px rgba(0, 0, 0, 0.04), 0px 0px 8px 0px rgba(0, 0, 0,
+0.05);
+border-radius: 4px;
+}
+&__heading{
+border-bottom: 1px solid $gray-300;
+padding: $gap-base-unit * 4 $gap-base-unit * 6;
+}
+&__content {
+padding: $gap-base-unit * 4 $gap-base-unit * 6;
+@include breakpoint(md) {
+font-size: 14px;
+}
+}
+
+}
+
+
+
+// 分隔線
+.dashed{
+width: 100%;
+height: 1px;
+
+background-image: linear-gradient(to right, $gray-400 50%, rgba(255,255,255,0) 0%);
+background-position: bottom;
+background-size: 8px 1px;
+background-repeat: repeat-x;
+
+
+}
+}

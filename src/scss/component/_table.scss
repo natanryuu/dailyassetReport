@@ -1,0 +1,1342 @@
+// .scrolltable {
+//   width: 100%;
+//   position: relative;
+//   margin-top: $wrap-gap-sm;
+
+//   &__inner {
+//     overflow-x: auto;
+//     overflow-y: hidden;
+//     @include scroll-bar(1);
+//     -webkit-overflow-scrolling: touch;
+//   }
+// }
+
+// table {
+//   max-width: 100%;
+//   width: 100%;
+//   border-spacing: 0;
+//   border-collapse: collapse;
+//   background-color: transparent;
+
+//   > caption {
+//     overflow: hidden;
+//     width: 0;
+//     height: 0;
+//     text-indent: 100%;
+//     white-space: nowrap;
+//   }
+// }
+
+// .#{$namespace}table {
+//   width: 100%;
+//   text-align: center;
+//   border: 1px solid $gray-300;
+
+//   &__row,
+//   tr {
+//     display: table-row;
+//     padding: 0;
+//     width: 100%;
+//   }
+
+//   &__head,
+//   thead {
+//     display: table-header-group;
+//     color: $gray-700;
+//     padding: $gap-base-unit * 2 0;
+//     width: 100%;
+//     background-color: $red-100;
+//     font-weight: $bold;
+//   }
+
+//   &__body,
+//   tbody {
+//     width: 100%;
+//     display: table-row-group;
+//   }
+
+//   &__cell,
+//   th,
+//   td {
+//     padding: $gap-base-unit * 3;
+//     display: table-cell;
+//     vertical-align: middle;
+
+//     &:first-child {
+//       width: 24%;
+//       min-width: 120px;
+//       text-align: left;
+//       color: $gray-900;
+
+//       @include breakpoint(lg) {
+//         background-color: rgba($gray-100, 0.95);
+//         position: sticky;
+//         left: 0;
+//       }
+//     }
+
+//     @include breakpoint(lg) {
+//       min-width: 80px;
+//       padding: $gap-base-unit * 2;
+//       border: 1px solid $gray-300;
+//     }
+//   }
+// }
+
+// // other table
+// .#{$namespace}my-tablelist {
+//   margin-top: $gap-base-unit * 6;
+//   text-align: center;
+//   border-radius: $radius;
+
+//   @include breakpoint(lg) {
+//     font-size: 14px;
+//     margin-top: $gap-base-unit * 4;
+//   }
+
+//   &__head {
+//     border-radius: $radius $radius 0px 0px;
+//     background-color: $red-300;
+//     color: $gray-100;
+//     font-weight: $bold;
+//     padding: 0 $gap-base-unit * 4;
+//     display: flex;
+//     align-items: center;
+
+//     @include breakpoint(lg) {
+//       border-radius: 0;
+//       background-color: $red-100;
+//       color: $gray-700;
+//       padding: $gap-base-unit * 2;
+//     }
+//   }
+
+//   &__item {
+//     display: flex;
+//     position: relative;
+//     padding: $gap-base-unit * 2 $gap-base-unit * 4;
+
+//     &:nth-child(odd) {
+//       background-color: $gray-200;
+//     }
+
+//     @include breakpoint(lg) {
+//       padding: $gap-base-unit * 3 $gap-base-unit * 2;
+//     }
+//   }
+
+//   &__name-group {
+//     display: flex;
+//     width: 32%;
+//     flex-shrink: 0;
+
+//     @include breakpoint(lg) {
+//       flex-direction: column;
+//       align-items: center;
+//       width: 150 / 327 * 100%;
+//     }
+
+//     .bonds & {
+//       width: 210 / 1006 * 100%;
+
+//       @include breakpoint(lg) {
+//         width: 177 / 327 * 100%;
+//       }
+//     }
+//   }
+
+//   &__num-group {
+//     display: flex;
+//     flex-wrap: wrap;
+//     flex-grow: 1;
+
+//     @include breakpoint(lg) {
+//     }
+//   }
+
+//   &__cell {
+//     padding: $gap-base-unit * 2;
+//     align-self: center;
+
+//     @include breakpoint(lg) {
+//       padding: 0 $gap-base-unit * 2;
+//     }
+
+//     &-no {
+//       width: 50px;
+//       flex-shrink: 0;
+//       // font-family: "-apple-system";
+//     }
+
+//     &-id {
+//       flex-grow: 2;
+
+//       .fund-table & {
+//         text-align: justify;
+//       }
+//     }
+
+//     // 產品名
+//     &-name {
+//       display: block;
+
+//       @include active-hover {
+//         color: $blue-700;
+//         text-decoration: underline;
+//       }
+//     }
+
+//     &-no,
+//     &-id {
+//       @include breakpoint(lg) {
+//         width: 100%;
+//         text-align: left;
+//       }
+//     }
+
+//     &-th {
+//       width: 100%;
+//     }
+
+//     &-num {
+//       white-space: nowrap;
+//       flex: 1;
+
+//       @include breakpoint(lg) {
+//         width: 100%;
+//       }
+
+//       .bonds & {
+//         @include breakpoint(lg) {
+//           flex: none;
+//         }
+//       }
+//     }
+//   }
+
+//   // 斜線
+//   &--slash {
+//     @include breakpoint(lg) {
+//       &::after {
+//         content: "/";
+//       }
+//     }
+//   }
+
+//   //  組合
+//   &__col {
+//     display: flex;
+//     flex: auto;
+//     justify-content: center;
+
+//     @include breakpoint(lg) {
+//       flex-direction: column;
+//     }
+//   }
+
+//   &__btn-action {
+//     flex-shrink: 0;
+//     width: 78px;
+//     min-width: 78px;
+//     display: flex;
+//     align-items: center;
+//     flex-direction: column;
+
+//     @include breakpoint(lg) {
+//       min-width: 68px;
+//     }
+//   }
+
+//   &__btn {
+//     margin-bottom: $gap-base-unit * 2;
+
+//     &:last-child {
+//       margin-bottom: 0;
+//     }
+//   }
+// }
+
+// .#{$namespace}sortable {
+//   cursor: pointer;
+
+//   i.icon {
+//     display: block;
+//     text-align: center;
+//     margin: 2px auto 0;
+//     color: $red-500;
+
+//     @include breakpoint(lg) {
+//       display: none;
+//     }
+//   }
+
+//   &.desc {
+//     i.icon {
+//       &::before {
+//         content: "\e911";
+//         color: $gray-100;
+//       }
+//     }
+//   }
+
+//   &.asc {
+//     i.icon {
+//       &::before {
+//         content: "\e910";
+//         color: $gray-100;
+//       }
+//     }
+//   }
+// }
+
+// 資產報告同意條款
+.#{$namespace}mixHeadTable {
+    font-size: $font-size-sm;
+
+    &--tr {
+        width: 100%;
+        display: flex;
+
+        &:last-child {
+
+            .mixHeadTable--th,
+            .mixHeadTable--td {
+                border-bottom: 1px solid $gray-300;
+
+                @include breakpoint(lg) {
+                    border-top: 0;
+                }
+            }
+        }
+
+        &:only-child {
+            @include breakpoint(lg) {
+                border-top: 1px solid $gray-300;
+            }
+        }
+
+        .border-Bottom {
+            border-bottom: 1px solid $gray-300;
+        }
+    }
+
+    &--th,
+    &--td {
+        border-width: 1px 1px 0 1px;
+        border-style: solid;
+        border-color: $gray-300;
+        padding: $gap-base-unit * 2 $gap-base-unit * 3;
+
+        @include breakpoint(lg) {
+            padding: $gap-base-unit * 2;
+        }
+    }
+
+    &--row {
+        @include breakpoint(lg) {
+            flex-direction: column;
+        }
+    }
+
+    &--th {
+        color: $gray-700;
+        display: table-cell;
+        background-color: $red-100;
+        font-weight: $bold;
+        max-width: 164px;
+        flex-basis: 164px;
+        border-right: 0;
+
+        .mixHeadTable--w50:nth-child(2) & {
+            border-left: 0;
+        }
+
+        .mixHeadTable--w50:only-child & {
+            border-left: 1px solid $gray-300;
+        }
+
+        @include breakpoint(lg) {
+            max-width: 120px;
+            flex-basis: 120px;
+        }
+    }
+
+    &--td {
+        color: $gray-900;
+        background-color: $gray-100;
+        display: table-cell;
+        flex: 1;
+    }
+
+    &--w50 {
+        display: flex;
+        flex: 0 1 50%;
+
+        @include breakpoint(lg) {
+            flex: 1 1 100%;
+        }
+    }
+
+    &-borderBottom {
+        border-bottom: 1px solid $gray-300;
+    }
+}
+
+// .#{$namespace}dataTable {
+//   text-align: center;
+//   font-size: $font-size-sm;
+
+//   @include breakpoint(lg) {
+//     text-align: left;
+//   }
+
+//   &--row {
+//     display: flex;
+//     width: 100%;
+//     border: 1px solid $gray-300;
+//     border-right: 0;
+
+//     &:last-child {
+//       border-top: 0;
+//     }
+
+//     &:only-child {
+//       border-top: 1px solid $gray-300;
+//     }
+
+//     @include breakpoint(lg) {
+//       flex-direction: column;
+//       border-bottom: 0;
+//     }
+//   }
+
+//   &--col {
+//     border-right: 1px solid $gray-300;
+//     flex: 1;
+
+//     @include breakpoint(lg) {
+//       display: flex;
+
+//       &:last-child {
+//         .dataTable--th:last-child {
+//           border-bottom: 0;
+//         }
+//       }
+//     }
+
+//     .#{$namespace}dataTable--hor & {
+//       &:not(:last-child) {
+//         border-right: 0;
+
+//         @include breakpoint(lg) {
+//           border-right: 1px solid $gray-300;
+//         }
+//       }
+//     }
+//   }
+
+//   &--cell {
+//     color: $gray-900;
+//     padding: $gap-base-unit * 2 $gap-base-unit;
+//     flex: 1;
+
+//     @include breakpoint(lg) {
+//       border-bottom: 1px solid $gray-300;
+//       padding: $gap-base-unit * 2;
+//     }
+
+//     .#{$namespace}dataTable--hor & {
+//       @include breakpoint(lg) {
+//         &:not(:last-child) {
+//           border-right: 1px solid $gray-300;
+//         }
+//       }
+//     }
+//   }
+
+//   &--th {
+//     color: $gray-700;
+//     font-weight: $bold;
+//     background-color: $red-100;
+//     border-bottom: 1px solid $gray-300;
+
+//     @include breakpoint(lg) {
+//       max-width: 120px;
+//       flex-basis: 120px;
+//     }
+
+//     .#{$namespace}dataTable--hor & {
+//       @include breakpoint(lg) {
+//         border-right: 1px solid $gray-300;
+//         max-width: 110px;
+//         flex-basis: 110px;
+//       }
+//     }
+//   }
+
+//   &--center {
+//     text-align: center;
+//   }
+// }
+
+// // 公告-休市行情
+// .#{$namespace}holiday {
+//   &__list {
+//     @include breakpoint(lg) {
+//       font-size: $font-size-sm;
+//     }
+//   }
+
+//   &__item {
+//     display: flex;
+//     position: relative;
+//     padding: $gap-base-unit * 2 $gap-base-unit * 4;
+
+//     &:not(:first-child) {
+//       &:nth-child(odd) {
+//         background-color: $gray-200;
+//       }
+//     }
+
+//     @include breakpoint(lg) {
+//       padding: $gap-base-unit * 3 $gap-base-unit * 2;
+//     }
+
+//     &__head {
+//       border-radius: $radius $radius 0px 0px;
+//       background-color: $red-300;
+//       color: $gray-100;
+//       font-weight: $bold;
+//       padding: 0 $gap-base-unit * 4;
+//       display: flex;
+//       align-items: center;
+
+//       @include breakpoint(lg) {
+//         border-radius: 0;
+//         background-color: $red-100;
+//         color: $gray-700;
+//         padding: $gap-base-unit * 2;
+//       }
+//     }
+//   }
+
+//   &__name,
+//   &__state {
+//     padding: $gap-base-unit * 2;
+//     align-self: center;
+
+//     @include breakpoint(lg) {
+//       padding: 0 $gap-base-unit * 2;
+//     }
+//   }
+
+//   &__name {
+//     margin-right: auto;
+//     flex: 1;
+//   }
+
+//   &__state {
+//     max-width: 168px;
+
+//     @include breakpoint(lg) {
+//       max-width: 80px;
+//     }
+//   }
+
+//   &__heading {
+//     padding: $gap-base-unit * 6 $gap-base-unit * 6 $gap-base-unit * 3;
+//     border-bottom: 2px solid $gray-500;
+
+//     @include breakpoint(lg) {
+//       padding: $gap-base-unit * 3 $gap-base-unit * 4;
+//       border-width: 1px;
+//     }
+//   }
+
+//   &__date {
+//     font-size: 18px;
+//     font-weight: $bold;
+
+//     @include breakpoint(lg) {
+//       font-size: $font-size-sm;
+//     }
+//   }
+// }
+
+// // 配息資訊表
+// .#{$namespace}dividendList {
+//   margin-top: $gap-base-unit * 6;
+//   text-align: center;
+//   border-radius: $radius;
+
+//   @include breakpoint(lg) {
+//     font-size: 14px;
+//     margin-top: $gap-base-unit * 4;
+//   }
+
+//   &__head {
+//     border-radius: $radius $radius 0px 0px;
+//     background-color: $red-300;
+//     color: $gray-100;
+//     font-weight: $bold;
+//     padding: 0 $gap-base-unit * 4;
+//     display: flex;
+//     align-items: center;
+
+//     @include breakpoint(lg) {
+//       border-radius: 0;
+//       background-color: $red-100;
+//       color: $gray-700;
+//       padding: $gap-base-unit * 2;
+//       display: none;
+//     }
+//   }
+
+//   &__item {
+//     display: flex;
+//     position: relative;
+//     padding: $gap-base-unit * 2 $gap-base-unit * 4;
+
+//     &:nth-child(odd) {
+//       background-color: $gray-200;
+
+//       @include breakpoint(lg) {
+//         background-color: $gray-100;
+//       }
+//     }
+
+//     @include breakpoint(lg) {
+//       flex-wrap: wrap;
+//       justify-content: space-between;
+//       margin-bottom: $gap-base-unit * 4;
+//       padding: 0;
+//       border-radius: $radius-lg;
+//       box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05),
+//         0px 0px 12px rgba(0, 0, 0, 0.04), 0px 4px 2px rgba(0, 0, 0, 0.05);
+//       background-color: $gray-100;
+//     }
+//   }
+
+//   &__name-group {
+//     display: flex;
+//     justify-content: center;
+//     width: 32%;
+
+//     flex-shrink: 0;
+
+//     @include breakpoint(lg) {
+//       width: 100%;
+//       align-items: center;
+//     }
+//   }
+
+//   &__num-group {
+//     display: flex;
+//     flex-wrap: wrap;
+//     flex-grow: 1;
+
+//     @include breakpoint(lg) {
+//       flex-direction: column;
+//       padding: $gap-base-unit * 3 $gap-base-unit * 4;
+//       flex-shrink: 0;
+//       align-items: center;
+//       width: 100%;
+//     }
+//   }
+
+//   &__cell {
+//     padding: $gap-base-unit * 2;
+//     align-self: center;
+//     flex: 1;
+
+//     @include breakpoint(lg) {
+//       padding: 12px 16px;
+//     }
+
+//     &-title {
+//       text-align: center;
+//     }
+
+//     // 產品名
+//     &-name {
+//       text-align: left;
+
+//       @include breakpoint(lg) {
+//         // padding-bottom: $gap-base-unit * 3;
+//         border-bottom: 1px solid $gray-300;
+//         font-weight: $bold;
+//       }
+//     }
+
+//     // 日期
+//     &-date {
+//       padding: $gap-base-unit * 2 $gap-base-unit;
+//     }
+
+//     &-exdividend {
+//       @include breakpoint(lg) {
+//         &:before {
+//           content: "除息日";
+//         }
+//       }
+//     }
+
+//     &-currency {
+//       @include breakpoint(lg) {
+//         &:before {
+//           content: "計價幣別";
+//         }
+//       }
+//     }
+
+//     &-frequency {
+//       @include breakpoint(lg) {
+//         &:before {
+//           content: "配息頻率";
+//         }
+//       }
+//     }
+
+//     &-amount {
+//       @include breakpoint(lg) {
+//         &:before {
+//           content: "每單位分配金額";
+//         }
+//       }
+//     }
+
+//     &-dividendrate {
+//       @include breakpoint(lg) {
+//         &:before {
+//           content: "年化配息率％";
+//         }
+//       }
+//     }
+
+//     &-roi {
+//       @include breakpoint(lg) {
+//         &:before {
+//           content: "今年以來報酬率％";
+//         }
+//       }
+//     }
+
+//     &-releasedate {
+//       @include breakpoint(lg) {
+//         &:before {
+//           content: "發放日";
+//         }
+//       }
+//     }
+
+//     &-exdividend,
+//     &-currency,
+//     &-frequency,
+//     &-amount,
+//     &-dividendrate,
+//     &-roi,
+//     &-releasedate {
+//       @include breakpoint(lg) {
+//         padding: 0;
+//         padding-bottom: $gap-base-unit;
+//         width: 100%;
+//         display: flex;
+//         justify-content: flex-start;
+
+//         &:before {
+//           width: 120px;
+//           text-align: left;
+//           font-size: 14px;
+//           font-weight: $bold;
+//           color: $gray-500;
+//           margin-right: $gap-base-unit;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// // 基金通路報酬揭露 查詢表
+// .#{$namespace}report {
+//   @include breakpoint(md) {
+//     font-size: $font-size-sm;
+//   }
+
+//   &__logo {
+//     width: 140px;
+//     margin-bottom: $gap-base-unit * 2;
+
+//     @include breakpoint(md) {
+//       width: 50%;
+//     }
+//   }
+
+//   &__table {
+//     width: 100%;
+//     border-collapse: collapse;
+//     border: 1px solid $gray-300;
+//     text-align: center;
+//     font-size: $font-size-sm;
+//     margin: $gap-base-unit * 4 auto;
+
+//     th,
+//     td {
+//       border-top: 1px solid $gray-300;
+//       border-bottom: 1px solid $gray-300;
+//       vertical-align: middle;
+//       padding: $gap-base-unit * 3 $gap-base-unit * 6;
+
+//       @include breakpoint(md) {
+//         padding: $gap-base-unit * 2;
+//       }
+//     }
+
+//     th,
+//     &-head {
+//       background-color: $red-100;
+//       padding: $gap-base-unit * 2.5 $gap-base-unit * 6;
+//       font-weight: $bold;
+//       color: $gray-700;
+
+//       @include breakpoint(md) {
+//         padding: $gap-base-unit * 2 $gap-base-unit * 4;
+//       }
+//     }
+
+//     &-w25 {
+//       width: 25%;
+
+//       @include breakpoint(md) {
+//         width: 50%;
+//       }
+//     }
+//   }
+// }
+
+// // 基金通路報酬揭露 簽名處
+// .#{$namespace}signbox {
+//   margin: $gap-base-unit * 6 auto;
+//   border: 1px solid $gray-300;
+//   table-layout: fixed;
+
+//   @include breakpoint(md) {
+//     font-size: $font-size-sm;
+//     margin: $gap-base-unit * 4 auto;
+//   }
+
+//   td {
+//     padding: 24px;
+
+//     @include breakpoint(md) {
+//       padding: 12px 16px;
+//     }
+//   }
+
+//   &__td {
+//     span {
+//       display: inline-block;
+//     }
+
+//     &-line {
+//       position: relative;
+//       width: 50%;
+//       min-width: 150px;
+
+//       @include breakpoint(sm) {
+//         min-width: 110px;
+//       }
+
+//       &::before {
+//         content: "";
+//         width: 100%;
+//         height: 1px;
+//         display: inline-block;
+//         background-color: $gray-700;
+//         position: absolute;
+//         bottom: 0;
+//       }
+//     }
+//   }
+// }
+
+// // .global-table 經濟情勢
+// .#{$namespace}global-table {
+//   border-spacing: 0;
+//   margin-bottom: $gap-base-unit * 8;
+
+//   @include breakpoint(md) {
+//     font-size: $font-size-sm;
+//     margin-bottom: $gap-base-unit * 6;
+//   }
+
+//   th {
+//     background-color: $red-300;
+//     color: $gray-100;
+//     font-weight: $bold;
+//     padding: $gap-base-unit * 2.5 $gap-base-unit * 2;
+
+//     &:first-child {
+//       border-radius: $radius 0 0 0;
+//       padding-left: $gap-base-unit * 6;
+
+//       @include breakpoint(md) {
+//         padding-left: $gap-base-unit * 3;
+//       }
+//     }
+
+//     &:last-child {
+//       border-radius: 0 $radius 0 0;
+//       padding-right: $gap-base-unit * 6;
+
+//       @include breakpoint(md) {
+//         padding-right: $gap-base-unit * 3;
+//       }
+//     }
+
+//     &:only-child {
+//       border-radius: $radius $radius 0 0;
+//     }
+
+//     @include breakpoint(md) {
+//       background-color: $red-100;
+//       color: $gray-700;
+//       padding: $gap-base-unit * 2 $gap-base-unit;
+//     }
+//   }
+
+//   tbody {
+//     tr {
+//       &:nth-child(even) {
+//         background-color: $gray-200;
+//       }
+//     }
+//   }
+
+//   td {
+//     vertical-align: middle;
+//     padding: $gap-base-unit * 4 $gap-base-unit * 2;
+
+//     &:first-child {
+//       padding-left: $gap-base-unit * 6;
+
+//       @include breakpoint(md) {
+//         padding-left: $gap-base-unit * 3;
+//       }
+//     }
+
+//     &:last-child {
+//       padding-right: $gap-base-unit * 6;
+
+//       @include breakpoint(md) {
+//         padding-right: $gap-base-unit * 3;
+//       }
+//     }
+
+//     @include breakpoint(md) {
+//       padding: $gap-base-unit * 3 $gap-base-unit;
+//     }
+//   }
+
+//   .left {
+//     text-align: left;
+//   }
+
+//   .right {
+//     text-align: right;
+//   }
+
+//   &__date {
+//     margin-right: 16px;
+//   }
+// }
+
+// // .indicator-table 各國經濟指標
+// .#{$namespace}indicator-table {
+//   text-align: center;
+//   table-layout: fixed;
+
+//   @include breakpoint(md) {
+//     font-size: $font-size-sm;
+//   }
+
+//   thead th {
+//     background-color: $red-300;
+//     color: $gray-100;
+//     font-weight: $bold;
+//     padding: $gap-base-unit * 2.5 $gap-base-unit * 2;
+
+//     &:first-child {
+//       border-radius: $radius 0 0 0;
+//       padding-left: $gap-base-unit * 6;
+
+//       @include breakpoint(md) {
+//         padding-left: $gap-base-unit * 3;
+//       }
+//     }
+
+//     &:last-child {
+//       border-radius: 0 $radius 0 0;
+//       padding-right: $gap-base-unit * 6;
+
+//       @include breakpoint(md) {
+//         padding-right: $gap-base-unit * 3;
+//       }
+//     }
+
+//     &:only-child {
+//       border-radius: $radius $radius 0 0;
+//     }
+
+//     @include breakpoint(md) {
+//       display: none;
+//     }
+//   }
+
+//   tbody {
+//     tr {
+//       &:nth-child(even) {
+//         background-color: $gray-200;
+//       }
+
+//       @include breakpoint(md) {
+//         &:nth-child(even) {
+//           background-color: $gray-100;
+//         }
+
+//         display: block;
+//         border-radius: $radius-lg;
+//         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05),
+//           0px 0px 12px rgba(0, 0, 0, 0.04), 0px 4px 2px rgba(0, 0, 0, 0.05);
+//         margin-bottom: $gap-base-unit * 4;
+//       }
+//     }
+
+//     td {
+//       vertical-align: middle;
+//       padding: $gap-base-unit * 4 $gap-base-unit * 2;
+
+//       &:first-child {
+//         padding-left: $gap-base-unit * 6;
+
+//         @include breakpoint(md) {
+//           padding: $gap-base-unit * 3 $gap-base-unit * 4 $gap-base-unit;
+//         }
+//       }
+
+//       &:last-child {
+//         padding-right: $gap-base-unit * 6;
+
+//         @include breakpoint(md) {
+//           padding: $gap-base-unit $gap-base-unit * 4 $gap-base-unit * 3;
+//         }
+//       }
+
+//       @include breakpoint(md) {
+//         display: flex;
+//         justify-content: flex-start;
+//         padding: $gap-base-unit $gap-base-unit * 4 0;
+//         // padding: $gap-base-unit * 3 $gap-base-unit * 2;
+//       }
+//     }
+//   }
+
+//   .table__cell {
+//     @include breakpoint(md) {
+//       &-date {
+//         margin-left: $gap-base-unit;
+
+//         &::before {
+//           content: "(";
+//         }
+
+//         &::after {
+//           content: ")";
+//         }
+//       }
+
+//       &-country {
+//         &::before {
+//           content: "國家";
+//         }
+//       }
+
+//       &-growth {
+//         &::before {
+//           content: "經濟成長率(%)";
+//         }
+//       }
+
+//       &-unemployment {
+//         &::before {
+//           content: "失業率(%)";
+//         }
+//       }
+
+//       &-rediscount {
+//         &::before {
+//           content: "重貼現率(%)";
+//         }
+//       }
+
+//       &-consumer {
+//         &::before {
+//           content: "消費者物價(%)";
+//         }
+//       }
+
+//       &-industrial {
+//         &::before {
+//           content: "工業生產(%)";
+//         }
+//       }
+
+//       &-country,
+//       &-growth,
+//       &-unemployment,
+//       &-rediscount,
+//       &-consumer,
+//       &-industrial {
+//         &:before {
+//           width: 120px;
+//           text-align: left;
+//           font-size: 14px;
+//           font-weight: $bold;
+//           color: $gray-500;
+//           margin-right: $gap-base-unit;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// // 金融趨勢
+// .#{$namespace}trendslist {
+//   margin-top: $gap-base-unit * 10;
+
+//   @include breakpoint(md) {
+//     margin-top: $gap-base-unit * 4;
+//     font-size: $font-size-sm;
+//   }
+
+//   &__heading {
+//     font-size: 18px;
+//     font-weight: $bold;
+//     padding: $gap-base-unit * 6 $gap-base-unit * 6 $gap-base-unit * 3;
+//     border-bottom: 2px solid $gray-400;
+
+//     @include breakpoint(md) {
+//       padding: $gap-base-unit * 3 $gap-base-unit * 4;
+//       font-size: $font-size-sm;
+//       border-width: 1px;
+//     }
+//   }
+
+//   &__head {
+//     border-radius: $radius $radius 0px 0px;
+//     background-color: $red-300;
+//     color: $gray-100;
+//     font-weight: $bold;
+//     padding: 0 $gap-base-unit * 4;
+//     text-align: center;
+//     display: flex;
+
+//     @include breakpoint(md) {
+//       border-radius: 0;
+//       background-color: $red-100;
+//       color: $gray-700;
+//       padding: 0 $gap-base-unit * 2;
+//     }
+
+//     .trendslist__cell-chart {
+//       display: none;
+
+//       @include breakpoint(md) {
+//         display: block;
+//       }
+//     }
+//   }
+
+//   &__content {
+//     @include breakpoint(md) {
+//       .trendslist__item:nth-child(odd) {
+//         background-color: $gray-200;
+//       }
+//     }
+//   }
+
+//   &__cell {
+//     padding: $gap-base-unit * 2;
+
+//     &-name {
+//       flex-grow: 1;
+//       font-weight: $bold;
+//       word-wrap: break-word;
+
+//       @include breakpoint(md) {
+//         // display: flex;
+//         text-align: left;
+//         font-weight: normal;
+//         width: calc(100% / 2);
+//       }
+//     }
+
+//     &-chart {
+//       width: 100%;
+
+//       @include breakpoint(md) {
+//         width: calc(100% / 2);
+//       }
+//     }
+//   }
+
+//   &__name-group {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
+//     width: 19%;
+
+//     @include breakpoint(md) {
+//       width: 66%;
+//       flex-direction: row;
+//     }
+
+//     // for  chare尺寸
+//     .chart-box {
+//       width: 100%;
+//       height: 7.7vw;
+//       background-color: $blue-400;
+//       margin: $gap-base-unit * 4 auto 0;
+
+//       @include breakpoint(md) {
+//         margin-top: 0;
+//         width: 60px;
+//         height: 18px;
+//       }
+//     }
+//   }
+
+//   &__num-group {
+//     display: flex;
+//     flex: 1;
+//     text-align: center;
+
+//     .trendslist__cell {
+//       flex: 1;
+//       min-width: 0;
+//     }
+//   }
+
+//   &__action {
+//     display: none;
+
+//     @include breakpoint(md) {
+//       display: block;
+//       flex-basis: 32px;
+//       flex-shrink: 0;
+//     }
+
+//     button {
+//       display: block;
+//       padding: 0;
+//       background-color: transparent;
+//     }
+//   }
+
+//   &__item {
+//     display: flex;
+//     border-bottom: 1px solid $gray-300;
+//     position: relative;
+//     padding: $gap-base-unit * 4;
+//     align-items: center;
+
+//     .trendslist__cell {
+//       padding: 0 $gap-base-unit * 2;
+//     }
+
+//     @include breakpoint(lg) {
+//       padding: $gap-base-unit * 3 $gap-base-unit * 2;
+//       border-bottom: 0;
+//     }
+//   }
+
+//   &__history {
+//     background-color: $gray-200;
+//     padding: $gap-base-unit * 4;
+//     margin-left: $gap-base-unit * 4;
+//     margin-top: $gap-base-unit * 2;
+//   }
+// }
+
+// .#{$namespace}history {
+//   font-size: $font-size-sm;
+
+//   &__head {
+//     color: $gray-900;
+//     margin-bottom: $gap-base-unit * 2;
+//   }
+
+//   &__table {
+//     table-layout: fixed;
+//     text-align: center;
+
+//     th,
+//     td {
+//       padding: $gap-base-unit * 2;
+//       border: 1px solid $gray-300;
+//     }
+
+//     th {
+//       background-color: $red-100;
+//       color: $gray-700;
+//       font-weight: $bold;
+//     }
+//   }
+// }
+
+// // global drawer table
+// .#{$namespace}trends-chart {
+//   &__box {
+//     width: 100%;
+//     height: 222px;
+//     background-color: $blue-400;
+//     margin: $gap-base-unit * 4 auto;
+//   }
+
+//   &__line {
+//     border: 1px dashed $gray-400;
+//     border: none;
+//     height: 1px;
+//     background: repeating-linear-gradient(
+//       90deg,
+//       $gray-400,
+//       $gray-400 6px,
+//       transparent 6px,
+//       transparent 12px
+//     );
+//     margin: $gap-base-unit * 2 auto;
+//   }
+
+//   &__list {
+//     width: 100%;
+//     font-size: $font-size-sm;
+//     text-align: left;
+//     vertical-align: middle;
+
+//     th,
+//     td {
+//       padding: 2px;
+//     }
+
+//     th {
+//       width: 20%;
+//       min-width: 120px;
+//       font-weight: $bold;
+//       color: $gray-500;
+//     }
+
+//     td {
+//       padding-left: $gap-base-unit * 2;
+//     }
+//   }
+// }

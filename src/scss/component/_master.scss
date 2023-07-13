@@ -1,0 +1,1117 @@
+//  圖片
+.#{$namespace}imgMessage {
+  max-width: 548px;
+  margin: $gap-base-unit * 10 auto 0;
+  padding: $gap-base-unit * 6 0;
+  text-align: center;
+
+  @include breakpoint(md) {
+    margin: 0 auto;
+    padding: $gap-base-unit * 8 $gap-base-unit * 4;
+  }
+
+  &__icon {
+    font-size: 60px;
+    color: $gray-500;
+    margin: 0 auto;
+  }
+
+  &__content {
+    margin-top: $gap-base-unit * 3;
+    text-align: center;
+    color: $gray-500;
+
+    @include breakpoint(md) {
+      margin-top: $gap-base-unit * 2;
+    }
+  }
+
+  &__img {
+    max-width: 295px;
+  }
+
+  &__imgwrap {
+    padding: 0 $gap-base-unit * 6;
+  }
+
+  &__titleWrap {
+    .title {
+      font-size: 18px;
+      font-weight: $bold;
+      color: $gray-900;
+    }
+
+    .content {
+      font-size: 16px;
+      color: $gray-600;
+      @include breakpoint(lg) {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+//  結果
+.#{$namespace}resultMessage {
+  max-width: 548px;
+  margin: $gap-base-unit * 10 auto 0;
+  padding: $gap-base-unit * 6 0;
+  text-align: center;
+
+  @include breakpoint(md) {
+    margin: 0 auto;
+    padding: $gap-base-unit * 8 $gap-base-unit * 4;
+  }
+
+  &__desc {
+    margin-top: $gap-base-unit * 3;
+    text-align: center;
+    color: $gray-600;
+
+    @include breakpoint(md) {
+      margin-top: $gap-base-unit * 2;
+    }
+  }
+
+  &__imgwrap {
+    padding: 0 $gap-base-unit * 6;
+  }
+
+  &__img {
+    max-width: 295px;
+  }
+
+  &__title {
+    text-align: center;
+    color: $gray-900;
+    font-size: 18px;
+    line-height: px-em(27);
+    font-weight: $bold;
+
+    @include breakpoint(md) {
+      margin-top: $gap-base-unit * 2;
+    }
+  }
+
+  &__link {
+    margin-top: $gap-base-unit * 8;
+    text-align: center;
+    color: $blue-700;
+    font-size: 14px;
+    line-height: px-em(21);
+
+    // @include breakpoint(md) {
+    //   margin-top: $gap-base-unit * 2;
+    // }
+  }
+
+  a {
+    border-bottom: 1px solid;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  60% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+
+// 申請銀證整合資產報告 條款
+.#{$namespace}terms {
+  margin-top: $gap-base-unit * 6;
+  position: relative;
+
+  @include breakpoint(lg) {
+    margin-top: $gap-base-unit * 4;
+  }
+
+  &__content {
+    background-color: $gray-200;
+    border-radius: $radius;
+    padding-right: $gap-base-unit * 2;
+    @include text-xs;
+    color: $gray-700;
+    max-height: 247px;
+    overflow: auto;
+    @include scroll-bar(1);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &__inner {
+    padding: $gap-base-unit * 6;
+
+    @include breakpoint(lg) {
+      padding: $gap-base-unit * 4;
+    }
+  }
+
+  &__title {
+    @include text-sm;
+  }
+
+  &__animate {
+    -webkit-animation: bounce 2s infinite 0.2s;
+    animation: bounce 2s infinite 0.2s;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    position: absolute;
+    left: calc(50% - 54px);
+    bottom: -16px;
+  }
+
+  // safari上與Chrome的內容相異故目前不採用
+  &__scrolldownBtn {
+    cursor: pointer;
+    position: absolute;
+    left: calc(50% - 54px);
+    bottom: -16px;
+    display: inline-block;
+    width: 108px;
+    border-radius: 25px;
+    padding: $gap-base-unit $gap-base-unit * 4;
+    background-color: $red-500;
+    color: $gray-100;
+    margin-left: auto;
+    display: inline-flex;
+    -webkit-animation: bounce 2s infinite 0.5s;
+    animation: bounce 2s infinite 0.5s;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+
+    @include breakpoint(lg) {
+      bottom: -16px;
+    }
+
+    &::before {
+      content: "滑到底";
+    }
+
+    &::after {
+      @include material-icon;
+      content: "\e912";
+      font-size: 24px;
+      margin-left: $gap-base-unit;
+    }
+  }
+}
+
+// 注意事項
+.#{$namespace}notice {
+  margin: $gap-base-unit * 15 auto $gap-base-unit * 5;
+  max-width: 1120px;
+
+  @include breakpoint(lg) {
+    margin: $gap-base-unit * 10 auto;
+  }
+
+  .mobile-drawer & {
+    margin-top: $gap-base-unit * 10;
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    border-radius: $radius;
+    background-color: $red-100;
+    padding: $gap-base-unit * 3 $gap-base-unit * 6;
+    color: $gray-900;
+    font-size: 18px;
+    border-left: 2px solid $red-500;
+    box-shadow: 0px 2px 12px rgba(216, 17, 29, 0.06),
+      0px 2px 4px rgba(216, 17, 29, 0.06);
+    position: relative;
+
+    &::before {
+      position: absolute;
+      right: 24px;
+      @include material-icon;
+      content: "\e913";
+      font-size: 24px;
+      color: $red-500;
+      transition: transform 0.3s $cubic;
+
+      .#{$namespace}toggle--active & {
+        content: "\e911";
+        font-size: 20px;
+        transform: rotate(360deg);
+      }
+    }
+
+    @include breakpoint(lg) {
+      font-size: $font-size-sm;
+      min-height: 40px;
+      padding: $gap-base-unit * 2 $gap-base-unit * 3;
+
+      &::before {
+        font-size: 20px;
+        right: $gap-base-unit * 3;
+      }
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s $cubic;
+
+    .#{$namespace}toggle--active & {
+      max-height: 2000px;
+      -webkit-line-clamp: inherit;
+      animation: visible 0.1s 0.35s both;
+    }
+  }
+
+  &__content-inner {
+    background-color: $gray-100;
+    border: 1px solid $gray-300;
+    border-radius: 0 0 $radius $radius;
+    border-top: 0;
+    padding: $gap-base-unit * 8 $gap-base-unit * 6 $gap-base-unit * 4;
+    font-size: $font-size-sm;
+    color: $gray-600;
+
+    @include breakpoint(lg) {
+      font-size: $font-size-xs;
+      padding: $gap-base-unit * 4;
+    }
+  }
+
+  &__head {
+    font-weight: $bold;
+    color: $gray-700;
+    margin-bottom: $gap-base-unit * 2;
+
+    @include breakpoint(lg) {
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+// 附註
+.#{$namespace}notes {
+  &__content-inner {
+    padding: $gap-base-unit * 4 0;
+  }
+}
+
+@keyframes visible {
+  to {
+    overflow: visible;
+  }
+}
+
+// listView 列表
+.#{$namespace}listView {
+  padding-top: 18px;
+
+  @include breakpoint(lg) {
+    padding: $gap-base-unit * 4 0;
+  }
+
+  &__content {
+    height: auto;
+    overflow: hidden;
+  }
+
+  &__item {
+    padding: $gap-base-unit * 3 $gap-base-unit * 6;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 48px;
+
+    &:nth-child(odd) {
+      background-color: $gray-200;
+    }
+
+    @include breakpoint(lg) {
+      padding: $gap-base-unit * 3 $gap-base-unit * 2;
+    }
+  }
+
+  &__title {
+    width: 30%;
+    color: $gray-900;
+    font-weight: $bold;
+    font-size: $font-size-base;
+  }
+
+  &__value {
+    width: 70%;
+    color: $gray-900;
+    font-size: $font-size-base;
+  }
+
+  .#{$namespace}checklist {
+    &__item {
+      padding: $gap-base-unit * 3.5 $gap-base-unit * 4;
+      min-height: 48px;
+
+      &:nth-child(odd) {
+        background-color: $gray-200;
+      }
+    }
+  }
+
+  .#{$namespace}allWhite {
+    .#{$namespace}listView__item {
+      &:nth-child(odd) {
+        background-color: $gray-100;
+      }
+    }
+
+    .#{$namespace}listView__title {
+      color: $gray-700;
+      font-weight: normal;
+      font-size: 18px;
+      white-space: nowrap;
+    }
+  }
+}
+
+// ------chips---------
+.#{$namespace}chips {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &__item {
+    margin-right: $gap-base-unit * 2;
+    margin-bottom: $gap-base-unit * 2;
+
+    &--md {
+      max-width: 262px;
+      width: 50%;
+      margin-left: $gap-base-unit * 3;
+      margin-right: $gap-base-unit * 3;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @include breakpoint(md) {
+        margin-left: $gap-base-unit;
+        margin-right: $gap-base-unit;
+        max-width: initial;
+      }
+    }
+
+    .search-filter & {
+      @include breakpoint(md) {
+        margin: $gap-base-unit * 2 $gap-base-unit;
+      }
+    }
+  }
+
+  &__input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+
+    .#{$namespace}chips__filter & {
+      &:checked + .chips__label {
+        background-color: $red-50;
+        border-color: $red-500;
+        color: $red-500;
+
+        &:after {
+          content: "";
+          position: absolute;
+          right: -1px;
+          bottom: -1px;
+          @include size(12px);
+          padding: 2px;
+          border-radius: $radius 0;
+          background-color: $red-500;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6' viewBox='0 0 6 6' fill='none'%3E%3Cpath  d='M5.625 1.18538L2.03893 4.875L0.375 3.16301L0.790984 2.72764L2.03893 4.01163L5.20184 0.75L5.625 1.18538Z' fill='%23FEF9F9'/%3E%3Cpath d='M2.03893 4.875L1.85966 5.04924L2.03893 5.23369L2.21821 5.04924L2.03893 4.875ZM5.625 1.18538L5.80427 1.35962L5.97363 1.18538L5.80427 1.01113L5.625 1.18538ZM0.375 3.16301L0.194244 2.99031L0.0278141 3.1645L0.195725 3.33726L0.375 3.16301ZM0.790984 2.72764L0.970258 2.5534L0.789445 2.36736L0.610227 2.55493L0.790984 2.72764ZM2.03893 4.01163L1.85966 4.18587L2.03914 4.37053L2.21841 4.18567L2.03893 4.01163ZM5.20184 0.75L5.38112 0.575757L5.20164 0.391096L5.02237 0.57596L5.20184 0.75ZM2.21821 5.04924L5.80427 1.35962L5.44573 1.01113L1.85966 4.70076L2.21821 5.04924ZM0.195725 3.33726L1.85966 5.04924L2.21821 4.70076L0.554275 2.98877L0.195725 3.33726ZM0.610227 2.55493L0.194244 2.99031L0.555756 3.33572L0.97174 2.90034L0.610227 2.55493ZM2.21821 3.83739L0.970258 2.5534L0.611709 2.90188L1.85966 4.18587L2.21821 3.83739ZM5.02237 0.57596L1.85946 3.83759L2.21841 4.18567L5.38132 0.92404L5.02237 0.57596ZM5.80427 1.01113L5.38112 0.575757L5.02257 0.924243L5.44573 1.35962L5.80427 1.01113Z' fill='white'/%3E%3C/svg%3E");
+          background-size: 6px;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          @include breakpoint(lg) {
+            @include size(10px);
+          }
+        }
+      }
+    }
+  }
+
+  &__label {
+    white-space: nowrap;
+    color: $gray-900;
+    background-color: #f8f8f8;
+    border: 1px solid transparent;
+    border-radius: $radius;
+    padding: $gap-base-unit * 2 $gap-base-unit * 3;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    max-height: 40px;
+    width: 100%;
+
+    @include breakpoint(lg) {
+      padding: $gap-base-unit * 1.5 $gap-base-unit * 3;
+      height: 36px;
+    }
+
+    .#{$namespace}chips__filter & {
+      border-color: $border-gray;
+      background-color: $gray-100;
+    }
+  }
+}
+
+// ------tags----------
+.#{$namespace}tags {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &__label {
+    margin-right: $gap-base-unit * 3;
+    font-size: 14px;
+    color: $gray-600;
+  }
+
+  &__item {
+    background-color: $gray-200;
+    color: $gray-900;
+    padding: $gap-base-unit * 1.5 $gap-base-unit * 3;
+    border-radius: $radius;
+    margin: $gap-base-unit;
+
+    .#{$namespace}tags--selected & {
+      font-size: $font-size-sm;
+      display: flex;
+      align-items: center;
+
+      &:after {
+        @include material-icon;
+        content: "\e908";
+        color: $gray-500;
+        margin-left: $gap-base-unit;
+        // font-size: px-em(14, 16);
+      }
+    }
+  }
+}
+
+.#{$namespace}searchFilter {
+  .l-container {
+    padding-bottom: $gap-base-unit * 5;
+    border-bottom-right-radius: 0;
+
+    @include breakpoint(lg) {
+      padding-bottom: $gap-base-unit * 2;
+    }
+  }
+
+  &__btn {
+    display: flex;
+  }
+
+  &__action {
+    border: 1px solid $gray-300;
+    border-top: 0;
+    border-radius: 0px 0px $radius $radius;
+    background-color: $blue-100;
+    color: $blue-700;
+    padding: $gap-base-unit * 2 $gap-base-unit * 4;
+    margin-left: auto;
+    display: inline-flex;
+
+    &::before {
+      content: "進階搜尋";
+    }
+
+    &::after {
+      @include material-icon;
+      content: "\e90c";
+      font-size: 24px;
+      margin-left: $gap-base-unit;
+    }
+
+    .is-Open & {
+      &::before {
+        content: "一般搜尋";
+      }
+
+      &::after {
+        content: "\e90a";
+      }
+    }
+  }
+}
+
+// .#{$namespace}search-filter {
+//   &__row {
+//     border-bottom: 1px solid $gray-300;
+//     margin-bottom: $gap-base-unit * 3;
+
+//     &:last-child {
+//       border-bottom: 0;
+//     }
+
+//     &-first {
+//       margin-bottom: 0;
+//       border-bottom: 0;
+
+//       .is-Open & {
+//         @media (min-width: map-get($grid-breakpoints, lg)) {
+//           border-bottom: 1px solid $gray-300;
+//           margin-bottom: $gap-base-unit * 3;
+//         }
+//       }
+//     }
+
+//     @include breakpoint(lg) {
+//       .#{$namespace}search-filter__extra & {
+//         margin-bottom: $gap-base-unit * 3;
+//       }
+//     }
+//   }
+
+//   // 大的.accordionContent
+//   &__extra {
+//     max-height: 0;
+//     overflow: hidden;
+//     transition: max-height 0.3s $cubic;
+
+//     @include breakpoint(lg) {
+//       max-height: 100%;
+//     }
+
+//     .is-Open & {
+//       max-height: 3000px;
+//       -webkit-line-clamp: inherit;
+//       animation: visible 0.1s 0.35s both;
+//     }
+//   }
+// }
+
+@keyframes visible {
+  to {
+    overflow: visible;
+  }
+}
+
+// 小的
+.#{$namespace}accordion {
+  max-height: $gap-base-unit * 10;
+  overflow: hidden;
+  padding-right: px-em(76, 16);
+
+  @include breakpoint(lg) {
+    padding-right: 0;
+    max-height: 108px;
+  }
+
+  .search-filterKeyword {
+    margin-top: -44px;
+    transition: all ease 0.3s;
+
+    @include breakpoint(lg) {
+      margin-top: -52px;
+    }
+
+    .form__field {
+      margin-bottom: 0;
+
+      @include breakpoint(lg) {
+        margin-top: $gap-base-unit * 2;
+      }
+    }
+  }
+
+  &--active {
+    max-height: 3000px;
+    transition: max-height 0.3s $cubic;
+
+    .search-filterKeyword {
+      margin-top: 0;
+    }
+  }
+
+  // 小的開關
+  &__toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-flex;
+    padding-right: 8px;
+    vertical-align: middle;
+    align-items: center;
+
+    &::before {
+      content: attr(data-accordion-more);
+      display: inline-block;
+      padding: 6px 4px 6px 8px;
+      vertical-align: middle;
+      font-size: $font-size-base;
+      color: $blue-700;
+    }
+
+    &:after {
+      @include material-icon;
+      content: "\e900";
+      font-size: 20px;
+      transition: transform 0.3s $cubic;
+    }
+
+    &.is-Open {
+      &::before {
+        content: attr(data-accordion-less);
+      }
+
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+
+    @include breakpoint(lg) {
+      .#{$namespace}search-filter__extra & {
+        padding-right: 0;
+        top: $gap-base-unit * 2;
+
+        &::before {
+          font-size: $font-size-sm;
+          padding: 2px $gap-base-unit;
+        }
+      }
+    }
+  }
+}
+
+.#{$namespace}search-filterItem {
+  padding-bottom: $gap-base-unit * 3;
+  position: relative;
+  display: flex;
+
+  @include breakpoint(lg) {
+    flex-direction: column;
+
+    .#{$namespace}search-filter__extra & {
+      padding-bottom: $gap-base-unit * 4;
+    }
+  }
+
+  &__title {
+    line-height: px-em(24, 16);
+    color: $gray-600;
+    font-weight: $bold;
+    padding: $gap-base-unit * 2 0;
+    margin-right: px-em(24, 16);
+    flex: 0 0 128px;
+
+    @include breakpoint(lg) {
+      flex: 1;
+      margin-right: 0;
+
+      .#{$namespace}search-filter__extra & {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__fields {
+    flex-grow: 1;
+
+    .form__field {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.#{$namespace}search-filterKeyword {
+  &__input {
+    width: 100%;
+    max-width: 548px;
+
+    .form__field {
+      margin-bottom: $gap-base-unit * 3;
+    }
+  }
+}
+
+.#{$namespace}tooltips {
+  display: flex;
+  align-items: center;
+
+  i {
+    font-size: 20px;
+
+    @include breakpoint(lg) {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+// danni added
+// 大的.accordionContent
+.#{$namespace}accordionList {
+  &__header {
+    max-height: 47px;
+    position: relative;
+
+    &:last-child {
+      .accordionList__item {
+        border-bottom: 1px solid transparent;
+      }
+    }
+  }
+
+  &__contents {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  &--active {
+    opacity: 1;
+    max-height: 3000px;
+    transition: opacity 0.5s $cubic, transform 0.2s $cubic;
+    transform: scale(1);
+  }
+
+  &__content {
+    position: relative;
+    max-height: 47px;
+    background-color: $gray-200;
+
+    &:last-child {
+      .accordionList__item {
+        border-bottom: 1px solid transparent;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 375px) {
+      // avoid text drop
+      overflow-x: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+      user-select: none;
+    }
+  }
+
+  &__item {
+    border-bottom: 1px solid $gray-300;
+    padding: 10px $gap-base-unit * 10 10px $gap-base-unit * 3;
+
+    @media (max-width: 320px) {
+      padding: 10px $gap-base-unit * 6 10px $gap-base-unit * 3;
+    }
+    &--noarrow {
+      padding: 10px $gap-base-unit * 3;
+    }
+  }
+
+  &__title {
+    flex-shrink: 0;
+    @include breakpoint(lg) {
+      font-size: 14px;
+    }
+  }
+
+  &__num {
+    font-size: 16px;
+    line-height: 24px;
+    flex-shrink: 0;
+    @include breakpoint(lg) {
+      font-size: 14px;
+    }
+  }
+
+  &__markItem {
+    border-bottom: 1px solid $gray-300;
+    padding: 10px $gap-base-unit * 10 10px $gap-base-unit * 8;
+    position: relative;
+
+    @media (max-width: 320px) {
+      padding: 10px $gap-base-unit * 6 10px $gap-base-unit * 8;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid transparent;
+    }
+
+    .accordionList__title {
+      &::before {
+        position: absolute;
+        content: "";
+        border-radius: 2px;
+        height: 10px;
+        width: 10px;
+        background-color: transparent;
+        transform: translateY(-50%);
+        display: inline-block;
+        left: 12px;
+        top: 50%;
+      }
+
+      &.mk_blue {
+        &::before {
+          background-color: $blue;
+        }
+      }
+
+      &.mk_blueLight {
+        &::before {
+          background-color: $blue-light;
+        }
+      }
+
+      &.mk_orange {
+        &::before {
+          background-color: $orange;
+        }
+      }
+
+      &.mk_yellow {
+        &::before {
+          background-color: $yellow;
+        }
+      }
+
+      &.mk_purple {
+        &::before {
+          background-color: $purple;
+        }
+      }
+
+      &.mk_pink {
+        &::before {
+          background-color: $pink;
+        }
+      }
+
+      &.mk_greenLight {
+        &::before {
+          background-color: $green-light;
+        }
+      }
+
+      &.mk_gray {
+        &::before {
+          background-color: $gray;
+        }
+      }
+    }
+  }
+
+  &__curr {
+    color: $gray-600;
+    @media (max-width: 320px) {
+      font-size: 12px;
+    }
+  }
+
+  &__value {
+    color: $gray-900;
+    margin-left: $gap-base-unit;
+    @media (max-width: 320px) {
+      font-size: 12px;
+    }
+  }
+
+  &__toggle {
+    &::before {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      @include material-icon;
+      // angle-down
+      content: "\e907";
+      font-size: 20px;
+      color: $gray-500;
+      transition: all 0.3s $cubic;
+      @media (max-width: 320px) {
+        font-size: 16px;
+        right: 4px;
+      }
+    }
+
+    &.is-Open {
+      &::before {
+        // angle-up
+        content: "\e90c";
+      }
+    }
+  }
+
+  &__link {
+    &::before {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      @include material-icon;
+      // angle-right
+      content: "\e90a";
+      font-size: 20px;
+      color: $gray-500;
+      transition: all 0.3s $cubic;
+      @media (max-width: 320px) {
+        font-size: 16px;
+        right: 4px;
+      }
+    }
+  }
+}
+
+.#{$namespace}closeMsg {
+  margin-bottom: $gap-base-unit * 6;
+
+  @include breakpoint(lg) {
+    margin-bottom: $gap-base-unit * 4;
+  }
+
+  &__box {
+    padding: 10px 24px;
+    border-radius: 4px;
+    background: $yellow-100;
+    border: 1px solid $yellow-200;
+    color: $yellow-700;
+    font-size: 16px;
+    @include breakpoint(lg) {
+      padding: $gap-base-unit * 2 $gap-base-unit * 3;
+      font-size: 14px;
+    }
+  }
+
+  &__text {
+    color: $red-500;
+    font-size: 20px;
+    line-height: 125%;
+    font-weight: 600; //加深
+
+    @include breakpoint(lg) {
+      text-align: center;
+    }
+  }
+}
+
+.#{$namespace}subtitle {
+  &__header {
+    @include flex-between;
+    margin-bottom: $gap-base-unit * 2;
+
+    @include breakpoint(lg) {
+      justify-content: center;
+      margin-bottom: $gap-base-unit;
+    }
+
+    .hideInfo-trigger {
+      display: none;
+
+      @include breakpoint(lg) {
+        display: block;
+      }
+
+      &-1 {
+        display: none;
+
+        @include breakpoint(lg) {
+          display: block;
+        }
+      }
+
+      &-2 {
+        display: none;
+
+        @include breakpoint(lg) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__content {
+    @include breakpoint(lg) {
+      text-align: center;
+    }
+  }
+
+  &__curr {
+    @include breakpoint(lg) {
+      color: $gray-600;
+    }
+  }
+
+  &__value {
+    @include breakpoint(lg) {
+      font-size: 28px;
+    }
+  }
+}
+
+.tooltip {
+  &__wrap {
+    position: relative;
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -36px;
+    background-color: #4a4a4ac4;
+    border-radius: $radius;
+    padding: $gap-base-unit $gap-base-unit * 2;
+    width: 250px;
+    color: $gray-100;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+    transition: opacity 0.5s;
+
+    @include breakpoint(lg) {
+      font-size: 12px;
+    }
+
+    &::after {
+      content: "";
+      border-width: 5px;
+      border-style: solid;
+      border-color: #4a4a4ac4 transparent transparent transparent;
+      left: 8%;
+      position: absolute;
+      top: 100%;
+    }
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta property="og:title" content="銀證整合資產報告 - 永豐銀行">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="">
+    <meta name="author" content="永豐銀行">
+    <meta name="copyright" content="永豐銀行">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <title>銀證整合資產報告 - 永豐銀行</title>
+    <link rel="shortcut icon" href="https://mma.sinopac.com/images/favicon.ico">
+    <link href="./css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- * 背景 className => bg-pink *-->
+      <main class="content">
+        <!-- * 嘉實開發 Start *-->
+        <div class="wrap__inner">
+          <div class="flex-between mt-12 mb-8 mt-4-lg mb-6-lg">
+            <h2 class="heading2">基金</h2>
+          </div>
+          <section class="section searchFilter">
+            <div class="l-container">
+              <form class="form">
+                <div class="search-filter">
+                  <div class="search-filter__row"> 
+                    <div class="search-filterItem">
+                      <div class="search-filterItem__title">關鍵字</div>
+                      <div class="search-filterItem__fields">
+                        <div class="search-filterKeyword">
+                          <div class="search-filterKeyword__input">
+                            <div class="form__field">
+                              <div class="form__inputgroup">
+                                <input class="form__control form__inputgroup-control" id="keyword" type="text" name="keyword" placeholder="請輸入關鍵字/名稱/代碼等" data-input-keyword><a class="form__inputgroup-prepend form__cancel" href="###" alt="取消"><span>取消</span></a><a class="form__inputgroup-append form__search" href="###" alt="尋找"><i class="icon-Basic_search"></i></a>
+                              </div>
+                              <div class="form__feedback"></div>
+                            </div>
+                          </div>
+                          <div class="search-filterKeyword__tagbox">
+                            <div class="form__tagbox tags hide-lg">
+                              <h5 class="tags__label">類別</h5><a class="tags__item" href="#">ESG基金</a><a class="tags__item" href="#">基金</a><a class="tags__item" href="#">ETF</a><a class="tags__item" href="#">永豐</a><a class="tags__item" href="#">印度</a><a class="tags__item" href="#">美國</a><a class="tags__item" href="#">歐洲</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="search-filter__row search-filter__row-first">
+                    <div class="search-filterItem">
+                      <div class="search-filterItem__title">主題搜尋</div>
+                      <div class="search-filterItem__fields">
+                        <div class="chips chips__filter">
+                          <div class="chips__item">
+                            <input class="chips__input" id="adv-theme-pick1" type="checkbox" name="theme" checked>
+                            <label class="chips__label" for="adv-theme-pick1">排行榜 </label>
+                          </div>
+                          <div class="chips__item"> 
+                            <input class="chips__input" id="adv-theme-pick2" type="checkbox" name="theme">
+                            <label class="chips__label" for="adv-theme-pick2">百元基金 </label>
+                          </div>
+                          <div class="chips__item"> 
+                            <input class="chips__input" id="adv-theme-pick3" type="checkbox" name="theme">
+                            <label class="chips__label" for="adv-theme-pick3">得獎基金 </label>
+                          </div>
+                          <div class="chips__item"> 
+                            <input class="chips__input" id="adv-theme-pick4" type="checkbox" name="theme">
+                            <label class="chips__label" for="adv-theme-pick4">首選基金 </label>
+                          </div>
+                          <div class="chips__item"> 
+                            <input class="chips__input" id="adv-theme-pick5" type="checkbox" name="theme">
+                            <label class="chips__label" for="adv-theme-pick5">配息基金 </label>
+                          </div>
+                          <div class="chips__item">
+                            <input class="chips__input" id="adv-theme-pick6" type="checkbox" name="theme">
+                            <label class="chips__label" for="adv-theme-pick6">新轉精選基金 </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mobile-drawer mobile-drawer--whole" id="keywordSearch">
+                    <div class="mobile-drawer__content">
+                      <div class="mobile-drawer__box"><a class="mobile-drawer__btn-close mobile-drawer__btn-close-icon" href="javascript:;" title="關閉"></a>
+                        <h3 class="mobile-drawer__head hide block-lg">基金搜尋 </h3>
+                        <div class="mobile-drawer__body">
+                          <div class="mobile-drawer__inner">
+                            <div class="search-filter__extra" data-accordion-extra>
+                              <div class="search-filter__row">
+                                <div class="search-filterItem">
+                                  <div class="search-filterItem__title">區域</div>
+                                  <div class="search-filterItem__fields">
+                                    <div class="search-filter__accordion accordion">
+                                      <div class="form__choose">
+                                        <div class="form__cell form__cell-line form-radio form-chips form__cell-mix">
+                                          <input class="form__choose--any form-radio__input" id="adv-area-pick0" type="checkbox" name="adv-area" checked>
+                                          <label class="form-radio__label" for="adv-area-pick0">全部</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick1" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick1"><span></span>中國</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick2" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick2"><span></span>巴西</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick3" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick3"><span></span>日本</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick4" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick4"><span></span>台灣</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick5" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick5"><span></span>全球</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick6" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick6"><span></span>印尼</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick7" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick7"><span></span>印度</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick8" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick8"><span></span>亞太不含日本</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick9" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick9"><span></span>拉丁美洲</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick10" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick10"><span></span>東協</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick11" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick11"><span></span>俄羅斯</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick12" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick12"><span></span>南韓</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick13" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick13"><span></span>美國</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick14" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick14"><span></span>泰國</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick15" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick15"><span></span>新興市場</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick16" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick16"><span></span>新興歐非中東</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick17" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick17"><span></span>歐洲</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-pick18" type="checkbox" name="adv-area">
+                                          <label class="form-check__label" for="adv-pick18"><span></span>澳洲</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div><a class="accordion__toggle" data-accordion-more="更多" data-accordion-less="較少"></a>
+                                </div>
+                              </div>
+                              <div class="search-filter__row">
+                                <div class="search-filterItem">
+                                  <div class="search-filterItem__title">產業</div>
+                                  <div class="search-filterItem__fields">
+                                    <div class="search-filter__accordion accordion">
+                                      <div class="form__choose">
+                                        <div class="form__cell form__cell-line form-radio form-chips form__cell-mix">
+                                          <input class="form__choose--any form-radio__input" id="adv-industry-pick0" type="checkbox" name="adv-industry" checked>
+                                          <label class="form-radio__label" for="adv-industry-pick0">全部</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-industry-pick1" type="checkbox" name="adv-industry">
+                                          <label class="form-check__label" for="adv-industry-pick1"> <span></span>公用事業</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-industry-pick2" type="checkbox" name="adv-industry">
+                                          <label class="form-check__label" for="adv-industry-pick2"> <span></span>友愛地球</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-industry-pick3" type="checkbox" name="adv-industry">
+                                          <label class="form-check__label" for="adv-industry-pick3"> <span></span>天然資源</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-industry-pick4" type="checkbox" name="adv-industry">
+                                          <label class="form-check__label" for="adv-industry-pick4"> <span></span>生技</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-industry-pick5" type="checkbox" name="adv-industry">
+                                          <label class="form-check__label" for="adv-industry-pick5"> <span></span>房地產</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-industry-pick6" type="checkbox" name="adv-industry">
+                                          <label class="form-check__label" for="adv-industry-pick6"> <span></span>金融</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-industry-pick7" type="checkbox" name="adv-industry">
+                                          <label class="form-check__label" for="adv-industry-pick7"> <span></span>科技</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-industry-pick8" type="checkbox" name="adv-industry">
+                                          <label class="form-check__label" for="adv-industry-pick8"> <span></span>時尚精品</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-industry-pick9" type="checkbox" name="adv-industry">
+                                          <label class="form-check__label" for="adv-industry-pick9"> <span></span>消費</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-industry-pick10" type="checkbox" name="adv-industry">
+                                          <label class="form-check__label" for="adv-industry-pick10"> <span></span>能源</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-industry-pick11" type="checkbox" name="adv-industry">
+                                          <label class="form-check__label" for="adv-industry-pick11"> <span></span>健護</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-industry-pick12" type="checkbox" name="adv-industry">
+                                          <label class="form-check__label" for="adv-industry-pick12"> <span></span>黃金</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-industry-pick13" type="checkbox" name="adv-industry">
+                                          <label class="form-check__label" for="adv-industry-pick13"> <span></span>農業</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div><a class="accordion__toggle" data-accordion-more="更多" data-accordion-less="較少"></a>
+                                </div>
+                              </div>
+                              <div class="search-filter__row">
+                                <div class="search-filterItem">
+                                  <div class="search-filterItem__title">類別</div>
+                                  <div class="search-filterItem__fields">
+                                    <div class="search-filter__accordion accordion">
+                                      <div class="form__choose">
+                                        <div class="form__cell form__cell-line form-radio form-chips form__cell-mix">
+                                          <input class="form__choose--any form-radio__input" id="adv-category-pick0" type="checkbox" name="adv-category" checked>
+                                          <label class="form-radio__label" for="adv-category-pick0">全部</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-category-pick1" type="checkbox" name="adv-category">
+                                          <label class="form-check__label" for="adv-category-pick1"> <span></span>平衡型</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-category-pick2" type="checkbox" name="adv-category">
+                                          <label class="form-check__label" for="adv-category-pick2"> <span></span>其他</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-category-pick3" type="checkbox" name="adv-category">
+                                          <label class="form-check__label" for="adv-category-pick3"> <span></span>股票型</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-category-pick4" type="checkbox" name="adv-category">
+                                          <label class="form-check__label" for="adv-category-pick4"> <span></span>指數型</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-category-pick5" type="checkbox" name="adv-category">
+                                          <label class="form-check__label" for="adv-category-pick5"> <span></span>組合型</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-category-pick6" type="checkbox" name="adv-category">
+                                          <label class="form-check__label" for="adv-category-pick6"> <span></span>貨幣型</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-category-pick7" type="checkbox" name="adv-category">
+                                          <label class="form-check__label" for="adv-category-pick7"> <span></span>期貨型</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-category-pick8" type="checkbox" name="adv-category">
+                                          <label class="form-check__label" for="adv-category-pick8"> <span></span>債券型</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div><a class="accordion__toggle" data-accordion-more="更多" data-accordion-less="較少"></a>
+                                </div>
+                              </div>
+                              <div class="search-filter__row">
+                                <div class="search-filterItem">
+                                  <div class="search-filterItem__title">幣別</div>
+                                  <div class="search-filterItem__fields">
+                                    <div class="search-filter__accordion accordion">
+                                      <div class="form__choose">
+                                        <div class="form__cell form__cell-line form-radio form-chips form__cell-mix">
+                                          <input class="form__choose--any form-radio__input" id="adv-currency-pick0" type="checkbox" name="adv-currency" checked>
+                                          <label class="form-radio__label" for="adv-currency-pick0">全部</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick1" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick1"> <span></span>人民幣</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick2" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick2"> <span></span>日圓</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick3" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick3"> <span></span>加幣</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick4" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick4"> <span></span>台幣</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick5" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick5"> <span></span>南非幣</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick6" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick6"> <span></span>美元</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick7" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick7"> <span></span>英鎊</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick8" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick8"> <span></span>紐幣</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick9" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick9"> <span></span>港幣</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick10" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick10"> <span> </span>新幣</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick11" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick11"> <span></span>瑞典幣</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick12" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick12"> <span></span>瑞法郎</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick13" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick13"> <span></span>歐元</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-currency-pick14" type="checkbox" name="adv-currency">
+                                          <label class="form-check__label" for="adv-currency-pick14"> <span></span>澳幣</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div><a class="accordion__toggle" data-accordion-more="更多" data-accordion-less="較少"></a>
+                                </div>
+                              </div>
+                              <div class="search-filter__row">
+                                <div class="search-filterItem">
+                                  <div class="search-filterItem__title">基金公司</div>
+                                  <div class="search-filterItem__fields">
+                                    <div class="search-filter__accordion accordion">
+                                      <div class="search-filterKeyword">
+                                        <div class="search-filterKeyword__input">
+                                          <div class="form__field">
+                                            <div class="form__inputgroup">
+                                              <input class="form__control form__inputgroup-control" id="keyword" type="text" name="keyword" placeholder="請輸入關鍵字" data-input-keyword><a class="form__inputgroup-prepend form__cancel" href="###" alt="取消"><span>取消</span></a><a class="form__inputgroup-append form__search" href="###" alt="尋找"><i class="icon-Basic_search"></i></a>
+                                            </div>
+                                            <div class="form__feedback"></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form__choose">
+                                        <div class="form__cell form__cell-line form-radio form-chips form__cell-mix">
+                                          <input class="form__choose--any form__choose--any form-radio__input" id="adv-company-pick0" type="checkbox" name="adv-company" checked>
+                                          <label class="form-radio__label" for="adv-company-pick0">全部</label>
+                                        </div>
+                                        <div class="form__cell form__cell-head form__cell--hide">境內</div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick1" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick1"> <span></span>中國信託投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick2" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick2"> <span></span>元大投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick3" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick3"> <span></span>日盛投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick4" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick4"> <span></span>台新投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick5" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick5"> <span></span>永豐投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick6" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick6"> <span></span>兆豐投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick7" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick7"> <span></span>貝萊德投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick8" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick8"> <span></span>保德信投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick9" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick9"> <span></span>中國信託投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick10" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick10"> <span></span>鋒裕匯理投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick11" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick11"> <span></span>德銀遠東投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick12" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick12"> <span></span>街口投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick13" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick13"> <span></span>華南永昌投信</label>
+                                        </div>
+                                        <div class="form__cell form__cell-head form__cell--hide">境外</div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick14" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick14"> <span></span>PIMCO品浩太平洋投顧</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick15" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick15"> <span></span>合作金庫投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick16" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick16"> <span></span>富蘭克林投顧</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick17" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick17"> <span></span>鋒裕匯理投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick18" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick18"> <span></span>國泰投顧</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick19" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick19"> <span></span>新光投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick20" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick20"> <span></span>野村投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick21" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick21"> <span></span>施羅德投信</label>
+                                        </div>
+                                        <div class="form__cell form-check form-chips">
+                                          <input class="form-check__input" id="adv-company-pick22" type="checkbox" name="adv-company">
+                                          <label class="form-check__label" for="adv-company-pick22"> <span></span>景順投信</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div><a class="accordion__toggle" data-accordion-more="更多" data-accordion-less="較少"></a>
+                                </div>
+                              </div>
+                              <div class="search-filter__row">
+                                <div class="search-filterItem">
+                                  <div class="search-filterItem__title">配息頻率</div>
+                                  <div class="search-filterItem__fields">
+                                    <div class="form__choose">
+                                      <div class="form__cell form-radio form-chips">
+                                        <input class="form-radio__input" id="adv-frequency-pick1" type="radio" name="adv-frequency">
+                                        <label class="form-radio__label" for="adv-frequency-pick1">不限</label>
+                                      </div>
+                                      <div class="form__cell form-radio form-chips">
+                                        <input class="form-radio__input" id="adv-frequency-pick2" type="radio" name="adv-frequency">
+                                        <label class="form-radio__label" for="adv-frequency-pick2">日配</label>
+                                      </div>
+                                      <div class="form__cell form-radio form-chips">
+                                        <input class="form-radio__input" id="adv-frequency-pick3" type="radio" name="adv-frequency">
+                                        <label class="form-radio__label" for="adv-frequency-pick3">月配</label>
+                                      </div>
+                                      <div class="form__cell form-radio form-chips">
+                                        <input class="form-radio__input" id="adv-frequency-pick4" type="radio" name="adv-frequency">
+                                        <label class="form-radio__label" for="adv-frequency-pick4">季配 </label>
+                                      </div>
+                                      <div class="form__cell form-radio form-chips">
+                                        <input class="form-radio__input" id="adv-frequency-pick5" type="radio" name="adv-frequency">
+                                        <label class="form-radio__label" for="adv-frequency-pick5">半年配</label>
+                                      </div>
+                                      <div class="form__cell form-radio form-chips">
+                                        <input class="form-radio__input" id="adv-frequency-pick6" type="radio" name="adv-frequency">
+                                        <label class="form-radio__label" for="adv-frequency-pick6">年配</label>
+                                      </div>
+                                      <div class="form__cell form-radio form-chips">
+                                        <input class="form-radio__input" id="adv-frequency-pick7" type="radio" name="adv-frequency">
+                                        <label class="form-radio__label" for="adv-frequency-pick7">不定期</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="search-filter__row">
+                                <div class="search-filterItem">
+                                  <div class="search-filterItem__title">報酬指標</div>
+                                  <div class="search-filterItem__fields">
+                                    <div class="row gutters-3">
+                                      <div class="col-lg-4"><a class="mobile-drawer-trigger hide block-lg" href="#interval">
+                                          <div class="form__group o-select mt-2-lg">
+                                            <input class="form__control form__select o-select__md" type="text" placeholder="請選擇時間" data-select-value readonly>
+                                          </div></a>
+                                        <div class="mobile-drawer" id="interval">
+                                          <div class="mobile-drawer__content">
+                                            <div class="mobile-drawer__box"><a class="mobile-drawer__btn-close" href="javascript:;" title="取消"></a>
+                                              <h3 class="mobile-drawer__head hide block-lg">報酬指標</h3>
+                                              <div class="mobile-drawer__body">
+                                                <div class="mobile-drawer__inner">
+                                                  <div class="form__field">
+                                                    <div class="form__group o-select">
+                                                      <div class="o-select__toggle hide-lg">
+                                                        <input class="form__control form__select" type="text" placeholder="請選擇時間" readonly>
+                                                      </div>
+                                                      <div class="o-select__menu o-select__menu-scroll">
+                                                        <div class="o-select__options">
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">不限時間
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick1" value="不限時間">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">三個月
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick1" value="三個月">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">六個月
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick1" value="六個月">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">一年
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick1" value="一年">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">兩年
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick1" value="兩年">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">三年
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick1" value="三年">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">五年
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick1" value="五年">
+                                                            </label>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="form__feedback"></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-4"><a class="mobile-drawer-trigger hide block-lg" href="#percentage">
+                                          <div class="form__group o-select mt-2-lg mb-2-lg">
+                                            <input class="form__control form__select o-select__md" type="text" placeholder="請選擇報酬" data-select-value readonly>
+                                          </div></a>
+                                        <div class="mobile-drawer" id="percentage">
+                                          <div class="mobile-drawer__content">
+                                            <div class="mobile-drawer__box"><a class="mobile-drawer__btn-close" href="javascript:;" title="取消"></a>
+                                              <h3 class="mobile-drawer__head hide block-lg">報酬指標</h3>
+                                              <div class="mobile-drawer__body">
+                                                <div class="mobile-drawer__inner">
+                                                  <div class="form__field">
+                                                    <div class="form__group o-select">
+                                                      <div class="o-select__toggle hide-lg">
+                                                        <input class="form__control form__select" type="text" placeholder="請選擇報酬" readonly>
+                                                      </div>
+                                                      <div class="o-select__menu o-select__menu-scroll">
+                                                        <div class="o-select__options">
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">不限報酬
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick2" value="不限報酬">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">-30%以下
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick2" value="-30%以下">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">-30%~-15%以下
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick2" value="-30%~-15%以下">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">-15%~0%
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick2" value="-15%~0%">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">0%~5%
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick2" value="0%~5%">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">5%~10%
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick2" value="5%~10%">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">10%~15%
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick2" value="10%~15%">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">15%~20%
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick2" value="15%~20%">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">20%~25%
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick2" value="20%~25%">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">25%~30%
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick2" value="25%~30%">
+                                                            </label>
+                                                          </div>
+                                                          <div class="o-select__option">
+                                                            <label class="o-select__label">30%以上
+                                                              <input class="o-select__input" type="radio" data-select-action name="pick2" value="30%以上">
+                                                            </label>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="form__feedback"></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="search-filter__row">
+                                <div class="search-filterItem">
+                                  <div class="search-filterItem__title">風險指標</div>
+                                  <div class="search-filterItem__fields">
+                                    <div class="form__choose">
+                                      <div class="form__cell form__cell-line form__cell-title"><a class="tooltips" href="###"><span>β係數</span><i class="icon__tr icon-Info_Notice text-gray-500" href="###"></i></a></div>
+                                      <div class="form__cell form-check">
+                                        <input class="form-check__input" id="adv-index-pick1" type="checkbox" name="adv-index">
+                                        <label class="form-check__label" for="adv-index-pick1"> <span></span>β<0</label>
+                                      </div>
+                                      <div class="form__cell form-check">
+                                        <input class="form-check__input" id="adv-index-pick2" type="checkbox" name="adv-index">
+                                        <label class="form-check__label" for="adv-index-pick2"> <span></span>0≤β<1</label>
+                                      </div>
+                                      <div class="form__cell form-check">
+                                        <input class="form-check__input" id="adv-index-pick3" type="checkbox" name="adv-index">
+                                        <label class="form-check__label" for="adv-index-pick3"> <span></span>1≤β</label>
+                                      </div>
+                                    </div>
+                                    <div class="form__choose">
+                                      <div class="form__cell form__cell-line form__cell-title"><a class="tooltips" href="###"><span>Sharpe</span><i class="icon__tr icon-Info_Notice text-gray-500" href="###"></i></a></div>
+                                      <div class="form__cell form-check">
+                                        <input class="form-check__input" id="adv-index-pick4" type="checkbox" name="adv-index">
+                                        <label class="form-check__label" for="adv-index-pick4"> <span> </span>S<0</label>
+                                      </div>
+                                      <div class="form__cell form-check">
+                                        <input class="form-check__input" id="adv-index-pick5" type="checkbox" name="adv-index">
+                                        <label class="form-check__label" for="adv-index-pick5"> <span> </span>0≤S<1</label>
+                                      </div>
+                                      <div class="form__cell form-check">
+                                        <input class="form-check__input" id="adv-index-pick6" type="checkbox" name="adv-index">
+                                        <label class="form-check__label" for="adv-index-pick6"> <span> </span>1≤S</label>
+                                      </div>
+                                    </div>
+                                    <div class="form__choose">
+                                      <div class="form__cell form__cell-line form__cell-title"><a class="tooltips" href="###"><span>標準差</span><i class="icon__tr icon-Info_Notice text-gray-500" href="###"></i></a></div>
+                                      <div class="form__cell form-check">
+                                        <input class="form-check__input" id="adv-index-pick7" type="checkbox" name="adv-index">
+                                        <label class="form-check__label" for="adv-index-pick7"> <span> </span>S<0</label>
+                                      </div>
+                                      <div class="form__cell form-check">
+                                        <input class="form-check__input" id="adv-index-pick8" type="checkbox" name="adv-index">
+                                        <label class="form-check__label" for="adv-index-pick8"> <span> </span>5%≤STD<10% </label>
+                                      </div>
+                                      <div class="form__cell form-check">
+                                        <input class="form-check__input" id="adv-index-pick9" type="checkbox" name="adv-index">
+                                        <label class="form-check__label" for="adv-index-pick9"> <span> </span>10%≤STD</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mobile-drawer__footer bottom-area-sticky">
+                          <div class="mobile-drawer__btnbox btnbox">
+                            <div class="row justify-content-center gutters-6 gutters-4-lg">
+                              <div class="col-6">
+                                <button class="btn btn--secondary btn--lg" type="reset" value="清除條件">清除條件</button>
+                              </div>
+                              <div class="col-6">
+                                <button class="btn btn--primary btn--lg" type="button" value="查詢">查詢</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="searchFilter__btn"><a class="searchFilter__action hide-lg" href="#" title="搜尋" data-accordion-toggle></a><a class="searchFilter__action mobile-drawer-trigger d-lg-none" href="#keywordSearch" title="搜尋"></a></div>
+          </section>
+          <section class="section">
+            <div class="l-container">
+              <div class="l-container__head">
+                <div class="flex-between mb-6 mb-1-lg">
+                  <h4 class="heading4">基金搜尋</h4><a class="o-link o-link--gray hide block-lg" href="###" title="排序"><i class="o-link__icon icon-Basic_sort icon__tl"></i><span>排序</span></a>
+                </div>
+                <h5 class="heading5 mb-6">搜尋結果：<span>3302</span>筆基金</h5>
+                <div class="tab">
+                  <div class="tab__bar tab__bar--w50"><a class="tab__item tab__item--active" href="#tab0">基金資料</a><a class="tab__item" href="#tab1">基金績效</a></div>
+                </div>
+              </div>
+              <div class="l-container__body">
+                <div class="tab__content tab__content--active" id="tab0">
+                  <div class="filtered-table">
+                    <div class="my-tablelist">
+                      <div class="my-tablelist__head"> 
+                        <div class="my-tablelist__name-group">
+                          <div class="my-tablelist__cell my-tablelist__cell-no my-tablelist__cell-slash">代碼</div>
+                          <div class="my-tablelist__cell my-tablelist__cell-id sortable both desc">名稱<i class="icon icon-Caret_down"> </i></div>
+                        </div>
+                        <div class="my-tablelist__num-group">
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both hide-lg">計價<br>幣別<i class="icon icon-Caret_down"></i></div>
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both">日期<br>淨值<i class="icon icon-Caret_down"></i></div>
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both hide-lg">近一年<br>最高淨值<i class="icon icon-Caret_down"></i></div>
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both hide-lg">近一年<br>最低淨值<i class="icon icon-Caret_down"></i></div>
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both hide-lg">風險<br>等級<i class="icon icon-Caret_down"></i></div>
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both hide-lg">配息<br>頻率<i class="icon icon-Caret_down"></i></div>
+                        </div>
+                        <div class="my-tablelist__cell my-tablelist__btn-action"> <span class="hide-lg">執行</span></div>
+                      </div>
+                      <ul class="my-tablelist__body fund-table">
+                        <li class="my-tablelist__item">
+                          <div class="my-tablelist__name-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-no">LG1</div>
+                            <div class="my-tablelist__cell my-tablelist__cell-id">富蘭克林坦伯頓全球天然資源基金A股(美元)</div>
+                          </div>
+                          <div class="my-tablelist__num-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>南非幣</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num"> <span>10/07<br><span>9.8 </span></span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>25.2</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>8.9</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>RR4</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>年配</span></div>
+                          </div>
+                          <div class="my-tablelist__cell my-tablelist__btn-action"><a class="my-tablelist__btn btn btn--primary btn--sm" href="javascript:;" title="申購">申購</a><a class="o-link o-link--sm o-link--blue my-tablelist__btn" href="javascript:;" title="購物車" data-action="cart"><i class="o-link__icon icon__tl icon-Financial_market"></i><span>購物車</span></a><a class="o-link o-link--sm o-link--blue my-tablelist__btn desktop-drawer-trigger" href="#addCollect" title="收藏"><i class="o-link__icon icon__tl icon-Heart"></i><span>收藏</span></a><a class="o-link o-link--sm o-link--blue my-tablelist__btn" href="javascript:;" title="比較" data-action="compare"><i class="o-link__icon icon__tl icon-Basic_plus"></i><span>比較</span></a></div>
+                        </li>
+                        <li class="my-tablelist__item">
+                          <div class="my-tablelist__name-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-no">LG1</div>
+                            <div class="my-tablelist__cell my-tablelist__cell-id">富蘭克林坦伯頓全球天然資源基金A股(美元)</div>
+                          </div>
+                          <div class="my-tablelist__num-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>南非幣</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num"> <span>10/07<br><span>9.8 </span></span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>25.2</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>8.9</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>RR4</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>年配</span></div>
+                          </div>
+                          <div class="my-tablelist__cell my-tablelist__btn-action"><a class="my-tablelist__btn btn btn--primary btn--sm" href="javascript:;" title="申購">申購</a><a class="o-link o-link--sm o-link--blue my-tablelist__btn" href="javascript:;" title="購物車" data-action="cart"><i class="o-link__icon icon__tl icon-Financial_market"></i><span>購物車</span></a><a class="o-link o-link--sm o-link--blue my-tablelist__btn desktop-drawer-trigger" href="#addCollect" title="收藏" data-action="collect"><i class="o-link__icon icon__tl icon-Heart"></i><span>收藏</span></a><a class="o-link o-link--sm o-link--blue my-tablelist__btn" href="javascript:;" title="比較" data-action="compare"><i class="o-link__icon icon__tl icon-Basic_plus"></i><span>比較</span></a></div>
+                        </li>
+                        <li class="my-tablelist__item">
+                          <div class="my-tablelist__name-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-no">LG1</div>
+                            <div class="my-tablelist__cell my-tablelist__cell-id">富蘭克林坦伯頓全球天然資源基金A股(美元)</div>
+                          </div>
+                          <div class="my-tablelist__num-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>南非幣</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num"> <span>10/07<br><span>9.8 </span></span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>25.2</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>8.9</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>RR4</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span>年配</span></div>
+                          </div>
+                          <div class="my-tablelist__cell my-tablelist__btn-action"><a class="my-tablelist__btn btn btn--primary btn--sm" href="javascript:;" title="申購">申購</a><a class="o-link o-link--sm o-link--blue my-tablelist__btn" href="javascript:;" title="購物車" data-action="cart"><i class="o-link__icon icon__tl icon-Financial_market"></i><span>購物車</span></a><a class="o-link o-link--sm o-link--blue my-tablelist__btn desktop-drawer-trigger" href="#addCollect" title="收藏"><i class="o-link__icon icon__tl icon-Heart"></i><span>收藏</span></a><a class="o-link o-link--sm o-link--blue my-tablelist__btn" href="javascript:;" title="比較" data-action="compare"><i class="o-link__icon icon__tl icon-Basic_plus"></i><span>比較</span></a></div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab__content" id="tab1">
+                  <div class="filtered-table">
+                    <div class="my-tablelist">
+                      <div class="my-tablelist__head"> 
+                        <div class="my-tablelist__name-group">
+                          <div class="my-tablelist__cell my-tablelist__cell-no my-tablelist--slash">代碼</div>
+                          <div class="my-tablelist__cell my-tablelist__cell-id center sortable both desc">名稱<i class="icon icon-Caret_down"></i></div>
+                        </div>
+                        <div class="my-tablelist__num-group">
+                          <div class="my-tablelist__cell my-tablelist__cell-th">累積績效 (%)</div>
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both hide-lg">1 個月<i class="icon icon-Caret_down"></i></div>
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both">3 個月<i class="icon icon-Caret_down"></i></div>
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both hide-lg">6 個月<i class="icon icon-Caret_down"></i></div>
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both hide-lg">1 年<i class="icon icon-Caret_down"></i></div>
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both hide-lg">2 年<i class="icon icon-Caret_down"></i></div>
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both hide-lg">3 年<i class="icon icon-Caret_down"></i></div>
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both hide-lg">5 年<i class="icon icon-Caret_down"></i></div>
+                          <div class="my-tablelist__cell my-tablelist__cell-num sortable both hide-lg">今年<br>以來<i class="icon icon-Caret_down"></i></div>
+                        </div>
+                        <div class="my-tablelist__cell my-tablelist__btn-action"><span class="hide-lg">執行</span></div>
+                      </div>
+                      <ul class="my-tablelist__body fund-table">
+                        <li class="my-tablelist__item">
+                          <div class="my-tablelist__name-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-no">LG1</div>
+                            <div class="my-tablelist__cell my-tablelist__cell-id">聯博新興市場多元收益基金AD月配南非幣避險級別(本基金有相當比重投資於非投資等級之高風險債券且配息來源可能為本金)</div>
+                          </div>
+                          <div class="my-tablelist__num-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">13.13</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num"> <span class="positive">0.30</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">2.11</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">25.2</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">2.11</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-0.44</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-2.38</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-9.12</span></div>
+                          </div>
+                          <div class="my-tablelist__cell my-tablelist__btn-action"><a class="my-tablelist__btn btn btn--primary btn--sm" href="javascript:;" title="申購">申購</a><a class="o-link o-link--sm o-link--blue my-tablelist__btn" href="javascript:;" title="購物車" data-action="cart"><i class="o-link__icon icon__tl icon-Financial_market"></i><span>購物車</span></a><a class="o-link o-link--sm o-link--blue my-tablelist__btn o-link--active" href="javascript:;" title="已收藏" data-action="collect"><i class="o-link__icon icon__tl icon-Heart icon-Heart_Fill"></i><span>已收藏</span></a></div>
+                        </li>
+                        <li class="my-tablelist__item">
+                          <div class="my-tablelist__name-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-no">LG1</div>
+                            <div class="my-tablelist__cell my-tablelist__cell-id">富蘭克林坦伯頓全球天然資源基金A股(美元)</div>
+                          </div>
+                          <div class="my-tablelist__num-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">13.13</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num"> <span class="positive">0.30</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">2.11</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">25.2</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">2.11</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-0.44</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-2.38</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-9.12</span></div>
+                          </div>
+                          <div class="my-tablelist__cell my-tablelist__btn-action"><a class="my-tablelist__btn btn btn--primary btn--sm" href="javascript:;" title="申購">申購</a><a class="o-link o-link--sm o-link--blue my-tablelist__btn" href="javascript:;" title="購物車" data-action="cart"><i class="o-link__icon icon__tl icon-Financial_market"></i><span>購物車</span></a><a class="o-link o-link--sm o-link--blue my-tablelist__btn o-link--active" href="javascript:;" title="已收藏" data-action="collect"><i class="o-link__icon icon__tl icon-Heart icon-Heart_Fill"></i><span>已收藏</span></a></div>
+                        </li>
+                        <li class="my-tablelist__item">
+                          <div class="my-tablelist__name-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-no">LG1</div>
+                            <div class="my-tablelist__cell my-tablelist__cell-id">路博邁投資基金-NB新興市場股票基金T累積類股(美元)</div>
+                          </div>
+                          <div class="my-tablelist__num-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">13.13</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num"> <span class="positive">0.30</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">2.11</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">25.2</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">2.11</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-0.44</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-2.38</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-9.12</span></div>
+                          </div>
+                          <div class="my-tablelist__cell my-tablelist__btn-action"><a class="my-tablelist__btn btn btn--primary btn--sm" href="javascript:;" title="申購">申購</a><a class="o-link o-link--sm o-link--blue my-tablelist__btn" href="javascript:;" title="購物車" data-action="cart"><i class="o-link__icon icon__tl icon-Financial_market"></i><span>購物車</span></a><a class="o-link o-link--sm o-link--blue my-tablelist__btn o-link--active" href="javascript:;" title="已收藏" data-action="collect"><i class="o-link__icon icon__tl icon-Heart icon-Heart_Fill"></i><span>已收藏</span></a></div>
+                        </li>
+                        <li class="my-tablelist__item">
+                          <div class="my-tablelist__name-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-no">LG1</div>
+                            <div class="my-tablelist__cell my-tablelist__cell-id">晉達環球策略股票基金C累積股份(配息帳戶)(美元避險)</div>
+                          </div>
+                          <div class="my-tablelist__num-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">13.13</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num"> <span class="positive">0.30</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">2.11</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">25.2</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">2.11</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-0.44</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-2.38</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-9.12</span></div>
+                          </div>
+                          <div class="my-tablelist__cell my-tablelist__btn-action"><a class="my-tablelist__btn btn btn--primary btn--sm" href="javascript:;" title="申購">申購</a><a class="o-link o-link--sm o-link--blue my-tablelist__btn" href="javascript:;" title="購物車" data-action="cart"><i class="o-link__icon icon__tl icon-Financial_market"></i><span>購物車</span></a><a class="o-link o-link--sm o-link--blue my-tablelist__btn o-link--active" href="javascript:;" title="已收藏" data-action="collect"><i class="o-link__icon icon__tl icon-Heart icon-Heart_Fill"></i><span>已收藏</span></a></div>
+                        </li>
+                        <li class="my-tablelist__item">
+                          <div class="my-tablelist__name-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-no">LG1</div>
+                            <div class="my-tablelist__cell my-tablelist__cell-id">富達基金—歐洲基金 (A股累計美元避險)(配權)</div>
+                          </div>
+                          <div class="my-tablelist__num-group">
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">13.13</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num"> <span class="positive">0.30</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">2.11</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">25.2</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="positive">2.11</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-0.44</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-2.38</span></div>
+                            <div class="my-tablelist__cell my-tablelist__cell-num hide-lg"> <span class="negative">-9.12</span></div>
+                          </div>
+                          <div class="my-tablelist__cell my-tablelist__btn-action"><a class="my-tablelist__btn btn btn--primary btn--sm" href="javascript:;" title="申購">申購</a><a class="o-link o-link--sm o-link--blue my-tablelist__btn" href="javascript:;" title="購物車" data-action="cart"><i class="o-link__icon icon__tl icon-Financial_market"></i><span>購物車</span></a><a class="o-link o-link--sm o-link--blue my-tablelist__btn o-link--active" href="javascript:;" title="已收藏" data-action="collect"><i class="o-link__icon icon__tl icon-Heart icon-Heart_Fill"></i><span>已收藏</span></a></div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="pagination">
+                  <div class="pagination__item disabled">
+                    <div class="pagination__icon icon icon-Basic_angle-left-two"></div>
+                  </div>
+                  <div class="pagination__item">
+                    <div class="pagination__icon icon icon-Basic_angle-left"></div>
+                  </div><a class="mobile-drawer-trigger pagination__mobile-drawer-trigger o-select hide block-lg" href="#pagination">
+                    <input class="form__control form__select center" type="text" value="1 / 5" readonly data-value></a>
+                  <div class="mobile-drawer" id="pagination">
+                    <div class="mobile-drawer__content">
+                      <div class="mobile-drawer__box"><a class="mobile-drawer__btn-close" href="javascript:;" title="取消"></a>
+                        <h3 class="mobile-drawer__head hide block-lg">分頁</h3>
+                        <div class="mobile-drawer__body">
+                          <div class="mobile-drawer__inner">
+                            <div class="pagination__dropdown o-select">
+                              <div class="o-select__toggle hide-lg">
+                                <input class="form__control form__select center" type="text" value="1 / 5" readonly>
+                              </div>
+                              <div class="o-select__menu o-select__menu-scroll">
+                                <div class="o-select__options">
+                                  <div class="o-select__option">
+                                    <label class="o-select__label">Option 1
+                                      <input class="o-select__input" type="radio" name="paginationPick" value="1">
+                                    </label>
+                                  </div>
+                                  <div class="o-select__option">
+                                    <label class="o-select__label">Option 2
+                                      <input class="o-select__input" type="radio" name="paginationPick" value="2">
+                                    </label>
+                                  </div>
+                                  <div class="o-select__option">
+                                    <label class="o-select__label">Option 3
+                                      <input class="o-select__input" type="radio" name="paginationPick" value="3">
+                                    </label>
+                                  </div>
+                                  <div class="o-select__option">
+                                    <label class="o-select__label">Option 4
+                                      <input class="o-select__input" type="radio" name="paginationPick" value="4">
+                                    </label>
+                                  </div>
+                                  <div class="o-select__option">
+                                    <label class="o-select__label">Option 5
+                                      <input class="o-select__input" type="radio" name="paginationPick" value="5">
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pagination__item">
+                    <div class="pagination__icon icon icon-Basic_angle-right"></div>
+                  </div>
+                  <div class="pagination__item"> 
+                    <div class="pagination__icon icon icon-Basic_angle-right-two"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section section-notice notice toggle"><a class="notice__toggle toggle__trigger">注意事項</a>
+            <div class="notice__content">
+              <div class="notice__content-inner">
+                <ol class="decimal">
+                  <li>本網站之基金基本資料係由嘉實資訊公司提供，本行自當盡力為客戶提供正確之訊息，如有錯誤或疏忽，請以各基金公司或資料出處單位為準。投資人在做任何投資決策前，應審慎評估自身之投資目標及風險承受度等事宜。</li>
+                  <li>「信託資金」係指委託人為具體特定之運用指示受託人投資國內外標的而交付之信託款項，不同於委託人之存款，並不受存款保險條例、保險安定基金或其他保障機制之保障範圍。</li>
+                  <li>投資基金並非存款，受託人除應盡善良管理人之注意義務外，並不保證本信託資金盈虧及最低收益。委託人投資標的及投資地區可能產生之風險，包括但不限於類股過度集中風險、產業景氣循環風險、流動性風險、市場風險（投資地區政治及經濟變動、外匯管制及匯率變動、社會變動、利率、股價、指數或其他標的資產價格波動）、信用風險、投資結構式商品之風險、證券相關商品交易及其他投資標的或特定投資策略等風險。因上述風險致客戶大量贖回或基金暫停計算贖回價格等因素，或有延遲給付贖回價金之可能，委託人皆不得以任何理由要求受託人分擔損失。</li>
+                  <li>部份基金公司為保護投資人權益，設有公平價格調整機制或反稀釋機制。當市場發生高波動或低流通性事件，或基金經理人需買賣有價證券以因應投資人大量申購或贖回；為保護持有該基金投資人之權益，基金公司將啟動公平價格調整機制或反稀釋機制，對基金淨值進行調整，調整幅度將依各基金公司的規定而有不同。</li>
+                  <li><span class="text-red-500">非投資等級債券基金（配息來源可能為本金）雖經金融監督管理委員會（以下稱金管會）核准，惟不表示絕無風險。由於非投資等級債券之信用評等未達投資等級或未經信用評等，且對利率變動的敏感度甚高，故基金可能會因利率上升、市場流動性下降，或債券發行機構違約不支付本金、利息或破產而蒙受虧損，投資人應審慎評估。非投資等級債券基金不適合無法承擔相關風險之投資人，較適合投資屬性為穩健型等級以上之投資人，且以非投資等級債券為訴求之基金不宜占其投資組合過高之比重。非投資等級債券基金可能投資美國144A債券，該債券屬私募性質，易發生流動性不足，財務訊息揭露不完整或價格不透明導致高波動性之風險。</span></li>
+                  <li>投資新興市場，可能比投資已開發國家有較大之價格波動及流動性較低之風險，委託人應慎選投資標的。</li>
+                  <li>投資於中國之基金並非完全投資於大陸地區有價證券，應依中華民國相關法令之規定：(1)境外基金投資大陸地區證券市場有價證券占該境外基金總投資之比率不得超過金管會所訂定之比率；(2)國內投信基金投資大陸地區有價證券雖可包括其集中交易市場交易之股票、存託憑證或符合一定信用評等之債券等，且法令並無限制投資總金額比例，惟仍應符合信託契約、基金公開說明書、證券投資信託基金管理辦法等相關規定，同時須受基金公司QFII(合格境外機構投資者)額度之限制。另投資人申購時應留意中國市場政府政策、法令與會計稅務制度、經濟與相關市場變動所可能衍生之投資風險。</li>
+                  <li><span class="text-red-500">基金的配息可能由基金的收益或本金中支付。任何涉及由本金支出的部份，可能導致原始投資金額減損。另基金進行配息前可能未先扣除應負擔之相關費用。</span></li>
+                  <li>委託人在申購前，應確實詳閱各信託契約、風險預告、基金公開說明書及投資人須知；並瞭解可能產生之風險，其中最大可能損失為損失所有本金及可能之配息。委託人因投資時間不同，投資績效表現亦有差異，過往之績效並不代表未來投資績效表現之保證。基金雖經金管會核准或同意生效，惟不表示絕無風險。基金經理公司以往之績效亦不保證經理基金之最低投資收益，基金經理公司除盡善良管理人之注意義務外，不負責基金之盈虧。本行受託投資之基金，已備妥基金公開說明書或投資人須知，委託人可至受託人營業處所索取或至基金公司網站或基金資訊觀測站(http://www.fundclear.com.tw)下載。</li>
+                  <li>基金總報酬率包含淨值報酬率與配息率，基金配息率並不等同基金報酬率，且過去配息率亦不代表未來配息率；基金淨值除可能因市場因素而上下波動外，尚可能因配息政策而有所變動。</li>
+                  <li>投資人辦理特定金錢信託業務時，需瞭解並同意受託人可能得自交易對手之任何費用，均係作為受託人收取之信託報酬。</li>
+                  <li>有關境內外基金應負擔之費用（含分銷費用）已揭露於基金之公開說明書及投資人須知中，投資人可至基金公司網站或基金資訊觀測站(http://www.fundclear.com.tw)查詢。</li>
+                  <li>本風險揭露及預告僅列舉重要部份，無法對於所有基金投資風險及影響市場因素全部詳述。委託人於投資前須詳加研讀本風險揭露及預告，確實作好財務規劃與風險評估，並應審慎詳閱本行受託投資各基金所備之公開說詳明書及投資人須知，以免遭受難以承擔之損失。</li>
+                </ol>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- * 嘉實開發 End *-->
+      </main>
+      <!-- * drawer Start *-->
+      <div class="desktop-drawer" id="showMore">
+        <div class="desktop-drawer__content">
+          <div class="desktop-drawer__box"><a class="desktop-drawer__btn-close" href="javascript:;" title="取消"></a>
+            <h3 class="desktop-drawer__head">更多功能</h3>
+            <div class="desktop-drawer__body">
+              <div class="desktop-drawer__inner">
+                <div class="listView">
+                  <div class="listView__content allWhite"><a class="desktop-drawer-trigger listView__item" href="#exportDetails" title="匯出明細">
+                      <div class="listView__title">匯出明細</div></a><a class="l-open listView__item" href="#applyCancel" title="取消本服務">
+                      <div class="listView__title">取消本服務</div></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="desktop-drawer" id="exportDetails">
+        <div class="desktop-drawer__content">
+          <div class="desktop-drawer__box"><a class="desktop-drawer__btn-close" href="javascript:;" title="取消"></a>
+            <h3 class="desktop-drawer__head">匯出明細</h3>
+            <div class="desktop-drawer__body">
+              <div class="desktop-drawer__inner">
+                <div class="listView">
+                  <div class="listView__content">
+                    <div class="listView__item">
+                      <div class="listView__title">匯出資料</div>
+                      <div class="listView__value">銀證整合資產日報告</div>
+                    </div>
+                    <div class="listView__item">
+                      <div class="listView__title">資料日期</div>
+                      <div class="listView__value">2022/02/21</div>
+                    </div>
+                    <div class="listView__item">
+                      <div class="listView__title">檔案格式</div>
+                      <div class="listView__value">PDF</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="desktop-drawer__footer">
+                  <div class="desktop-drawer__btnbox btnbox"><a class="btn btn--primary btn--lg" type="button" value="下載">下載</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- * drawer End *-->
+      <div class="alert">
+        <div class="alert__box"><i class="alert__icon icon-Basic_check-circle"></i>
+          <p class="alert__text">已加入收藏清單</p>
+        </div>
+      </div>
+      <footer class="footer"><a class="footer__top"><i class="icon-lg icon-Basic_angle-top text-white"></i></a>
+        <div class="footer__container bg-gray-700 hide-lg">
+          <div class="footer__inner pt-5 pb-5 text-white">
+            <div class="wrap__inner d-flex justify-content-between align-items-center">
+              <div class="footer__service"><span>銀行客服：02-2505-9999</span><span>信用卡客服：02-2528-7776</span></div>
+              <div class="footer__links"><a href="http://" target="_blank" rel="noopener noreferrer">客服中心</a><a href="http://" target="_blank" rel="noopener noreferrer">服務據點</a><a href="http://" target="_blank" rel="noopener noreferrer">無障礙網銀</a><a href="http://" target="_blank" rel="noopener noreferrer">舊版網銀網站</a></div>
+              <div class="footer__medias d-flex"><a class="icon icon--alone icon--FacebookGray-100 mr-2" href="http://" target="_blank" rel="noopener noreferrer"> </a><a class="icon icon--alone icon--LineGray-100 mr-2" href="http://" target="_blank" rel="noopener noreferrer"> </a><a class="icon icon--alone icon--YoutubeGray-100" href="http://" target="_blank" rel="noopener noreferrer"> </a></div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__container bg-gray-900">
+          <div class="footer__inner pt-4 pb-4 text-gray-400">
+            <div class="wrap__inner">
+              <div class="d-flex align-items-center justify-content-center justify-content-lg-between">
+                <div class="footer__caption hide-lg"><a href="http://" target="_blank" rel="noopener noreferrer">著作權說明</a><a href="http://" target="_blank" rel="noopener noreferrer">隱私權保護聲明</a><a href="http://" target="_blank" rel="noopener noreferrer">法定公開揭露事項</a><a href="http://" target="_blank" rel="noopener noreferrer">網路安全說明</a><a href="http://" target="_blank" rel="noopener noreferrer">客戶使用網路銀行注意事項</a><a href="http://" target="_blank" rel="noopener noreferrer">各項收費標準與公告事項</a></div>
+                <p class="footer__copyright">©永豐商業銀行股份有限公司</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="./js/vendors/jquery-3.3.1.min.securejs"></script>
+    <script src="./js/vendors/gsap.min.securejs"></script>
+    <script src="./js/mainNohead.securejs"></script>
+  </body>
+</html>

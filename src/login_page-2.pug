@@ -1,0 +1,34 @@
+//- >>電子帳單-銀證整合資產報告-2
+//- 目前尚未持有證券帳戶
+extends _layout.pug
+
+append vars
+  - var noticeType = 'notice'
+  - var noticeName = 'fund'
+
+block content
+  main.content
+    // * 嘉實開發 Start *
+    .wrap__inner
+      .flex-between.mt-12.mb-8.mt-4-lg.mb-6-lg
+        h2.heading2 銀證整合資產日報告
+      section.section
+        .l-container.l-container__bulletin
+          .l-container__body
+            .imgMessage
+              .imgMessage__content
+                .imgMessage__imgwrap
+                  img.imgMessage__img(src=root+'images/global/img-login-creditCard.png' alt='申請銀證整合資產日報告 資產管理更全面')
+                .imgMessage__titleWrap.mt-4
+                  p.title.mb-2 目前僅可執行信用卡查詢服務
+                  p.content 
+                    | 您不符合交易資格，請先進行
+                    a(href="https://mma.sinopac.com/MemberPortal/Member/ApplyMmaIndex.aspx" target="_blank").text-blue-700.underline 會員升級
+                    | 或
+                    a(href="https://dawho.tw/" target="_blank").text-blue-700.underline 立即開戶
+            .btnbox.mt-5
+              a.btn.btn--primary(href="https://bank.sinopac.com/MMA8/CustomerService/BranchService/branch.html" title='查看分行' target="_blank") 查看分行
+      include _notice.pug
+    // * 嘉實開發 End *
+
+append script

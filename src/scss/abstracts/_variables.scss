@@ -1,0 +1,195 @@
+$isDev: false;
+@if $isDev {
+  * {
+    outline: 1px solid red;
+    // pointer-events: auto !important;
+    &:before {
+      outline: 1px solid green;
+    }
+    &:after {
+      outline: 1px solid blue;
+    }
+  }
+}
+
+// Core Variables //
+
+// Name Space
+$namespace: "" !default;
+
+// Path
+
+$image-path: "../images/" !default;
+$font-path: "../font/" !default;
+
+// breakpoint
+$pcrwd-breakpoint: 1160 !default;
+$mblrwd-breakpoint: 768 !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: $mblrwd-breakpoint * 1px,
+  lg: 992px,
+  xl: $pcrwd-breakpoint * 1px,
+  xxl: 1400px,
+) !default;
+$grid-gutter-width: 1.5rem !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1112px,
+  xxl: 1320px,
+) !default;
+
+// Color system
+
+// Primary - Red
+$red-50: #fef9f9 !default;
+$red-100: #fff3f3 !default;
+$red-200: #ffe1df !default;
+$red-300: #e34848 !default;
+$red-400: #df2229 !default;
+$red-500: #cf0209 !default;
+$red-700: #ab0208 !default;
+$red-900: #662529 !default;
+
+// Gray
+$gray-100: #ffffff !default;
+$gray-200: #fafafa !default;
+$gray-300: #ededed !default;
+$gray-400: #c4c4c4 !default;
+$gray-500: #9c9c9c !default;
+$gray-600: #707070 !default;
+$gray-700: #4a4a4a !default;
+$gray-900: #242424 !default;
+
+// Secondary - Blue
+$blue-100: #f4faff !default;
+$blue-200: #dbefff !default;
+$blue-400: #0f6ac3 !default;
+$blue-700: #004d99 !default;
+
+// Success - Green
+$green-100: #eefeee !default;
+$green-200: #d2f9cc !default;
+$green-500: #04ba00 !default;
+$green-700: #0c9700 !default;
+
+// Warning - Yellow
+$yellow-100: #fff8e7 !default;
+$yellow-200: #fff1cf !default;
+$yellow-500: #c79419 !default;
+$yellow-700: #b17500 !default;
+
+// Discount - Orange
+$orange-200: #ffe9da !default;
+$orange-500: #f15d0a !default;
+$orange-700: #df5000 !default;
+
+// Chart Color
+$blue: #1470CA !default;
+$blue-light: #69A9E9 !default;
+$blue-peacock: #4686A5 !default;
+$blue-water: #A2CBDF !default;
+$orange: #FF4F00 !default;
+$yellow: #FFBA00 !default;
+$purple: #A056BD !default;
+$pink: #F476A7 !default;
+$pink-yellow: #F47676 !default;
+$green-light: #BAD72B !default;
+$gray: #dfdfdf !default;
+$brown: #da8250 !default;
+$brown-light: #e9a669 !default;
+$indigo: #7d69fa !default;
+
+$positive: $red-500 !default;
+$negative: $green-700 !default;
+$info: $gray-700 !default;
+// --------------------------- 以上新網銀
+$success: $green-100 !default;
+
+$danger: $red-500 !default;
+$disabled: rgba($gray-300, 0.25) !default;
+$placeholder: $gray-400 !default;
+
+$border-gray: $gray-300 !default;
+
+$bg-popup: rgba($gray-900, 0.7) !default;
+
+// Fonts
+
+$custom-font-en: "Rubik" !default;
+
+$font-family: $custom-font-en, "-apple-system", BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Noto Sans", "微軟正黑體", "Microsoft JhengHei", sans-serif !default;
+
+$font-size-base: 16px !default;
+$font-size-xs: $font-size-base * (12/16) !default;
+$font-size-sm: $font-size-base * (14/16) !default;
+$font-size-lg: $font-size-base * 1.5 !default;
+
+$line-height-base: 1.5 !default;
+
+
+$bold: 700 !default;
+$medium: 500 !default;
+
+$icon-size-base: 16px !default;
+$icon-size-md: 20px !default;
+$icon-size-lg: 24px !default;
+
+// Cubic
+
+$cubic: cubic-bezier(0.77, 0.2, 0.05, 1) !default;
+$cubic2: cubic-bezier(0.23, 1, 0.32, 1) !default;
+$cubic-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275) !default;
+
+// Layout
+
+$header-height-sm: 50px !default;
+$header-height-lg: 68px !default;
+
+$footer-height: 50px !default;
+
+$gap-base-unit: 4px !default; // 間距最小單位
+$gap: $gap-base-unit * 3 !default; // 一般間距 (12px)
+$spacer: $gap-base-unit;
+$spacers: (
+  0: 0,
+  1: $spacer,
+  2: $spacer * 2,
+  3: $spacer * 3,
+  4: $spacer * 4,
+  5: $spacer * 5,
+  6: $spacer * 6,
+  7: $spacer * 7,
+  8: $spacer * 8,
+  9: $spacer * 9,
+);
+
+$wrap-gap-sm: 16px !default;
+$wrap-gap-lg: 20px !default;
+
+// z-index
+$z-header: 8;
+$z-mobile-drawer: 9;
+$z-lightbox: 10;
+
+// Shadow
+
+// $shadow:  0px 2px 8px rgba($black, 0.1) !default;
+$shadow: 0 -1px 0 0 rgba($gray-900, 0.04), 0 1px 2px 0 rgba($gray-900, 0.06), 0 3px 6px 0 rgba($gray-900, 0.06);
+
+// Radius
+
+$radius: $gap-base-unit !default;
+$radius-lg: $radius * 2 !default;
+
+// Lightbox
+$lightbox-size-sm: 400px !default; // 小的 lightbox 寬度尺寸
+$lightbox-size-m: 460px !default; // 中的 lightbox 寬度尺寸
+
+// Input
+$input-height: 44px !default;

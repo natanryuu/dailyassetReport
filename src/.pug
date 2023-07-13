@@ -1,0 +1,43 @@
+若要根據點擊的資料點名稱來反映在 <div style="font-size: 16px; color:#4A4A4A;">"這裡"</div> 的文字，你可以透過以下步驟修改程式碼：
+
+在 plotOptions.pie.point.events.legendItemClick 的事件處理函式中，取得點擊的資料點名稱 this.point.name。
+修改 getSubtitle 函式，讓它根據點擊的資料點名稱回傳相對應的內容。
+以下是修改後的程式碼範例，根據點擊的資料點名稱在 <div style="font-size: 16px; color:#4A4A4A;">"這裡"</div> 的文字位置顯示相對應的內容：
+
+javascript
+Copy code
+plotOptions: {
+  pie: {
+    // 省略其他設定...
+    point: {
+      events: {
+        legendItemClick: function () {
+          // 點擊 legend 時的處理函式
+          var tooltip = this.chart.tooltip;
+          tooltip.refresh(tooltip.shared ? [this] : this);
+
+          // 取得點擊的資料點名稱
+          var clickedName = this.point.name;
+
+          // 修改 getSubtitle 函式，根據點擊的資料點名稱回傳相對應的內容
+          function getSubtitle() {
+            if (clickedName === '存款') {
+              return `<div style="font-size: 16px; color:#4A4A4A;">存款</div>
+                      <br><div style="font-size: 24px; color:#242424; margin-left: -4px;">20%</div>`;
+            } else if (clickedName === '投資') {
+              return `<div style="font-size: 16px; color:#4A4A4A;">投資</div>
+                      <br><div style="font-size: 24px; color:#242424; margin-left: -4px;">20%</div>`;
+            } else if (clickedName === '負債') {
+              return `<div style="font-size: 16px; color:#4A4A4A;">負債</div>
+                      <br><div style="font-size: 24px; color:#242424; margin-left: -4px;">20%</div>`;
+            }
+          }
+
+          // 更新圖表的 subtitle
+          this.chart.setTitle(null, { text: getSubtitle() });
+        },
+      },
+    },
+  },
+},
+請將修改後的程式碼重新載入網頁並進行測試。當點擊圖表的資料點時，對應的文字應該會反映在 <div style="font-size: 16px; color:#4A4A4A;">"這裡"</div> 的位置。

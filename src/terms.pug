@@ -1,0 +1,54 @@
+//- >>電子帳單-銀證整合資產報告-同意條款-1
+extends _layout.pug
+
+append vars
+
+
+
+block content
+  main.content
+    // * 嘉實開發 Start *
+    .wrap__inner
+      .flex-between.mt-12.mb-8.mt-4-lg.mb-6-lg
+        h2.heading2 申請銀證整合資產報告
+      section.section
+        .l-container.l-container__bulletin
+          .l-container__head
+            .flex-between.mb-8.mb-1-lg
+              h4.heading4 您是否同意以下條款
+          .l-container__body
+            .terms
+              .terms__content
+                .terms__inner 
+                  p.terms__title.mb-2.bold 永豐金證券資產日報告資料共享同意條款
+                  ol.disc
+                    li 為提升客戶服務便利性之目的，經您事前同意或授權允許，永豐商業銀行股份有限公司(以下簡稱本行)將依據「金融機構間資料共享指引」及相關法令規定，與永豐金證券股份有限公司(以下簡稱永豐金證券)共享您的資料。
+                    li 本行與永豐金證券共享您的資料，除應符合法令規定外，並將依本行的資料安全防護措施，確保您資料的隱密與完整。
+                    li 若您對本行與永豐金證券共享您的資料有任何問題，或欲行使個人資料保護法第3條之權利，請與本行聯繫(0800-088-111、02-2505-9999），您可以自由選擇是否提供個人資料，惟不願意提供時，即無法於線上提供您永豐銀行與永豐金證券之資產整合日報告查詢。
+                    li 本行目前依據「金融機構間資料共享指引」規範，資料共享之地區、方式、對象、目的、類型、來源與期間等內容，如下表：
+                  .mixHeadTable.left.mt-6
+                    .mixHeadTable--tr
+                      .mixHeadTable--th 共享地區、方式及對象
+                      .mixHeadTable--td 本行於中華民國境內，以自動化機器方式與永豐金證券共享您的資料。
+                    .mixHeadTable--tr
+                      .mixHeadTable--th 共享目的
+                      .mixHeadTable--td 提供客戶線上查詢永豐銀行與永豐金證券之資產整合日報告。
+                    .mixHeadTable--tr
+                      .mixHeadTable--th 共享資料類型
+                      .mixHeadTable--td 一、基本資料：身分證統一編號。
+                    .mixHeadTable--tr
+                      .mixHeadTable--th 共享資料來源
+                      .mixHeadTable--td 客戶於本行之既有基本資料。
+                    .mixHeadTable--tr
+                      .mixHeadTable--th 共享期間
+                      .mixHeadTable--td 自客戶本次申請日起授權查詢，若需取消本服務，請至銀證整合資產日報告服務操作。
+              //- .terms__scrolldown.terms__scrolldownBtn // safari上與Chrome的內容相異故目前不採用
+              .btn.btn--primary.btn--terms.terms__animate.terms__scrolldown 滑到底
+                i.icon-Basic_angleDown-duo.icon__tr
+        .danger.bold.center.mt-8.fs-sm 提醒您，您即將離開永豐行動銀行，前往永豐金證券網站同意證券共享條款
+        .btnbox.mt-6
+          a.btn.btn--primary.btn--block.btn-agree(href="#" title='本人已詳閱並同意' disabled) 本人已詳閱並同意
+
+    // * 嘉實開發 End *
+
+append script

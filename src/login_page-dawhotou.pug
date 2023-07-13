@@ -1,0 +1,33 @@
+//- >>電子帳單-銀證整合資產報告-尚未持有證券帳戶
+//- 目前僅可執行信用卡查詢服務
+extends _layout.pug
+
+append vars
+  - var noticeType = 'notice'
+  - var noticeName = 'fund'
+
+
+block content
+  main.content
+    // * 嘉實開發 Start *
+    .wrap__inner
+      .flex-between.mt-12.mb-8.mt-4-lg.mb-6-lg
+        h2.heading2 銀證整合資產日報告
+      section.section
+        .l-container.l-container__bulletin
+          .l-container__body
+            .imgMessage
+              .imgMessage__content
+                .imgMessage__imgwrap
+                  img.imgMessage__img(src=root+'images/global/img-login-piggy.png' alt='尚未同意證券共享條款')
+                .imgMessage__titleWrap.mt-4
+                  p.title.mb-2 目前尚未持有證券帳戶
+                  p.content 您不符合交易資格，請先申請大戶投證券帳戶
+            .btnbox.mt-5
+              a.btn.btn--primary(href="https://dawho.tw/hot/dawhotou/#" target="_blank" title='立即申請') 立即申請
+
+
+      include _notice.pug
+    // * 嘉實開發 End *
+
+append script

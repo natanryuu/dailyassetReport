@@ -1,0 +1,740 @@
+(function () {
+    var chart;
+
+  // 總資產分析 資產佔比_長條圖
+  chart = Highcharts.chart("assetsPerc", {
+    chart: {
+      type: "bar",
+      height: 30,
+      margin: [0, 0, 0, 0],
+      events: {
+        load: function () {
+          updateBackgroundHeight(this);
+        },
+        redraw: function () {
+          updateBackgroundHeight(this);
+        }
+      }
+    },
+    credits: {
+      enabled: false,
+    },
+    title: {
+      text: "",
+    },
+    xAxis: {
+      visible: false,
+    },
+    yAxis: {
+      visible: false,
+    },
+    legend: {
+      enabled: false,
+    },
+    tooltip: {
+      enabled: false,
+    },
+    plotOptions: {
+      bar: {
+        borderWidth: 0,
+      },
+      series: {
+        stacking: "percent",
+        pointWidth: 18,
+      },
+    },
+    series: [
+      {
+        name: "投資",
+        color: "#A2CBDF",
+        data: [50],
+      },
+      {
+        name: "存款",
+        color: "#4686A5",
+        data: [50],
+      },
+    ],
+  });
+
+    var depositTrigger = document.querySelector('.chart__legend.mk_blue');
+    var investmentTrigger = document.querySelector('.chart__legend.mk_blueLight');
+    var originalColors = [chart.series[0].color, chart.series[1].color];
+
+    depositTrigger.addEventListener('mouseover', function() {
+      var depositSeries = chart.series[1];
+      var investmentSeries = chart.series[0];
+
+      depositSeries.update({
+        color: '#4686A5'
+      });
+      investmentSeries.update({
+        color: 'rgba(162, 203, 223, 0.2)'
+      });
+    });
+    depositTrigger.addEventListener('mouseout', function() {
+      var depositSeries = chart.series[1];
+      var investmentSeries = chart.series[0];
+
+      depositSeries.update({
+        color: originalColors[1]
+      });
+      investmentSeries.update({
+        color: originalColors[0]
+      });
+    });
+    investmentTrigger.addEventListener('mouseover', function() {
+      var depositSeries = chart.series[1];
+      var investmentSeries = chart.series[0];
+
+      investmentSeries.update({
+        color: '#A2CBDF'
+      });
+      depositSeries.update({
+        color: 'rgba(162, 203, 223, 0.2)'
+      });
+    });
+
+    investmentTrigger.addEventListener('mouseout', function() {
+      var depositSeries = chart.series[1];
+      var investmentSeries = chart.series[0];
+
+      investmentSeries.update({
+        color: originalColors[0]
+      });
+      depositSeries.update({
+        color: originalColors[1]
+      });
+    });
+})();
+
+(function () {
+    var chart;
+
+  // 總資產分析 負債佔比_長條圖
+  chart = Highcharts.chart("loanPerc", {
+    chart: {
+      type: "bar",
+      height: 30,
+      margin: [0, 0, 0, 0],
+      events: {
+        load: function () {
+          updateBackgroundHeight(this);
+        },
+        redraw: function () {
+          updateBackgroundHeight(this);
+        }
+      }
+    },
+    credits: {
+      enabled: false,
+    },
+    title: {
+      text: "",
+    },
+    xAxis: {
+      visible: false,
+    },
+    yAxis: {
+      visible: false,
+    },
+    legend: {
+      enabled: false,
+    },
+    tooltip: {
+      enabled: false,
+    },
+    plotOptions: {
+      bar: {
+        borderWidth: 0,
+      },
+      series: {
+        stacking: "percent",
+        pointWidth: 18,
+      },
+    },
+    series: [
+      {
+        name: "附條件(RP)庫存",
+        color: "#F476A7",
+        data: [10],
+      },
+      {
+        name: "透支",
+        color: "#E9A669",
+        data: [10],
+      },
+      {
+        name: "信用卡消費",
+        color: "#F47676",
+        data: [10],
+      },
+      {
+        name: "貸款",
+        color: "#DF2229",
+        data: [70],
+      },
+    ],
+  });
+
+  var loanTrigger = document.querySelector(".chart__legend.mk_red");
+  var creditCardTrigger = document.querySelector(".chart__legend.mk_pinkYellow");
+  var overdraftTrigger = document.querySelector(".chart__legend.mk_brownLight");
+  var conditionalTrigger = document.querySelector(".chart__legend.mk_pink");
+
+  var originalColors = [
+    chart.series[0].color,
+    chart.series[1].color,
+    chart.series[2].color,
+    chart.series[3].color
+  ];
+
+  loanTrigger.addEventListener("mouseover", function() {
+    var loanSeries = chart.series[3];
+    var creditCardSeries = chart.series[2];
+    var overdraftSeries = chart.series[1];
+    var conditionalSeries = chart.series[0];
+
+    loanSeries.update({
+      color: "#DF2229"
+    });
+    creditCardSeries.update({
+      color: "rgba(162, 203, 223, 0.2)"
+    });
+    overdraftSeries.update({
+      color: "rgba(162, 203, 223, 0.2)"
+    });
+    conditionalSeries.update({
+      color: "rgba(162, 203, 223, 0.2)"
+    });
+  });
+
+  loanTrigger.addEventListener("mouseout", function() {
+    var loanSeries = chart.series[0];
+    var creditCardSeries = chart.series[1];
+    var overdraftSeries = chart.series[2];
+    var conditionalSeries = chart.series[3];
+
+    loanSeries.update({
+      color: originalColors[0]
+    });
+    creditCardSeries.update({
+      color: originalColors[1]
+    });
+    overdraftSeries.update({
+      color: originalColors[2]
+    });
+    conditionalSeries.update({
+      color: originalColors[3]
+    });
+  });
+
+  creditCardTrigger.addEventListener("mouseover", function() {
+    var loanSeries = chart.series[3];
+    var creditCardSeries = chart.series[2];
+    var overdraftSeries = chart.series[1];
+    var conditionalSeries = chart.series[0];
+
+    loanSeries.update({
+      color: "rgba(162, 203, 223, 0.2)"
+    });
+    creditCardSeries.update({
+      color: "#F47676"
+    });
+    overdraftSeries.update({
+      color: "rgba(162, 203, 223, 0.2)"
+    });
+    conditionalSeries.update({
+      color: "rgba(162, 203, 223, 0.2)"
+    });
+  });
+
+  creditCardTrigger.addEventListener("mouseout", function() {
+    var loanSeries = chart.series[0];
+    var creditCardSeries = chart.series[1];
+    var overdraftSeries = chart.series[2];
+    var conditionalSeries = chart.series[3];
+
+    loanSeries.update({
+      color: originalColors[0]
+    });
+    creditCardSeries.update({
+      color: originalColors[1]
+    });
+    overdraftSeries.update({
+      color: originalColors[2]
+    });
+    conditionalSeries.update({
+      color: originalColors[3]
+    });
+  });
+
+  overdraftTrigger.addEventListener("mouseover", function() {
+    var loanSeries = chart.series[3];
+    var creditCardSeries = chart.series[2];
+    var overdraftSeries = chart.series[1];
+    var conditionalSeries = chart.series[0];
+
+    loanSeries.update({
+      color: "rgba(162, 203, 223, 0.2)"
+    });
+    creditCardSeries.update({
+      color: "rgba(162, 203, 223, 0.2)"
+    });
+    overdraftSeries.update({
+      color: "#E9A669"
+    });
+    conditionalSeries.update({
+      color: "rgba(162, 203, 223, 0.2)"
+    });
+  });
+
+  overdraftTrigger.addEventListener("mouseout", function() {
+    var loanSeries = chart.series[2];
+    var creditCardSeries = chart.series[1];
+    var overdraftSeries = chart.series[0];
+    var conditionalSeries = chart.series[3];
+
+    loanSeries.update({
+      color: originalColors[2]
+    });
+    creditCardSeries.update({
+      color: originalColors[1]
+    });
+    overdraftSeries.update({
+      color: originalColors[0]
+    });
+    conditionalSeries.update({
+      color: originalColors[3]
+    });
+  });
+
+  conditionalTrigger.addEventListener("mouseover", function() {
+    var loanSeries = chart.series[3];
+    var creditCardSeries = chart.series[1];
+    var overdraftSeries = chart.series[2];
+    var conditionalSeries = chart.series[0];
+
+    loanSeries.update({
+      color: "rgba(162, 203, 223, 0.2)"
+    });
+    creditCardSeries.update({
+      color: "rgba(162, 203, 223, 0.2)"
+    });
+    overdraftSeries.update({
+      color: "rgba(162, 203, 223, 0.2)"
+    });
+    conditionalSeries.update({
+      color: "#F476A7"
+    });
+  });
+
+  conditionalTrigger.addEventListener("mouseout", function() {
+    var loanSeries = chart.series[3];
+    var creditCardSeries = chart.series[1];
+    var overdraftSeries = chart.series[2];
+    var conditionalSeries = chart.series[0];
+
+    loanSeries.update({
+      color: originalColors[3]
+    });
+    creditCardSeries.update({
+      color: originalColors[1]
+    });
+    overdraftSeries.update({
+      color: originalColors[2]
+    });
+    conditionalSeries.update({
+      color: originalColors[0]
+    });
+  });
+})();
+
+(function () {
+  // 總資產報告 存款_長條圖
+  document.addEventListener('DOMContentLoaded', function () {
+    var currentDate = new Date();
+    var lastMonthDate = new Date();
+    lastMonthDate.setMonth(lastMonthDate.getMonth() - 1);
+    var lastMonthYear = lastMonthDate.getFullYear();
+    var lastMonth = lastMonthDate.getMonth() + 1;
+    var tickInterval = 1000000;
+    var currentMonthData = 2 * tickInterval;
+    var lastMonthData = 1.926 * tickInterval;
+
+    var chart = Highcharts.chart('savingChart', {
+      chart: {
+        type: 'column'
+      },
+      credits: {
+        enabled: false,
+      },
+      title: {
+        text: ''
+      },
+      xAxis: {
+        categories: ['前一日', '本日'],
+        lineColor: '#EDEDED'
+      },
+      yAxis: {
+        gridLineWidth: 0,
+        title: {
+          text: ''
+        },
+        tickPositioner: function () {
+          var minusRange = (this.dataMin >= 100000) ? 100000 : 10000;
+          var plusRange = (this.dataMax >= 100000) ? 100000 : 10000;
+
+          var tickMin = Math.ceil(this.dataMin / minusRange) * minusRange - minusRange;
+          var tickMax = Math.floor(this.dataMax / plusRange) * plusRange + plusRange;
+
+          var positions = [];
+          var tick = tickMin;
+          var increment = Math.ceil((tickMax - tickMin) / 2);
+
+          // console.log('dataMin:' + this.dataMin, tickMin);
+          // console.log('dataMax:' + this.dataMax, tickMax);
+
+          if (this.dataMax !== null && this.dataMin !== null) {
+            for (tick; tick - increment <= this.dataMax; tick += increment) {
+              positions.push(tick);
+            }
+          }
+          return positions;
+        },
+        labels: {
+          enabled: false
+        },
+        // tickInterval: 1000000
+      },
+      legend: {
+        enabled: false
+      },
+      plotOptions: {
+        column: {
+          colorByPoint: true,
+          dataLabels: {
+            padding: 16,
+            enabled: true,
+            formatter: function () {
+              return this.y / 10000 + ' 萬';
+            }
+          },
+          style: {
+            fontSize: '16px',
+            color: '#282626',
+
+          },
+        }
+      },
+      tooltip: {
+        pointFormatter: function () {
+          return '<span style="color:' + this.color + '">\u25CF</span> ' + this.series.name + ': <b>' + Highcharts.numberFormat(this.y, 0, '.', ',') + '</b><br/>';
+        }
+      },
+      series: [{
+        name: '存款',
+        data: [lastMonthData, currentMonthData],
+        colors: ['#EDEDED', '#69A9E9']
+      }]
+    });
+  });
+
+  // 總資產報告 投資_長條圖
+  document.addEventListener('DOMContentLoaded', function () {
+    var currentDate = new Date();
+    var lastMonthDate = new Date();
+    lastMonthDate.setMonth(lastMonthDate.getMonth() - 1);
+    var lastMonthYear = lastMonthDate.getFullYear();
+    var lastMonth = lastMonthDate.getMonth() + 1;
+    var tickInterval = 1000000;
+    var currentMonthData = 2 * tickInterval;
+    var lastMonthData = 1.926 * tickInterval;
+
+    var chart = Highcharts.chart('investChart', {
+      chart: {
+        type: 'column'
+      },
+      credits: {
+        enabled: false,
+      },
+      title: {
+        text: ''
+      },
+      xAxis: {
+        categories: ['前一日', '本日'],
+        lineColor: '#EDEDED'
+      },
+      yAxis: {
+        gridLineWidth: 0,
+        title: {
+          text: ''
+        },
+        tickPositioner: function () {
+          var minusRange = (this.dataMin >= 100000) ? 100000 : 10000;
+          var plusRange = (this.dataMax >= 100000) ? 100000 : 10000;
+
+          var tickMin = Math.ceil(this.dataMin / minusRange) * minusRange - minusRange;
+          var tickMax = Math.floor(this.dataMax / plusRange) * plusRange + plusRange;
+
+          var positions = [];
+          var tick = tickMin;
+          var increment = Math.ceil((tickMax - tickMin) / 2);
+
+          // console.log('dataMin:' + this.dataMin, tickMin);
+          // console.log('dataMax:' + this.dataMax, tickMax);
+
+          if (this.dataMax !== null && this.dataMin !== null) {
+            for (tick; tick - increment <= this.dataMax; tick += increment) {
+              positions.push(tick);
+            }
+          }
+          return positions;
+        },
+        labels: {
+          enabled: false
+        },
+        // tickInterval: 1000000
+      },
+      legend: {
+        enabled: false
+      },
+      plotOptions: {
+        column: {
+          colorByPoint: true,
+          dataLabels: {
+            padding: 16,
+            enabled: true,
+            formatter: function () {
+              return this.y / 10000 + ' 萬';
+            }
+          },
+          style: {
+            fontSize: '16px',
+            color: '#282626',
+
+          },
+        }
+      },
+      tooltip: {
+        pointFormatter: function () {
+          return '<span style="color:' + this.color + '">\u25CF</span> ' + this.series.name + ': <b>' + Highcharts.numberFormat(this.y, 0, '.', ',') + '</b><br/>';
+        }
+      },
+      series: [{
+        name: '存款',
+        data: [lastMonthData, currentMonthData],
+        colors: ['#EDEDED', '#69A9E9']
+      }]
+    });
+  });
+
+  // 總資產報告 負債_圓餅圖
+  document.addEventListener('DOMContentLoaded', function () {
+
+    var chart = Highcharts.chart('debtChart', {
+      chart: {
+        type: 'pie',
+      },
+      credits: {
+        enabled: false,
+      },
+      title: {
+        text: '',
+      },
+      tooltip: {
+        formatter: function () {
+          return "<b>" + this.point.name + "</b><br/>" + this.y + "%";
+        },
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: false,
+          },
+          innerSize: "85%",
+          colors: ['#1470CA', '#EFEFEF'],
+        },
+      },
+      series: [
+        {
+          name: '',
+          data: [
+            ['已還款', 50],
+            ['未還款', 50],
+          ],
+        },
+      ],
+    });
+  });
+
+  // 總資產比例圖_圓餅圖
+  Highcharts.chart("ttlAssets", {
+    chart: {
+      type: "pie",
+      spacingLeft: 0,
+      events: {
+        load: message
+      }
+    },
+    title: {
+      text: "",
+    },
+    // subtitle: {
+    //   useHTML: true,
+    //   // text: getSubtitle(),
+    //   // text: null,
+    //   floating: true,
+    //   verticalAlign: 'middle',
+    //   x: -30,
+    //   y: 5,
+    // },
+    credits: {
+      enabled: false,
+    },
+    tooltip: {
+      borderWidth: 2,
+      borderColor: '#1470CA',
+      borderRadius: 4,
+      formatter: function () {
+        var date = new Date();
+        var formattedDate = '<div style="color: #4A4A4A; font-family: Rubik; font-size: 14px;">' + date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate() + '</div>';
+        var formattedValue = Highcharts.numberFormat(this.y, 0, ",", ",");
+        var content = '<div style="padding: 6px 8p;">';
+        content += '<div style="padding-bottom: 8px;">' + formattedDate + '</div>';
+        content += '<br><div>' + this.point.name + ': TWD ' + formattedValue + ' </div>';
+        content += '</div>';
+        return content;
+      },
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: "pointer",
+        dataLabels: {
+          enabled: false,
+        },
+        showInLegend: true,
+        innerSize: "80%",
+        point: {
+          events : {
+            click: function(x, y) {
+              var chart = this.series.chart,
+                str = chart.tooltipStr;
+              
+              // console.log(str);
+    
+              var nameFontSize = chart.chartWidth <= 375 ? '14px' : '16px';
+              var valueFontSize = chart.chartWidth <= 375 ? '20px' : '24px';
+              var valueMarginLeft = chart.chartWidth <= 375 ? '-4px' : '0';
+              var total = 0;
+              this.series.data.forEach(function(point) {
+                total += point.y;
+              });
+
+              // var percentage = (this.y / total * 100).toFixed(2);
+              var percentage = (this.y / total * 100);
+
+              str.attr({
+                text: `<div><div style="font-size: ${nameFontSize}; color:#4A4A4A;">${this.name}</div><br><div style="font-size: ${valueFontSize}; color:#242424;margin-left: ${valueMarginLeft};">${percentage}%</div></div>`
+              });
+            },
+            legendItemClick: function(e){
+              e.preventDefault();
+            }
+          }
+        },
+      },
+    },
+    legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle',
+      itemMarginTop: 12,
+      itemMarginBottom: 12,
+      enabled: true,
+      squareSymbol: true,
+      symbolHeight: 12,
+      symbolWidth: 12,
+      symbolRadius: 0,
+      itemStyle: {
+        cursor: "pointer",
+        lineHeight: '21px',
+        fontSize: '14px',
+      },
+    },
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 375
+        },
+        chartOptions: {
+          legend: {
+            layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'bottom',
+            x: 0,
+            y: 0
+          }
+        }
+      }]
+    },
+    series: [
+      {
+        data: [
+          { name: "存款", y: 2000, color: "#1470CA" },
+          { name: "投資", y: 6000, color: "#A2CBDF" },
+          { name: "負債", y: 2000, color: "#DF2229" },
+        ],
+      },
+    ],
+  });
+})();
+
+function message() {
+  var chart = this,
+    plotWidth = chart.plotWidth,  
+    plotHeight = chart.plotHeight,
+    x = plotWidth / 2,
+    y = plotHeight / 2,
+    str;
+    str = chart.tooltipStr = chart.renderer.text("", x, y);
+  
+    var defaultName = '存款'; // 默认名称
+    
+    var total = 0;
+    chart.series.forEach(function(series) {
+      series.data.forEach(function(point) {
+        total += point.y;
+      });
+    });
+    
+    var defaultPercentage = 0;
+    if (total !== 0) {
+      defaultPercentage = (chart.series[0].data[0].y / total * 100);
+    }
+    
+    var nameFontSize = chart.chartWidth <= 375 ? '14px' : '16px';
+    var valueFontSize = chart.chartWidth <= 375 ? '20px' : '24px';
+    var valueMarginLeft = chart.chartWidth <= 375 ? '-4px' : '0';
+
+    str.attr({
+      text: `<div><div style="font-size: ${nameFontSize}; color:#4A4A4A;">${defaultName}</div><br><div style="font-size: ${valueFontSize}; color:#242424;margin-left: ${valueMarginLeft};">${defaultPercentage}%</div></div>`
+    });
+    
+    str.attr({ align: 'center' }).add();
+    // 沒有預設值(即圓圈內為空白)可使用
+    // str = chart.tooltipStr = chart.renderer.text("", x, y);
+    // str.attr({ align: 'center' }).add();
+}
+
+function updateBackgroundHeight(chart) {
+  var background = chart.container.parentNode.getElementsByClassName('highcharts-background')[0];
+  if (background && chart.chartHeight === 200) {
+    background.style.height = '200px';
+  } else {
+    background.style.height = null;
+  }
+};

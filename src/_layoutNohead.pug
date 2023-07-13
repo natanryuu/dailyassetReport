@@ -1,0 +1,74 @@
+//- include _component.pug
+//- include _data.pug
+
+doctype html
+html(lang="zh-Hant")
+  block vars
+    //- 不會變的設定
+    include _config.pug
+    - var isLite = false            // 頭尾精簡版
+    - var hasChart = false          // 有無 圖表           // N
+    - var hasDatePicker = false     // 有無 日曆           // N
+    - var hasUiSlider = false       // 使用input Range    // N
+    - var pageName = ''
+    - var root = './'
+    //- 放資料
+    - var data_breadcrumb = [{title: '標題1', url: '#'},{title: '標題2', url: '#'}] //- 麵包屑
+
+  head
+    block head
+      meta(charset='UTF-8')
+      meta(http-equiv='X-UA-Compatible' content='IE=edge,Chrome=1')
+      meta(http-equiv='Cache-Control' content='no-cache')
+      meta(http-equiv='Pragma' content='no-cache')
+      meta(http-equiv='Expires' content='0')
+      meta(property='og:title', content=(og_title ? og_title + ' - ' + author : ''))
+      meta(property='og:image', content=og_image ? og_image : '')
+      meta(property='og:url', content=og_url ? og_url : '')
+      meta(property='og:description', content=og_desc ? og_desc : '')
+      meta(name='author', content=author)
+      meta(name='copyright', content=author)
+      if meta_keyword != ''
+        meta(name='keywords', content=meta_keyword)
+      meta(name='description', content=og_desc ? og_desc : '')
+      meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+      meta(name="format-detection" content="telephone=no")
+      title #{og_title ? og_title + ' - ' + author : ''}
+      link(rel='shortcut icon' href='https://mma.sinopac.com/images/favicon.ico')
+      if hasUiSlider
+        link(href=root+'css/nouislider.min.css' rel='stylesheet')
+      if hasDatePicker
+        link(href=root+'css/datepicker.min.css' rel='stylesheet')
+      link(href=root+'css/style.css' rel='stylesheet')
+
+
+  body(class=pageName)
+    .wrap(class=nameSpace)
+      block header
+        //- include layout/_header.pug
+
+      block content
+
+      block footer
+        include layout/_footer.pug
+
+
+
+    block lightbox
+
+
+    block script
+      //- 第三方套件
+      script(src=root+"js/vendors/jquery-3.3.1.min.securejs")
+      script(src=root+"js/vendors/gsap.min.securejs")
+      if hasChart
+        script(src=root+"js/vendors/highcharts/highstock.securejs")
+        //- script(src=root+"js/vendors/highcharts/data.securejs")
+      if hasUiSlider
+        script(src=root+"js/vendors/nouislider/nouislider.securejs")
+      if hasDatePicker
+        script(src=root+"js/vendors/vanillajs-datepicker/datepicker-full.min.securejs") 
+        script(src=root+"js/vendors/vanillajs-datepicker/zh-TW.securejs") 
+      //- 全站共用邏輯
+      script(src=root+'js/mainNohead.securejs')
+

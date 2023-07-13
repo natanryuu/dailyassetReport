@@ -1,0 +1,242 @@
+$icomoon-font-family: "icomoon" !default;
+
+$icon-Basic_nav-more: "\e904";
+$icon-Basic_nav-more1:  "\e914";
+$icon-Basic_eye-open: "\e908";
+$icon-Basic_eye-close: "\e909";
+$icon-Basic_money-hide: "\e90b";
+$icon-Basic_download: "\e90d";
+$icon-Basic_notice: "\e910";
+$icon-Basic_loan: "\e900";
+$icon-Basic_invest: "\e901";
+$icon-Basic_saving: "\e902";
+$icon-Basic_info: "\e903";
+$icon-Basic_cancel-apply: "\e905";
+$icon-Basic_export-details: "\e906";
+$icon-Basic_angle-left: "\e916";
+$icon-Basic_angle-down: "\e907";
+$icon-Basic_angle-right: "\e90a";
+$icon-Basic_angle-top: "\e90c";
+$icon-Basic_check-circle: "\e90e";
+$icon-Basic_close: "\e90f";
+$icon-Basic_plus: "\e913";
+$icon-Basic_minus: "\e911";
+$icon-Basic_search-none: "\e915";
+$icon-Basic_angleDown-duo: "\e912";
+
+@font-face {
+  font-family: "#{$icomoon-font-family}";
+  src: url("#{$font-path}/#{$icomoon-font-family}.ttf") format("truetype"),
+    url("#{$font-path}/#{$icomoon-font-family}.woff") format("woff"),
+    url("#{$font-path}/#{$icomoon-font-family}.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "#{$icomoon-font-family}" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &::before {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  // + .icon-text {
+  //   margin-left: $gap-base-unit * 1;
+  // }
+  // > span {
+  //   display: inline-block;
+  //   vertical-align: middle;
+  // }
+}
+
+.icon {
+  &__tr {
+    margin-left: $gap-base-unit;
+  }
+
+  &__tl {
+    margin-right: $gap-base-unit;
+  }
+}
+
+.icon-Basic_nav-more {
+  &:before {
+    content: $icon-Basic_nav-more;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_nav-more1 {
+  &:before {
+    content: $icon-Basic_nav-more1;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_eye-open {
+  &:before {
+    content: $icon-Basic_eye-open;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_eye-close {
+  &:before {
+    content: $icon-Basic_eye-close;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_money-hide {
+  &:before {
+    content: $icon-Basic_money-hide;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_download {
+  &:before {
+    content: $icon-Basic_download;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_notice {
+  &:before {
+    content: $icon-Basic_notice;
+    color: currentColor;
+  }
+}
+
+.con-Basic_loan {
+  &:before {
+    content: $icon-Basic_loan;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_invest {
+  &:before {
+    content: $icon-Basic_invest;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_saving {
+  &:before {
+    content: $icon-Basic_saving;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_info {
+  &:before {
+    content: $icon-Basic_info;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_cancel-apply {
+  &:before {
+    content: $icon-Basic_cancel-apply;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_export-details {
+  &:before {
+    content: $icon-Basic_export-details;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_info {
+  &:before {
+    content: $icon-Basic_info;
+    color: currentColor;
+  }
+}
+.icon-Basic_angle-left{
+  &:before {
+    content: $icon-Basic_angle-left;
+    color: currentColor;
+  }
+}
+
+
+.icon-Basic_angle-down {
+  &:before {
+    content: $icon-Basic_angle-down;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_angle-right {
+  &:before {
+    content: $icon-Basic_angle-right;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_angle-top {
+  &:before {
+    content: $icon-Basic_angle-top;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_check-circle {
+  &:before {
+    content: $icon-Basic_check-circle;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_close {
+  &:before {
+    content: $icon-Basic_close;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_plus {
+  &:before {
+    content: $icon-Basic_plus;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_minus {
+  &:before {
+    content: $icon-Basic_minus;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_search-none {
+  &:before {
+    content: $icon-Basic_search-none;
+    color: currentColor;
+  }
+}
+
+.icon-Basic_angleDown-duo {
+  &:before {
+    content: $icon-Basic_angleDown-duo;
+    color: currentColor;
+  }
+}

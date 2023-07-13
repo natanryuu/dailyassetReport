@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <script src="./js/vendors/pdf/pdf.securejs"></script>
+    <script>
+      // @see: https://gitlab.pagedmedia.org/tools/pagedjs/issues/84#note_535
+      class RepeatingTableHeaders extends Paged.Handler {
+        constructor(chunker, polisher, caller) {
+          super(chunker, polisher, caller);
+        }
+      
+        afterPageLayout(pageElement, page, breakToken, chunker) {
+          // Find all split table elements
+          let tables = pageElement.querySelectorAll("table[data-split-from]");
+      
+          tables.forEach((table) => {
+            // Get the reference UUID of the node
+            let ref = table.dataset.ref;
+            // Find the node in the original source
+            let sourceTable = chunker.source.querySelector("[data-ref='" + ref + "']");
+            // Find if there is a header
+            let header = sourceTable.querySelector("thead");
+            if (header) {
+              // Clone the header element
+              let clonedHeader = header.cloneNode(true);
+              // Insert the header at the start of the split table
+              table.insertBefore(clonedHeader, table.firstChild);
+            }
+          });
+        }
+      }
+      Paged.registerHandlers(RepeatingTableHeaders);
+      
+    </script>
+    <style type="text/css">
+      @font-face {
+        font-family: "Noto Sans TC";
+        src: url(path/to/noto-sans-tc.woff2) format("woff2"),
+          url(path/to/noto-sans-tc.woff) format("woff");
+      }
+      
+      @font-face {
+        font-family: "Rubik";
+        src: url(path/to/rubik.woff2) format("woff2"),
+            url(path/to/rubik.woff) format("woff");
+      }
+      
+      html,
+      body {
+        font-size: 12px;
+      }
+      
+      body {
+        font-family: "Noto Sans TC", sans-serif;
+        margin: 0;
+        -webkit-print-color-adjust: exact;
+      }
+      
+      .number {
+        font-family: "Rubik", sans-serif;
+      }
+      
+      @page {
+        size: A4;
+        margin-top: 20mm;
+        margin-bottom: 20mm;
+        margin-left: 12mm;
+        margin-right: 12mm;
+      }
+      
+      @page {
+        padding-top: 0;
+      
+        @top-left {
+          content: element(logo);
+        }
+      
+        @top-center {
+          content: element(title);
+        }
+      
+        @top-right {
+          color: #707070;
+          content: "第 " counter(pages) " 之 " counter(page) " 頁";
+        }
+      }
+      
+      @page:first-child {
+        padding-top: 0;
+      }
+      
+      .logo{
+        position: running(logo);
+      }
+      
+      .title {
+        position: running(title);
+        color: #9A7C50;
+        font-size: 18px;
+        font-weight: 900;
+        line-height: 120%;
+        letter-spacing: 2px;
+      }
+      
+      .subtitle {
+        color: #9A7C50;
+        font-size: 14px;
+        text-align: center;
+        line-height: 120%;
+        font-weight: 500;
+        position: relative !important;
+      }
+      
+      .subtitle::after ,.subtitle::before{
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 2px;
+        background: #9A7C50;
+        top: 7px;
+      }
+      
+      .subtitle::after {
+        left: 0;
+      }
+      
+      .subtitle::before {
+        right: 0;
+      }
+      
+      .caption {
+        color: #4A4A4A;
+      }
+      
+      .update__box{
+        border: 1px solid #CDC3B1;
+        padding: 8px;
+        font-size: 12px;
+        line-height: 150%;
+        color: #707070;
+        margin-bottom: 44px;
+      }
+      
+      .heading__block{
+        background: #9A7C50;
+        padding: 4px;
+        color: white;
+        font-size: 14px;
+      }
+      
+      .heading__text {
+        font-size: 14px;
+        font-weight: 500;
+        color: #242424;
+        line-height: 1.5;
+        display: flex;
+        align-items: center;
+        margin-top: 16px;
+        margin-bottom: 4px;
+      }
+      
+      .heading__text::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 1.8em;
+        background: #9A7C50;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+      
+      .report__header {
+        display: flex;
+        justify-content: space-between;
+      }
+      
+      .report__title {
+        font-size: 12px;
+        line-height: 150%;
+        color: #242424;
+      }
+      
+      .report__value {
+        font-size: 12px;
+        line-height: 150%;
+        color: #242424;
+      }
+      
+      .report__itemwrap {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 4px;
+      }
+      
+      .report__item {
+        display: inline-block;
+        position: relative;
+        padding-left: 18px;
+        margin-right: 8px;
+        width: calc(50% - 12px); 
+        box-sizing: border-box;
+      }
+      
+      .report__mark::before{
+        position: absolute;
+        content:"";
+        width: 10px;
+        height: 10px;
+        top: 4px;
+        left: 0px;
+        border-radius: 2px;
+        background-color: gray;
+      }
+      
+      .report__mark.saving::before{
+        background-color: #56A0E9;
+      }
+      
+      .report__mark.investment::before{
+        background-color: #8ACAE7;        
+      }
+      
+      .report__mark.loan::before{
+        background-color: #DF2229;        
+      }
+      
+      .report__mark.creditcard::before{
+        background-color: #F47676;        
+      }
+      
+      .report__mark.overdraft::before{
+        background-color: #E9A669;        
+      }
+      
+      .report__mark.repo::before{
+        background-color: #F476A7;        
+      }
+      
+      .report__description{
+        color: #707070;
+        font-size: 11px;
+        line-height: 150%;
+      }
+      
+      .row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -0.75rem;
+        margin-left: -0.75rem;
+      }
+      
+      .col-6 {
+        position: relative;
+        min-height: 1px;
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+      
+      .avoid-break {
+        page-break-inside: avoid;
+      }
+      
+      .force-break {
+        page-break-before: always;
+      }
+      
+      .section+.section {
+        margin-top: 4rem;
+      }
+      
+      table {
+        text-align: center;
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 1.1em;
+        color: #454242;
+      }
+      
+      thead th {
+        background: #E1DCD0;
+      }
+      
+      table,
+      th,
+      td {
+        border: 1px solid #ccc;
+      }
+      
+      td,
+      th {
+        padding: 4px;
+      }
+      
+      .notice{
+        color: #707070;
+        font-size: 8px;
+        line-height: 1.5;
+      }
+      .notice ol{
+        padding-inline-start: 16px !important;
+      }
+      
+      .mb-1{
+        margin-bottom: 4px;
+      }
+      
+      .mb-2{
+        margin-bottom: 8px;
+      }
+      
+      .mb-3{
+        margin-bottom: 12px;
+      }
+      
+      .mb-4{
+        margin-bottom: 16px;
+      }
+      
+      .mt-3{
+        margin-top: 12px;
+      }
+      
+      .right{
+        text-align: right;
+      }
+      
+      .left{
+        text-align: left;
+      }
+      
+      .bg-gray200{
+        background: #F8F8F8;
+      }
+      
+      .w-93{
+        width: 93px;
+      }
+      
+      .max-w-89{
+        max-width: 89px;
+      }
+      
+      
+    </style>
+  </head>
+  <body> 
+    <div class="section avoid-break"><img class="logo" src="./images/global/logo-pc.svg" alt="永豐銀行">
+      <div class="title">財富永豐</div>
+      <div class="subtitle">2022 年 02 月 28 日 銀行與證券資產整合日報告</div>
+      <p class="caption">
+         永豐銀行提供您專屬【銀證整合資產日報告】，供您掌握當日財富。<br>如您要查詢即時帳務資訊，請使用網路銀行/APP及其他永豐金證券服務，或洽詢分行或客服專員。</p>
+      <div class="update__box">
+        <div class="update__mainTitle">各產品更新時間如下</div>
+        <div class="update__title">銀行：<span>2023/02/27 15:30:30</span></div>
+        <div class="update__title">黃金存摺：<span>2023/02/27 15:30:30</span></div>
+        <div class="update__title">基金：<span>2023/02/27 15:30:30</span></div>
+        <div class="update__title">信用卡：<span>2023/02/27 15:30:30</span></div>
+      </div>
+      <div class="heading__block mb-3">銀行與證券整合資產負債</div>
+      <div class="row mb-4">
+        <div class="col-6">
+          <div class="report__wrap">
+            <div class="report__header">
+              <div class="report__title">資產佔比</div>
+              <div class="report__value">TWD 5,000,000
+                <div class="report__chart"></div>
+              </div>
+            </div>
+            <div class="report__itemwrap">
+              <div class="report__item">
+                <div class="report__mark saving"></div>
+                <div class="report__description">存款 <span>(50％)</span></div>
+              </div>
+              <div class="report__item">
+                <div class="report__mark investment"></div>
+                <div class="report__description">投資 <span>(20%)</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="report__wrap">
+            <div class="report__header">
+              <div class="report__title">負債佔比</div>
+              <div class="report__value">TWD 6,065,000
+                <div class="report__chart"></div>
+              </div>
+            </div>
+            <div class="report__itemwrap">
+              <div class="report__item">
+                <div class="report__mark loan"></div>
+                <div class="report__description">貸款<span>(95％)</span></div>
+              </div>
+              <div class="report__item">
+                <div class="report__mark creditcard"></div>
+                <div class="report__description">信用卡消費<span>(5%)</span></div>
+              </div>
+              <div class="report__item">
+                <div class="report__mark overdraft"></div>
+                <div class="report__description">透支<span>(0％)</span></div>
+              </div>
+              <div class="report__item">
+                <div class="report__mark repo"></div>
+                <div class="report__description">附條件(RP)庫存<span>(0％)</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-6">
+          <table>
+            <thead>
+              <tr>
+                <th colspan="3"> 總資產</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="bg-gray200 w-93" rowspan="2">存款 (40%)</td>
+                <td class="bg-gray200 max-w-89">臺幣 (30%)</td>
+                <td class="right">1,500,000</td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 max-w-89">外幣 (10%)</td>
+                <td class="right">500,000</td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 w-93" rowspan="9">投資 (20%)</td>
+                <td class="bg-gray200 max-w-89">基金 (25%)</td>
+                <td class="right">625,000</td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 max-w-89">債券 (10%)</td>
+                <td class="right">250,000</td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 max-w-89">國內證券 (5%)</td>
+                <td class="right">125,000</td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 max-w-89">海外證券 (5%)</td>
+                <td class="right">125,000</td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 max-w-89">ibrAin (5%)</td>
+                <td class="right">125,000</td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 max-w-89">黃金 (0%)</td>
+                <td class="right">-</td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 max-w-89">境內外結構型商品 (0%)</td>
+                <td class="right">-</td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 max-w-89">銀行結構型商品 (0%)</td>
+                <td class="right">-</td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 max-w-89">在途款 (0%)</td>
+                <td class="right">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-6">
+          <table>
+            <thead>
+              <tr>
+                <th colspan="3"> 總負債</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="bg-gray200 w-93">信用卡消費(5%)</td>
+                <td class="right" colspan="2">15,000</td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 w-93" rowspan="3">貸款 (95%)</td>
+                <td class="bg-gray200 max-w-89">房屋貸款<br><span>(87%)</span></td>
+                <td class="right">5,500,000</td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 max-w-89">信用貸款(8%)</td>
+                <td class="right">500,000 </td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 max-w-89">其他貸款(0%)</td>
+                <td class="right">-</td>
+              </tr>
+              <tr class="w-93">
+                <td class="bg-gray200 w-93">透支(0%)</td>
+                <td class="right">-</td>
+              </tr>
+              <tr>
+                <td class="bg-gray200 w-93">附條件(RP)庫存<br><span>(0%)</span></td>
+                <td class="right">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="avoid-break force-break"> 
+      <div class="title">財富永豐</div>
+      <div class="subtitle">2022 年 02 月 28 日 銀行與證券資產整合日報告</div>
+      <div class="heading__block mt-3">銀行與證券整合資產負債</div>
+      <div class="heading__text">存款</div>
+      <table>
+        <thead>
+          <tr>
+            <th>幣別</th>
+            <th>活期存款</th>
+            <th>定期存款</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>臺幣</td>
+            <td class="right">TWD 1,200,000</td>
+            <td class="right">TWD 1,200,000</td>
+          </tr>
+          <tr class="bg-gray200">
+            <td>美元</td>
+            <td class="right">USD 1.84</td>
+            <td class="right">USD 1,0118.45</td>
+          </tr>
+          <tr>
+            <td>日圓</td>
+            <td class="right">JPY 0</td>
+            <td class="right">JPY 0</td>
+          </tr>
+          <tr class="bg-gray200">
+            <td>歐元</td>
+            <td class="right">EUR 0.2</td>
+            <td class="right">EUR 0</td>
+          </tr>
+          <tr>
+            <td>人民幣</td>
+            <td class="right">CNY 1.02</td>
+            <td class="right">CNY 541.56</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="heading__text">投資</div>
+      <div class="caption mb-1">
+         提供「前一營業日」本行可取得之最新報價，僅供參考。<br>投資損益及報酬率計算均未含相關申購費用；投資損益採計方式為一憑證編號分別計算。</div>
+      <table>
+        <thead>
+          <tr>
+            <th>類型</th>
+            <th>來源</th>
+            <th>標的</th>
+            <th>投資現值</th>
+            <th>報酬率</th>
+            <th>投資損益</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="4">基金</td>
+            <td rowspan="2">銀行</td>
+            <td class="left">統一統信</td>
+            <td class="right">TWD 23,082</td>
+            <td class="right">130.82%</td>
+            <td class="right">TWD 13,082</td>
+          </tr>
+          <tr>
+            <td class="left">富蘭克林黃金(年配權)</td>
+            <td class="right">TWD 751,938</td>
+            <td class="right">150.646%</td>
+            <td class="right">TWD 198,000</td>
+          </tr>
+          <tr>
+            <td rowspan="2">證券</td>
+            <td class="left">富蘭克林黃金(年配權)</td>
+            <td class="right">TWD 751,938</td>
+            <td class="right">150.646%</td>
+            <td class="right">TWD 198,000</td>
+          </tr>
+          <tr>
+            <td class="left">瀚亞投資- 美國高收益債券</td>
+            <td class="right">TWD 751,938</td>
+            <td class="right">150.646%</td>
+            <td class="right">TWD 198,000</td>
+          </tr>
+          <tr class="bg-gray200">
+            <td rowspan="2">債券</td>
+            <td rowspan="2">銀行</td>
+            <td class="left">法國興業銀行金融債券(III)</td>
+            <td class="right">ZAR 142.845</td>
+            <td class="right">17.45%</td>
+            <td class="right">ZAR 21,225</td>
+          </tr>
+          <tr class="bg-gray200">
+            <td class="left">海外高收益債券</td>
+            <td class="right">USD 1,200.00</td>
+            <td class="right">-</td>
+            <td class="right">USD 200.00</td>
+          </tr>
+          <tr>
+            <td rowspan="6">國內證券</td>
+            <td rowspan="6">證券</td>
+            <td class="left">永豐金</td>
+            <td class="right">TWD 165,000</td>
+            <td class="right">10.00%</td>
+            <td class="right">TWD 1,500</td>
+          </tr>
+          <tr>
+            <td class="left">國泰永續高股息</td>
+            <td class="right">TWD 15,600</td>
+            <td class="right">-18.90%</td>
+            <td class="right">-TWD 3,400</td>
+          </tr>
+          <tr>
+            <td class="left">元大台灣50</td>
+            <td class="right">TWD 997,500</td>
+            <td class="right">-28.12%</td>
+            <td class="right">-TWD 352,500</td>
+          </tr>
+          <tr>
+            <td class="left">富邦台50</td>
+            <td class="right">TWD 57,250</td>
+            <td class="right">-25.26%</td>
+            <td class="right">-TWD 19,350</td>
+          </tr>
+          <tr>
+            <td class="left">元大高股息</td>
+            <td class="right">TWD 23,950</td>
+            <td class="right">-20.14%</td>
+            <td class="right">-TWD 9,050</td>
+          </tr>
+          <tr>
+            <td class="left">台積電</td>
+            <td class="right">TWD 42,000</td>
+            <td class="right">-50%</td>
+            <td class="right">TWD 210,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="avoid-break force-break"> 
+      <div class="title">財富永豐</div>
+      <div class="subtitle mb-4">2022 年 02 月 28 日 銀行與證券資產整合日報告</div>
+      <table>
+        <thead>
+          <tr>
+            <th>類型</th>
+            <th>來源</th>
+            <th>標的</th>
+            <th>投資現值</th>
+            <th>報酬率</th>
+            <th>投資損益</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="4">海外證券</td>
+            <td rowspan="4">銀行</td>
+            <td class="left">AAPL</td>
+            <td class="right">USD 143.86</td>
+            <td class="right">19.28%</td>
+            <td class="right">USD 23.80</td>
+          </tr>
+          <tr>
+            <td class="left">ADBE</td>
+            <td class="right">USD 299.83</td>
+            <td class="right">-52.86%</td>
+            <td class="right">-USD 300.00</td>
+          </tr>
+          <tr>
+            <td class="left">AMZN</td>
+            <td class="right">USD 115.07</td>
+            <td class="right">-33.18%</td>
+            <td class="right">-USD 33.15</td>
+          </tr>
+          <tr>
+            <td class="left">BND</td>
+            <td class="right">USD 69.85</td>
+            <td class="right">-16%</td>
+            <td class="right">-USD 10.14</td>
+          </tr>
+          <tr class="bg-gray200">
+            <td rowspan="3">iBrAin</td>
+            <td rowspan="3">銀行</td>
+            <td class="left">子女教育</td>
+            <td class="right">TWD 3,500,000</td>
+            <td class="right">2.66%</td>
+            <td class="right">-</td>
+          </tr>
+          <tr class="bg-gray200">
+            <td class="left">旅遊基金</td>
+            <td class="right">TWD 300,000</td>
+            <td class="right">3.25%</td>
+            <td class="right">-</td>
+          </tr>
+          <tr class="bg-gray200">
+            <td class="left">UVXY</td>
+            <td class="right">USD 610.40</td>
+            <td class="right">-93.57%</td>
+            <td class="right">-USD 8,889.60</td>
+          </tr>
+          <tr>
+            <td rowspan="2">結構型商品</td>
+            <td rowspan="2">銀行</td>
+            <td class="left">歐洲</td>
+            <td class="right">TWD 601,100</td>
+            <td class="right">20.220%</td>
+            <td class="right">TWD 101,100</td>
+          </tr>
+          <tr>
+            <td class="left">10 年期結構型商品</td>
+            <td class="right">TWD 500,000.00</td>
+            <td class="right">-</td>
+            <td class="right">TWD 0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="avoid-break force-break"> 
+      <div class="title">財富永豐</div>
+      <div class="subtitle">2022 年 02 月 28 日 銀行與證券資產整合日報告</div>
+      <div class="heading__block mt-3 mb-3">說明</div>
+      <div class="notice">
+        <ol>
+          <li>本對帳單資料範圍不含存款餘額保密帳戶或客戶就存款/貸款/基金/信用卡對帳單寄送方式選擇不寄送者，帳戶總覽非您實際可回或領回之總額，僅供您試算參考。</li>
+          <li>結構型商品，係指銀行以交易相對人身分與客戶承作之結合固定收益商品或黄金與衍生性金融商品之組合式交易。</li>
+          <li>黃金存摺以月底餘額乘收盤價試算，結構型商品以投資本金列示、其他投資部位(含末回報交易)本行可取得之最新報價試算；外幣資產以月底匯率折合新台幣呈現。</li>
+          <li>保險資產為於本行所投保之人身保險商品累計已繳保費，但不包括透過本行合作推廣通路永豐金證券投保之保險商品，透過豐金證券投保之保險商品資料僅揭露於「您的帳戶交易明細」相關資訊均由保險公司提供，並以月底匯率折合新臺幣呈現。</li>
+          <li>上述圖表中「保險」為人身保險商品，不包含財產保險，若欲了解財產保險之投保明細，請於本行官網查詢(註:財產保險含汽機保險、住宅火險、健康傷害險、旅平險及各類型商業保險)</li>
+          <li>信用卡消費資訊為02月份帳單應繳金額:若您持有幣信用卡，您的消費為約當台幣應繳總金額(即依本行匯率將約定外幣應繳總金額轉換為約當臺幣，並加計台幣應繳總金額後總合)僅供您參考，若您已繳費，請忽略此訊息。</li>
+        </ol>
+      </div>
+    </div>
+  </body>
+</html>

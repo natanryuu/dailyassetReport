@@ -1,0 +1,275 @@
+extends _layout.pug
+
+append vars
+  - var pageName = ''
+
+block content
+  main
+    .wrap__inner
+      section.section
+        h1.mt-4.mb-4 全站燈箱預覽(lightbox)
+        a.btn.btn--secondary.l-open(href='#readAgreeterms') 前往永豐金證券網站同意證券共享條款
+        a.btn.btn--secondary.l-open(href='#applySuccess') 申請成功 
+        a.btn.btn--secondary.l-open(href='#cancelSuccess') 取消成功 
+        hr
+        a.btn.btn--secondary.l-open(href='#downloadSuccess') 下載成功
+        a.btn.btn--secondary.l-open(href='#sentSuccess') 寄送成功
+        a.btn.btn--secondary.l-open(href='#sentIssue') 檢核異常
+        a.btn.btn--secondary.l-open(href='#applyCancel') 取消本服務
+        hr
+        h1.mt-4.mb-4 大小網樣式相異(drawer)
+        a.btn.btn--secondary.desktop-drawer-trigger(href='#exportDetails' title='匯出明細') 匯出明細
+        a.btn.btn--secondary.desktop-drawer-trigger(href='#exportEmail' title='匯出明細') 匯出明細+email
+        a.btn.btn--secondary.desktop-drawer-trigger(href='#loading' title='匯出明細loading') 匯出明細(loading)
+        a.btn.btn--secondary.desktop-drawer-trigger(href='#showMore' title='更多功能') 更多功能
+        //- a.btn.btn--secondary.l-open(href='#limitCart') 購物車上限
+        //- a.btn.btn--secondary.l-open(href='#readTerms') 請先閱讀
+        //- a.btn.btn--secondary.l-open(href='#default') default
+        //- a.btn.btn--secondary.l-open(href='#available') 迷你尺寸
+
+append lightbox
+
+  //- 雙按鈕 設定/綜合對帳單/申請/銀行對帳單
+  #readAgreeterms.lightbox
+    .wrap__inner
+      .lightbox__content
+        .lightbox__box
+          .lightbox__body.center
+            .lightbox__icon.icon-Basic_notice.text-red-500
+            h4.lightbox__title 您將前往永豐金證券網站同意證券共享條款
+            p.info 為強化資通安全防護機制，點選「立即前往」後，請於「永豐金證券新理財網」輸入您的永豐金證券帳號及密碼並完成電子憑證驗證進行登入，以取得更完善的永豐金證券服務。若不前往請點選「暫時不要」，未同意證券共享條款將無法提供銀證整合資產日報告。
+          .lightbox__footer
+            .lightbox__btnbox
+              a.lightbox__btn.btn.btn--secondary.lightbox__close(target='#' title='暫時不要') 暫時不要
+              a.lightbox__btn.btn.btn--primary(href='#' title='立即前往') 立即前往
+
+  //- 單按鈕 設定/綜合對帳單/申請/銀行對帳單
+  #applySuccess.lightbox
+    .wrap__inner
+      .lightbox__content
+        .lightbox__box
+          .lightbox__body.center
+            .lightbox__icon.icon-Basic_check-circle.negative
+            h4.lightbox__title 申請成功
+          .lightbox__footer
+            .lightbox__btnbox
+              a.lightbox__btn.btn.btn--primary.lightbox__close(href='#' title='我知道了') 我知道了
+
+  //- 單按鈕 設定/綜合對帳單/申請/銀行對帳單
+  #cancelSuccess.lightbox
+    .wrap__inner
+      .lightbox__content
+        .lightbox__box
+          .lightbox__body.center
+            .lightbox__icon.icon-Basic_check-circle.negative
+            h4.lightbox__title 取消成功 !
+          .lightbox__footer
+            .lightbox__btnbox
+              a.lightbox__btn.btn.btn--primary.lightbox__close(href='#' title='我知道了') 我知道了
+
+  //- 檔案已下載
+  #downloadSuccess.lightbox.lightbox__notice-banner
+    .wrap__inner
+      .notice-banner__content
+        .notice-banner__box
+          .notice-banner__body.center
+            .notice-banner__icon.icon-Basic_check-circle.text-white.lightbox__close 
+            h4.notice-banner__title 檔案已下載
+
+  //- 綜合對帳單查詢-匯出明細3
+  #sentSuccess.lightbox
+    .wrap__inner
+      .lightbox__content
+        .lightbox__box
+          .lightbox__body.center
+            .lightbox__icon.icon-Basic_check-circle.negative
+            h4.lightbox__title 寄送成功
+            p.info 
+            | 已將資料發送至我的電子信箱
+            br 
+            | n******@sinopac.com
+          .lightbox__footer
+            .lightbox__btnbox
+              a.lightbox__btn.btn.btn--primary.lightbox__close(href='#' title='確認') 確認
+
+  //- 雙按鈕 綜合對帳單查詢-匯出明細3
+  #sentIssue.lightbox
+    .wrap__inner
+      .lightbox__content
+        .lightbox__box
+          .lightbox__body.center
+            .lightbox__icon.icon-Basic_notice.text-red-500
+            h4.lightbox__title 檢核異常
+            p.info 
+            | 你尚未設定 E-mail 信箱, 
+            br 
+            | 請先完成設定再申請補寄
+          .lightbox__footer
+            .lightbox__btnbox
+              a.lightbox__btn.btn.btn--secondary.lightbox__close(target='#' title='取消') 取消
+              a.lightbox__btn.btn.btn--primary(href='#' title='立即前往') 立即前往
+
+  //- 雙按鈕 綜合對帳單查詢-取消申請2
+  #applyCancel.lightbox
+    .wrap__inner
+      .lightbox__content
+        .lightbox__box
+          .lightbox__body.center
+            .lightbox__icon.icon-Basic_notice.text-red-500
+            h4.lightbox__title 確定取消銀證整合資產日報告？
+            p.info 
+              | 將同步取消銀行及證券共享共同註記。
+              br
+              | 提醒您，取消後將無法查看本服務。
+          .lightbox__footer
+            .lightbox__btnbox
+              a.lightbox__btn.btn.btn--secondary.l-open(target='#cancelSuccess' title='我要取消') 我要取消
+              a.lightbox__btn.btn.btn--primary.lightbox__close(href='#' title='先不要') 先不要
+
+  //- 匯出明細loading
+  #loading.desktop-drawer
+    .desktop-drawer__content
+      .desktop-drawer__box.desktop-drawer__box-img
+        a.desktop-drawer__btn-close(href='javascript:;' title='取消')
+        h3.desktop-drawer__head 匯出明細
+        .desktop-drawer__body.center
+          .desktop-drawer__imagewrap
+            object(type="image/svg+xml" data="images/global/img-loading_runningCalculator.svg").lightbox__image
+          p 正在努力為您產製，專屬的資產報告中...
+
+  #showMore.desktop-drawer
+    .desktop-drawer__content
+      .desktop-drawer__box
+        a.desktop-drawer__btn-close(href='javascript:;' title='取消')
+        h3.desktop-drawer__head 更多功能
+        .desktop-drawer__body
+          .desktop-drawer__inner
+            .listView
+              .listView__content.allWhite
+                a(href='#exportDetails' title='匯出明細').desktop-drawer-trigger.listView__item
+                  .listView__oneline 匯出明細
+                a(href='#applyCancel' title='取消本服務').listView__item.l-open
+                  .listView__oneline 取消本服務
+
+  #exportDetails.desktop-drawer
+    .desktop-drawer__content
+      .desktop-drawer__box
+        a.desktop-drawer__btn-close(href='javascript:;' title='取消')
+        h3.desktop-drawer__head 匯出明細
+        .desktop-drawer__body
+          .desktop-drawer__inner
+            .listView
+              .listView__content
+                .listView__item
+                  .listView__title 匯出資料
+                  .listView__value 銀證整合資產日報告
+                .listView__item
+                  .listView__title 資料日期
+                  .listView__value 2022/02/21
+                .listView__item
+                  .listView__title 檔案格式
+                  .listView__value PDF
+            .desktop-drawer__footer
+              .desktop-drawer__btnbox.btnbox
+                a.btn.btn--primary.btn--lg(type='button' value='下載') 下載
+
+  #exportEmail.desktop-drawer
+    .desktop-drawer__content
+      .desktop-drawer__box
+        a.desktop-drawer__btn-close(href='javascript:;' title='取消')
+        h3.desktop-drawer__head 匯出明細
+        .desktop-drawer__body
+          .desktop-drawer__inner
+            p.info.mt-4 您留存於本行的電子郵件信箱：dawho***@gmail.com
+            .listView
+              .listView__content
+                .listView__item
+                  .listView__title 匯出資料
+                  .listView__value 銀證整合資產日報告
+                .listView__item
+                  .listView__title 資料日期
+                  .listView__value 2022/02/21
+                .listView__item
+                  .listView__title 檔案格式
+                  .listView__value PDF
+            .desktop-drawer__footer
+              .desktop-drawer__btnbox.btnbox
+                a.btn.btn--primary.btn--lg(type='button' value='寄送到 Email') 寄送到 Email
+  //- 雙按鈕
+  #login.lightbox
+    .wrap__inner
+      .lightbox__content
+        .lightbox__box
+          .lightbox__body.center
+            .lightbox__icon.icon-Basic_notice.text-red-500
+            h4.lightbox__title 請先登入
+            p.info 若要使用本項服務請先登入
+          .lightbox__footer
+            .lightbox__btnbox
+              a.lightbox__btn.btn.btn--secondary.lightbox__close(target='#' title='取消') 取消
+              a.lightbox__btn.btn.btn--primary(href='#' title='立即登入') 立即登入
+  //- 單按鈕 
+  #limitCart.lightbox
+    .wrap__inner
+      .lightbox__content
+        .lightbox__box
+          .lightbox__body.center
+            .lightbox__icon.icon-Basic_notice.text-red-500
+            h4.lightbox__title 購物車最多 20 筆
+          .lightbox__footer
+            .lightbox__btnbox
+              a.lightbox__btn.btn.btn--primary.lightbox__close(href='#' title='我知道了') 我知道了
+  //- 單按鈕 
+  #readTerms.lightbox
+    .wrap__inner
+      .lightbox__content
+        .lightbox__box
+          .lightbox__body.center
+            .lightbox__icon.icon-Basic_notice.text-red-500
+            h4.lightbox__title 請先閱讀
+            p.info 請先閱讀債券報價風險注意事項，才能進行價券報價查詢，謝謝。
+          .lightbox__footer
+            .lightbox__btnbox
+              a.lightbox__btn.btn.btn--primary.lightbox__close(href='#' title='我知道了') 我知道了
+
+  //- 有關閉按鈕  btn-close btn--link
+  #default.lightbox.lightbox--sm
+    .wrap__inner
+      .lightbox__content
+        .lightbox__box
+          a.lightbox__btn-close(href='javascript:;' title='關閉')
+          h3.lightbox__head
+          .lightbox__body
+            p 親愛的客戶：
+              br
+              | 您尚未開立信託帳戶，您可利用 MMA 網路銀行線上開立信託帳戶，或至鄰近分行辦理信託開戶。
+              br
+              | 如有相關疑問請洽本行客服專線 
+              a(href='tel:+886-2-2505-9999') 02-2505-9999
+              | 。
+          .lightbox__footer
+            .lightbox__btnbox.flex-wrap
+              a.lightbox__btn.btn.btn--primary(href='#' title='線上信託開戶') 確認
+              br
+              a.btn.btn--link(href='#' title='查詢分行據點辦理信託開戶') 查詢分行據點辦理信託開戶
+
+
+  //- 單按鈕   尺寸lightbox--sm
+  #available.lightbox.lightbox--sm
+    .wrap__inner
+      .lightbox__content
+        .lightbox__box
+          a.lightbox__btn-close(href='javascript:;' title='關閉')
+          h3.lightbox__head 【可賣股數】為可委託賣出股數
+          .lightbox__body
+            ol.listtext.listtext--decimal 
+              li.listtext__item 買進時：扣款日次日若為市場或台灣營業日，則當日上午系統執行自動結算作業後轉入
+              li.listtext__item 賣出時：「委託股數」於當下立即扣除，「賣出未成交股數」於次一市場或台灣營業日上午系統執行自動結算作業後加回
+            p.info.text-sm 註1：買進於成交日次一共同營業日(市場與台灣皆為營業日)執行扣款
+              br
+              | 註2：系統自動或人工結算作業之實際作業時間因不確定因素或有差異
+          .lightbox__footer
+            .lightbox__btnbox
+              a.lightbox__btn.btn.btn--primary.lightbox__close(href='#' title='確認') 確認
+
+append script

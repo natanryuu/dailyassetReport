@@ -1,0 +1,125 @@
+.#{$namespace}nav {
+  @include breakpoint(lg) {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+
+    &:before {
+      content: "";
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 400ms linear;
+      pointer-events: none;
+    }
+
+    &--active {
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__menu-wrap {
+    @include flex-separate;
+    align-items: center;
+
+    @include breakpoint(lg) {
+      position: fixed;
+      display: block;
+      background-color: $gray-100;
+      top: $header-height-sm + 2;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      transition: max-height 0.25s $cubic;
+      z-index: -1;
+      pointer-events: none;
+      border-radius: 0;
+      padding: 0 $wrap-gap-sm;
+      overflow: hidden;
+      max-height: 0;
+    }
+
+    .#{$namespace}nav--active & {
+      @include breakpoint(lg) {
+        transition: max-height 0.45s $cubic;
+        pointer-events: auto;
+        max-height: 100vh;
+      }
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+
+    @include breakpoint(lg) {
+      flex-direction: column;
+      align-items: stretch;
+      opacity: 0;
+      transition: opacity 0.3s;
+
+      .#{$namespace}nav--active & {
+        opacity: 1;
+        transition-duration: 0.15s;
+      }
+    }
+  }
+
+  &__item {
+    @include breakpoint(lg) {
+      transform: translateY(0.75em);
+      opacity: 0;
+      transition: all 0.35s 0 $cubic;
+      margin-left: 0;
+      will-change: transform;
+    }
+
+    .#{$namespace}nav--active & {
+      @include breakpoint(lg) {
+        opacity: 1;
+        transform: none;
+        transition-duration: 0.25s;
+      }
+    }
+
+    .#{$namespace}nav__menu--links & {
+      @for $i from 1 through 9 {
+        &:nth-child(#{$i}) {
+          @include breakpoint(lg) {
+            transition-delay: 0.15s + ($i * 0.1s);
+          }
+        }
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    white-space: nowrap;
+    padding: $gap-base-unit * 3 $gap-base-unit * 6;
+    transition: color 0.2s $cubic;
+
+    @include active-hover {
+      color: $red-500;
+    }
+
+    @include breakpoint(lg) {
+      display: block;
+      line-height: 1;
+      margin: 0 $wrap-gap-sm * -1;
+      padding: px-em(54-16-16, 16) $wrap-gap-sm;
+    }
+
+    .#{$namespace}nav__item--active & {
+      @include breakpoint(lg) {
+        background-color: $primary;
+      }
+    }
+  }
+}

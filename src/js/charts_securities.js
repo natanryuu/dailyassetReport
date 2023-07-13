@@ -1,0 +1,80 @@
+(function () {
+    Highcharts.chart("securitiesAssets", {
+        chart: {
+            type: "bar",
+            height: 40,
+        },
+        credits: {
+            enabled: false,
+        },
+        title: {
+            text: "",
+        },
+        xAxis: {
+            visible: false,
+        },
+        yAxis: {
+            visible: false,
+        },
+        legend: {
+            enabled: false,
+        },
+        tooltip: {  
+            enabled: false, 
+        },
+        plotOptions: {
+            bar: {
+                borderWidth: 0,
+            },
+            series: {
+                stacking: "percent",
+                pointWidth: 18,
+            },
+        },
+        series: [
+            {
+                name: "其他",
+                color: "#CBC9C9",
+                data: [20],
+            },
+            {
+                name: "在途款",
+                color: "#BAD72B",
+                data: [6],
+            },
+            {
+                name: "基金",
+                color: "#F476A7",
+                data: [6],
+            },
+            {
+                name: "期貨選擇權",
+                color: "#A056BD",
+                data: [4.31],
+            },
+            {
+                name: "結構型商品",
+                color: "#FFBA00",
+                data: [0.86],
+            },
+            {
+                name: "海外證券",
+                color: "#FF4F00",
+                data: [8.62],
+            },
+            {
+                name: "國內證券",
+                color: "#8ACAE7",
+                data: [17.24],
+            },
+            {
+                name: "債券",
+                color: "#1470CA",
+                data: [50],
+            },
+        ],
+    })
+
+
+
+})();

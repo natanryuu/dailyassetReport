@@ -1,0 +1,177 @@
+.btnbox {
+  text-align: center;
+}
+
+.btn {
+  border: 1px solid transparent;
+  font-weight: $bold;
+  display: inline-block;
+  padding: px-em(10, 16) px-em(16, 16);
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background: none;
+  border-radius: $radius;
+  transition: background-color 0.175s, color 0.175s, border-color 0.175s;
+
+  &:focus,
+  &:active {
+    outline-offset: -2px;
+    text-decoration: none;
+  }
+
+  &:active {
+    background-image: none;
+    outline: 0;
+  }
+
+  &--primary {
+    background-color: $red-500;
+    color: $gray-100;
+
+    @include active-hover {
+      background-color: lighten($red-700, 5%);
+    }
+
+    @include btn-disabled {
+      background-color: $gray-400;
+      border-color: $gray-400;
+    }
+  }
+
+  &--secondary {
+    color: lighten($red-500, 5%);
+    background-color: $gray-100;
+    border-color: $red-500;
+
+    @include active-hover {
+      border-color: $red-700;
+      color: $red-700;
+    }
+
+    @include btn-disabled {
+      background-color: $gray-100;
+      border-color: $gray-400;
+      color: $gray-400;
+    }
+  }
+
+  &--terms {
+    font-size: $font-size-base;
+    width: 108px;
+    border-radius: 25px;
+    line-height: 24px;
+    padding: $gap-base-unit $gap-base-unit * 4;
+  }
+
+  &--lg {
+    width: 168px;
+    padding: $gap-base-unit * 2 $gap-base-unit * 4;
+    max-height: 44px;
+
+    @include breakpoint(lg) {
+      width: 100%;
+    }
+  }
+
+  // 公告基金休市
+  &--md {
+    width: 100%;
+    padding: px-em(6, 16) px-em(16, 16);
+    font-size: $font-size-base;
+    max-height: 36px;
+
+    @include breakpoint(md) {
+      max-width: initial;
+    }
+  }
+
+  // 申購
+  &--sm {
+    max-width: 48px;
+    border-radius: px-em(16, 14);
+    font-size: $font-size-base * (14/16);
+    padding: px-em(4, 14) px-em(10, 14);
+  }
+
+  &--max {
+    max-width: 168px;
+  }
+
+  &--block {
+    @include breakpoint(md) {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+// text + icon
+.#{$namespace}o-link {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+
+  &--block {
+    width: 100%;
+  }
+
+  &__money {
+    font-size: 32px;
+  }
+
+  &__icon {
+    font-size: 24px;
+
+    @include breakpoint(lg) {
+      font-size: 16px;
+    }
+  }
+
+  > span {
+    @include breakpoint(lg) {
+      font-size: $font-size-base * (14/16);
+    }
+  }
+
+  &--md {
+    .o-link__icon {
+      font-size: 24px;
+    }
+  }
+
+  &--sm {
+    .o-link__icon {
+      font-size: 16px;
+    }
+
+    > span {
+      font-size: $font-size-base * (14/16);
+    }
+  }
+
+  &--gray {
+    color: $gray-600;
+
+    @include active-hover {
+      color: $gray-700;
+    }
+  }
+
+  &--red {
+    color: $red-500;
+  }
+
+  &--blue {
+    color: $blue-700;
+  }
+
+  // 收藏 比較
+  &--active {
+    color: $red-500;
+  }
+}

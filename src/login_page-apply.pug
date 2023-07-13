@@ -1,0 +1,33 @@
+//- >>電子帳單-銀證整合資產報告-1
+//- 申請銀證整合資產日報告資產管理更全面
+extends _layout.pug
+
+append vars
+  - var noticeType = 'notice'
+  - var noticeName = 'fund'
+
+
+block content
+  main.content
+    // * 嘉實開發 Start *
+    .wrap__inner
+      .flex-between.mt-12.mb-8.mt-4-lg.mb-6-lg
+        h2.heading2 銀證整合資產日報告
+      section.section
+        .l-container.l-container__bulletin
+          .l-container__body
+            .imgMessage
+              .imgMessage__content
+                .imgMessage__imgwrap
+                  img.imgMessage__img(src=root+'images/global/img-login-money.png' alt='申請銀證整合資產日報告 資產管理更全面')
+                .imgMessage__titleWrap.mt-4
+                  p.title 申請銀證整合資產日報告
+                  p.title 資產管理更全面
+            .btnbox.mt-5
+              a.btn.btn--primary(href="./terms.html" target="_blank" title='立即申請') 立即申請
+
+
+      include _notice.pug
+    // * 嘉實開發 End *
+
+append script

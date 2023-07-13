@@ -1,0 +1,135 @@
+::selection {
+  background-color: rgba(darken($gray-300, 12%), 0.25);
+}
+
+@font-face {
+  font-family: $custom-font-en;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(#{$font-path}#{$custom-font-en}-Regular.ttf) format("truetype");
+  unicode-range: U+40-007A, U+30-39;
+  // U+40-007A Aa-Zz
+  // U+30-39   0-9
+}
+
+@font-face {
+  font-family: $custom-font-en;
+  font-style: normal;
+  font-weight: $bold;
+  font-display: swap;
+  src: url(#{$font-path}#{$custom-font-en}-Medium.ttf) format("truetype");
+  unicode-range: U+40-007A, U+30-39;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-family;
+  line-height: $line-height-base;
+  color: $gray-900;
+}
+
+.heading1 {
+  @include heading1;
+}
+
+.heading2 {
+  @include heading2;
+}
+
+.heading3 {
+  @include heading3;
+}
+
+.heading4 {
+  @include heading4;
+}
+
+.heading4s {
+  @include heading4s;
+}
+
+.heading4n {
+  @include heading4n;
+}
+
+
+.heading5 {
+  @include heading5;
+}
+
+.text-sm {
+  @include text-sm;
+}
+
+.text-xs {
+  @include text-xs;
+}
+
+@each $breakpoint in map-keys(mapReverse($grid-breakpoints)) {
+  @include breakpoint($breakpoint) {
+    .text-sm-#{$breakpoint} {
+      @include text-sm;
+    }
+
+    .text-xs-#{$breakpoint} {
+      @include text-xs;
+    }
+  }
+}
+
+.decimal,
+.disc,
+.cjk,
+.en,
+.decimal-arc {
+  margin: 0;
+  padding: 0;
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+
+  li & {
+    margin-bottom: 0;
+  }
+
+  >li {
+    +li {
+      margin-top: $gap-base-unit * 2;
+    }
+  }
+}
+
+.decimal {
+  list-style-type: decimal;
+}
+
+.disc {
+  list-style-type: disc;
+}
+
+.cjk {
+  list-style-type: cjk-ideographic;
+  margin-left: 2em;
+}
+
+.en {
+  list-style-type: lower-alpha;
+}
+
+.decimal-arc {
+  position: relative;
+  counter-reset: counter;
+
+  li {
+    &:before {
+      counter-increment: counter;
+      content: "(" counter(counter) ")";
+      position: absolute;
+      left: -1.35em;
+      letter-spacing: normal;
+    }
+  }
+}

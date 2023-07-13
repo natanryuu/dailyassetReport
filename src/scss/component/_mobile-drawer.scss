@@ -1,0 +1,384 @@
+.#{$namespace}mobile-drawer {
+  @include breakpoint(lg) {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    overflow: hidden;
+    background-color: $bg-popup;
+    z-index: $z-mobile-drawer;
+    opacity: 0;
+    // visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s $cubic;
+
+    &--active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &__content {
+    }
+
+    &__box {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $white;
+      padding: $gap-base-unit * 3 $gap-base-unit * 4 $gap-base-unit * 6;
+      border-radius: $gap-base-unit * 4 $gap-base-unit * 4 0 0;
+      transform: translateY(101%);
+      transition: transform 0.25s $cubic;
+
+      // 高度限制
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+
+      .#{$namespace}mobile-drawer--active & {
+        transform: none;
+        transition-duration: 0.35s;
+      }
+    }
+
+    &__head {
+      font-size: px-em(20);
+      line-height: (25/20);
+      font-weight: $bold;
+      text-align: left;
+      padding: $gap-base-unit * 2.5 0;
+
+      &:empty {
+        margin-bottom: 0;
+      }
+    }
+
+    &__body {
+      // scrollBar 位置
+      margin-right: -#{$gap-base-unit * 3};
+      // 高度限制
+      flex-shrink: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      min-height: 0px;
+      @include scroll-bar(1);
+    }
+
+    &__inner {
+      padding-right: $gap-base-unit * 3;
+    }
+
+    &__btn-close {
+      display: block;
+      position: absolute;
+      top: $gap-base-unit * 3;
+      right: $gap-base-unit * 4;
+      @include size(45px);
+      padding: 5px;
+      line-height: 1;
+
+      &:before {
+        content: "取消";
+        font-size: $font-size-sm;
+        color: $gray-700;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        white-space: nowrap; // android [x] 不見 fix
+      }
+
+      &-icon {
+        &:before {
+          @include material-icon;
+          content: "\e90c";
+          color: $gray-500;
+          border-radius: 50%;
+          font-size: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  &-trigger {
+    pointer-events: none;
+
+    @include breakpoint(lg) {
+      pointer-events: auto;
+    }
+
+    &--active {
+      opacity: 1;
+      transform: none;
+      transition-duration: 0.4s, 0.35s;
+    }
+  }
+
+  &__footer {
+    &.bottom-area-sticky {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      z-index: 6;
+      padding: 16px 24px;
+      margin: $gap-base-unit * 6 -#{$gap-base-unit * 4} -#{$gap-base-unit * 6};
+      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+      background-color: $gray-100;
+      display: none;
+
+      &.scrollToBottom {
+        box-shadow: none;
+      }
+
+      @include breakpoint(lg) {
+        display: block;
+      }
+    }
+  }
+
+  &__btnbox {
+    opacity: 0;
+    transform: translateY(150%);
+    transition: transform 0.4s $cubic, opacity 0.35s $cubic;
+
+    .#{$namespace}mobile-drawer--active & {
+      opacity: 1;
+      transform: none;
+      transition-duration: 0.375s, 0.375s;
+      transition-delay: 0.11s, 0.11s;
+    }
+  }
+}
+
+.#{$namespace}desktop-drawer {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  overflow: hidden;
+  background-color: $bg-popup;
+  z-index: $z-mobile-drawer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s $cubic;
+
+  &--active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &__content {
+    margin-top: 15vh;
+
+    @include breakpoint(lg) {
+      margin-top: initial;
+    }
+  }
+
+  &__box {
+    position: relative;
+    max-width: 930px;
+    padding: $gap-base-unit * 6 $gap-base-unit * 6 $gap-base-unit * 8;
+    transition: transform 0.2s ease-out;
+    margin: 10px auto;
+    background: $white;
+    border-radius: $radius-lg;
+    max-height: 80vh;
+
+    @include breakpoint(lg) {
+      min-height: 262px;
+      position: absolute;
+      max-width: initial;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: $gap-base-unit * 4 $gap-base-unit * 4 0 0;
+      margin: 0 auto;
+      padding: $gap-base-unit * 3 $gap-base-unit * 4 $gap-base-unit * 6;
+      transform: translateY(101%);
+      transition: transform 0.25s $cubic;
+      // 高度限制
+      // max-height: 90vh;
+      max-height: calc(100vh);
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-full {
+      max-width: 930px;
+    }
+
+    .#{$namespace}desktop-drawer--active & {
+      transform: none;
+      transition-duration: 0.35s;
+    }
+
+    &-img{
+      @include breakpoint(lg) {
+        padding: $gap-base-unit * 3 $gap-base-unit * 4 $gap-base-unit * 30;
+      }
+    }
+  }
+
+  &__head {
+    font-size: 20px;
+    font-weight: $bold;
+    text-align: left;
+    color: $gray-900;
+    display: flex;
+    margin-left: -24px;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 1.6em;
+      background-color: $red-500;
+      margin-right: 16px;
+    }
+
+    @include breakpoint(lg) {
+      line-height: px-em(25, 20);
+      padding: $gap-base-unit * 2.5 0;
+      margin-left: 0;
+
+      &::before {
+        content: none;
+      }
+    }
+  }
+
+  &__body {
+    height: calc(100% - 36px);
+    max-height: 45vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    @include scroll-bar(1);
+    -webkit-overflow-scrolling: touch;
+    // scrollBar 位置
+    margin-right: -#{$gap-base-unit * 3};
+
+    @include breakpoint(lg) {
+      max-height: initial;
+      // 高度限制
+      flex-shrink: 1;
+    }
+
+    .desktop-drawer__box-full & {
+      max-height: 50vh;
+
+      @include breakpoint(lg) {
+        max-height: initial;
+      }
+    }
+  }
+
+  &__imagewrap {
+    margin: 0 auto ;
+    margin-bottom: 12px;
+    @include breakpoint(lg) {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__inner {
+    padding-right: $gap-base-unit * 3;
+  }
+
+  // 裝form
+  &__wrap {
+    padding-top: $gap-base-unit * 6;
+
+    .#{$namespace}form__label {
+      color: $gray-600;
+      margin-bottom: $gap-base-unit * 2;
+    }
+
+    @include breakpoint(lg) {
+      padding-top: 0;
+    }
+  }
+
+  &__btn-close {
+    display: block;
+    position: absolute;
+    top: $gap-base-unit * 6;
+    right: $gap-base-unit * 6;
+    @include size(40px);
+    padding: 5px;
+    line-height: 1;
+    z-index: 1;
+
+    &::before {
+      content: "\e90f";
+      @include material-icon;
+      max-width: 100%;
+      border-radius: 50%;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    @include breakpoint(lg) {
+      @include size(45px);
+      top: $gap-base-unit * 3;
+      right: $gap-base-unit * 4;
+
+      // 銀證整合更動
+      // &::before {
+      //   content: "取消";
+      //   font-size: 14px;
+      //   color: $gray-700;
+      // }
+    }
+  }
+
+  &__footer {
+    margin-top: $gap-base-unit * 4;
+  }
+
+  &__btnbox {
+    opacity: 0;
+    transform: translateY(150%);
+    transition: transform 0.4s $cubic, opacity 0.35s $cubic;
+
+    .#{$namespace}desktop-drawer--active & {
+      opacity: 1;
+      transform: none;
+      transition-duration: 0.375s, 0.375s;
+      transition-delay: 0.11s, 0.11s;
+    }
+
+    .btn {
+      @include breakpoint(lg) {
+        width: 100%;
+      }
+    }
+  }
+  
+  &__btn {
+    width: 168px;
+    margin: 0 $gap-base-unit * 2;
+  }
+
+  .text-info {
+    // margin: $gap-base-unit * 2 auto;
+
+    + .listView {
+      // padding-top: 0;
+      padding-top: $gap-base-unit * 2;
+    }
+  }
+}

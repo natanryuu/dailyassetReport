@@ -1,0 +1,32 @@
+header.header
+  if isLite
+    .header__container.bg-gray-100
+      .wrap__inner
+        .header__inner
+          a.header__hamburger.hide.block-lg
+            i.icon-lg.icon-Basic_nav-more1
+          a.header__logo(href=root+'index.html' title='永豐銀行')
+            img.header__logo-img.hide-lg(src=root+'images/global/logo-pc.svg' alt='永豐銀行')
+            img.header__logo-img.hide.block-lg(src=root+'images/global/logo-mobile.svg' alt='永豐銀行')
+            h1.header__title 銀證整合資產日報告
+
+  else
+    .header__container.bg-gray-100
+      .wrap__inner
+        .header__inner
+          a.header__hamburger.hide.block-lg
+            i.icon-lg.icon-Basic_nav-more1
+          a.header__logo(href=root+'index.html' title='永豐銀行')
+            img.header__logo-img.hide-lg(src=root+'images/global/logo-pc.svg' alt='永豐銀行')
+            img.header__logo-img.hide.block-lg(src=root+'images/global/logo-mobile.svg' alt='永豐銀行')
+            h1.header__title 銀證整合資產日報告
+
+    .header__container.bg-gray-200
+      .wrap__inner
+        .header__nav.nav
+          .nav__menu-wrap
+            ul.nav__menu.nav__menu--links
+              li.nav__item
+                a.nav__link(href='#' title='網路銀行') 網路銀行
+              li.nav__item
+                a.nav__link.bg-red-400.text-white(href="#" title='登出') 登出

@@ -1,0 +1,29 @@
+//- >>電子帳單-銀證整合資產報告-1
+//- 尚未提供本項網路服務
+extends _layout.pug
+
+append vars
+  - var noticeType = 'notice'
+  - var noticeName = 'fund'
+
+
+block content
+  main.content
+    // * 嘉實開發 Start *
+    .wrap__inner
+      .flex-between.mt-12.mb-8.mt-4-lg.mb-6-lg
+        h2.heading2 銀證整合資產日報告
+      section.section
+        .l-container.l-container__bulletin
+          .l-container__body
+            .imgMessage
+              .imgMessage__content
+                .imgMessage__imgwrap
+                  img.imgMessage__img(src=root+'images/global/img-login-terms.png' alt='尚未提供本項網路服務')
+                .imgMessage__titleWrap.mt-4
+                  p.title.mb-2 尚未提供本項網路服務
+                  p.content 僅提供本國自然人查詢，不便之處，尚祈見諒！
+      include _notice.pug
+    // * 嘉實開發 End *
+
+append script
